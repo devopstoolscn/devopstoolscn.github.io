@@ -129,7 +129,7 @@
 
         
             <form id="search-form">
-            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false" />
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="true" />
             <i class="fa fa-times" onclick="resetSearch()"></i>
             </form>
             <div id="local-search-result"></div>
@@ -181,7 +181,7 @@
                         
                             <li><a href="../../../../../auto-test/">测试</a></li>
                         
-                            <li><a href="../../../../../tags/%E9%9A%8F%E7%AC%94">随笔</a></li>
+                            <li><a href="../../../../../note/">随笔</a></li>
                         
                             <li><a href="../../../../../tags/">标签云</a></li>
                         
@@ -240,7 +240,7 @@
                 
                     <li><a href="../../../../../auto-test/">测试</a></li>
                 
-                    <li><a href="../../../../../tags/%E9%9A%8F%E7%AC%94">随笔</a></li>
+                    <li><a href="../../../../../note/">随笔</a></li>
                 
                     <li><a href="../../../../../tags/">标签云</a></li>
                 
@@ -403,25 +403,6 @@
 
 
     
-      <div class="duoshuo" id="comments">
-    <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2019/10/19/ci-cd/devops-tools/" data-title="DevOps 工具链-Java 持续集成发布流水线" data-url="http://devopstools.cn"></div>
-    <script>
-        var duoshuoQuery = {short_name:""};
-        var loadComment = function(){
-            var d = document, s = d.createElement('script');
-            s.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-            s.async = true; s.charset = 'UTF-8';
-            (d.head || d.body).appendChild(s);
-        }
-
-        
-    </script>
-    
-    <script> loadComment(); </script>
-
-</div>
-    
 
 
 
@@ -542,14 +523,14 @@ MathJax.Hub.Queue(function() {
     
         var oOpenInNew = {
              github: ".github-widget a", 
-            
-            
-            
-            
-            
+             title: "a.article-title, .article-more-link a", 
+             post: ".article-entry a[href], .copyright a[href]", 
+             tags: ".article-tag a", 
+             categories: ".article-category a, a.tag-list-link", 
+             articleNav: "#article-nav a, #post-nav-button a", 
              archives: ".archive-article-title", 
              miniArchives: "a.post-list-link", 
-            
+             menu: ".header-menu a", 
              friends: "#js-friends a", 
              socail: ".social a" 
         }

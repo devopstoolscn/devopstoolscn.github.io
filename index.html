@@ -124,7 +124,7 @@
 
         
             <form id="search-form">
-            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false" />
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="true" />
             <i class="fa fa-times" onclick="resetSearch()"></i>
             </form>
             <div id="local-search-result"></div>
@@ -176,7 +176,7 @@
                         
                             <li><a href="/auto-test/">测试</a></li>
                         
-                            <li><a href="/tags/%E9%9A%8F%E7%AC%94">随笔</a></li>
+                            <li><a href="/note/">随笔</a></li>
                         
                             <li><a href="/tags/">标签云</a></li>
                         
@@ -235,7 +235,7 @@
                 
                     <li><a href="/auto-test/">测试</a></li>
                 
-                    <li><a href="/tags/%E9%9A%8F%E7%AC%94">随笔</a></li>
+                    <li><a href="/note/">随笔</a></li>
                 
                     <li><a href="/tags/">标签云</a></li>
                 
@@ -260,15 +260,6 @@
       <time datetime="2019-10-18T19:19:53.049Z" itemprop="datePublished">2019-10-19</time>
 </a>
 
- 
-    <a href="2019/10/19/ci-cd/devops-tools/#comments" title="查看评论">
-        <i class="fa fa-comments-o" aria-hidden="true"></i>
-        <span class="count-comment"></span>
-        
-            <span class="ds-thread-count"  data-thread-key="2019/10/19/ci-cd/devops-tools/" ></span>
-        
-        
-    </a>
 
     </div>
   
@@ -395,27 +386,6 @@
 
 
     
-        <script>
-            if ($(".left-col").is(":visible")) {
-                var duoshuoQuery = {short_name:""};
-                (function() {
-                    var d = document, s = d.createElement('script');
-                    s.src = 'http://static.duoshuo.com/embed.js';
-                    s.async = true; s.charset = 'UTF-8';
-                    (d.head || d.body).appendChild(s);
-                })();
-
-                $(document).ready(function(){
-                    var $duoshuoCount = $(".ds-thread-count");
-                    $duoshuoCount.bind("DOMNodeInserted", function(e) {
-                        var num = $(this).text().replace(/[^0-9]/ig,"");
-                        $(this).siblings(".count-comment").text(num);
-                        $(this).remove();
-                    })
-                })
-            }
-        </script>
-    
 
      
 
@@ -453,14 +423,14 @@ MathJax.Hub.Queue(function() {
     
         var oOpenInNew = {
              github: ".github-widget a", 
-            
-            
-            
-            
-            
+             title: "a.article-title, .article-more-link a", 
+             post: ".article-entry a[href], .copyright a[href]", 
+             tags: ".article-tag a", 
+             categories: ".article-category a, a.tag-list-link", 
+             articleNav: "#article-nav a, #post-nav-button a", 
              archives: ".archive-article-title", 
              miniArchives: "a.post-list-link", 
-            
+             menu: ".header-menu a", 
              friends: "#js-friends a", 
              socail: ".social a" 
         }
