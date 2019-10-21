@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://devopstools.cn/404.html</loc>
+    
+    <lastmod>2019-10-21T07:16:58.910Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://devopstools.cn/tags/index.html</loc>
     
     <lastmod>2019-10-20T14:06:06.997Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>http://devopstools.cn/2019/10/19/ci-cd/devops-tools/</loc>
     
     <lastmod>2019-10-20T11:56:06.648Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://devopstools.cn/404.html</loc>
-    
-    <lastmod>2019-10-19T04:15:01.157Z</lastmod>
     
   </url>
   
