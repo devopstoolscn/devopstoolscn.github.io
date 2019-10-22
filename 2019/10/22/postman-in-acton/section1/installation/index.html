@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="DevOps Tools" />
+
+
+
+<meta name="description" content="Postman 有 Windows、Linux、MacOS 等多个版本，另外也可在 Chrome 上面安装插件，基于 Chrome 浏览器运行。当前 Postman 的最新版本为 7.6.0 。 +">
+<meta name="keywords" content="Postman">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Postman 接口自动化测试与持续集成全栈-Postman 下载与安装">
+<meta property="og:url" content="http:&#x2F;&#x2F;devopstools.cn&#x2F;2019&#x2F;10&#x2F;22&#x2F;postman-in-acton&#x2F;section1&#x2F;installation&#x2F;index.html">
+<meta property="og:site_name" content="DevOps 技术与工具">
+<meta property="og:description" content="Postman 有 Windows、Linux、MacOS 等多个版本，另外也可在 Chrome 上面安装插件，基于 Chrome 浏览器运行。当前 Postman 的最新版本为 7.6.0 。 +">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http:&#x2F;&#x2F;devopstools.cn&#x2F;img&#x2F;postman-in-action&#x2F;02-02-01-postman-download-view.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;devopstools.cn&#x2F;img&#x2F;postman-in-action&#x2F;02-02-02-postman-windows-download.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;devopstools.cn&#x2F;img&#x2F;postman-in-action&#x2F;02-02-03-postman-windows-mis.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;devopstools.cn&#x2F;img&#x2F;postman-in-action&#x2F;02-02-04-postman-mac-download-ico.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;devopstools.cn&#x2F;img&#x2F;postman-in-action&#x2F;02-02-05-Postman-install-ico.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;devopstools.cn&#x2F;img&#x2F;postman-in-action&#x2F;02-02-06-postman-firstrun-tip.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;devopstools.cn&#x2F;img&#x2F;postman-in-action&#x2F;02-02-07-mac-install-app.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;devopstools.cn&#x2F;img&#x2F;postman-in-action&#x2F;02-02-08-postman-create-account.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;devopstools.cn&#x2F;img&#x2F;postman-in-action&#x2F;02-02-09-postman-login.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;devopstools.cn&#x2F;img&#x2F;postman-in-action&#x2F;02-02-10-postman-login-scuccess.png">
+<meta property="og:updated_time" content="2019-10-22T03:31:29.689Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;devopstools.cn&#x2F;img&#x2F;postman-in-action&#x2F;02-02-01-postman-download-view.png">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="DevOps 技术与工具" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="../../../../../../css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>Postman 接口自动化测试与持续集成全栈-Postman 下载与安装 | DevOps 技术与工具</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script>
+        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
+    </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?9f2ec0702d90c1f43efd0a40a2fb0479";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/tools.jpeg" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">DevOps Tools</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">技术与工具</p>
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="true" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="../../../../../../index.html">主页</a></li>
+                        
+                            <li><a href="../../../../../../agile/">敏捷研发</a></li>
+                        
+                            <li><a href="../../../../../../ci-cd/">CI/CD</a></li>
+                        
+                            <li><a href="../../../../../../unit-test/">单元测试</a></li>
+                        
+                            <li><a href="../../../../../../api-test/">接口测试</a></li>
+                        
+                            <li><a href="../../../../../../ui-test/">UI测试</a></li>
+                        
+                            <li><a href="../../../../../../note/">随笔</a></li>
+                        
+                            <li><a href="../../../../../../tags/">标签云</a></li>
+                        
+                            <li><a href="../../../../../../archives/">所有文章</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../tags/Postman/" rel="tag">Postman</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../tags/%E4%BB%A3%E7%A0%81%E6%89%AB%E6%8F%8F/" rel="tag">代码扫描</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../tags/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" rel="tag">单元测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../tags/%E6%95%8F%E6%8D%B7%E7%A0%94%E5%8F%91/" rel="tag">敏捷研发</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../tags/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/" rel="tag">版本管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../tags/%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/" rel="tag">自动部署</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">DevOps Tools</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/tools.jpeg" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">DevOps Tools</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">技术与工具</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="../../../../../../index.html">主页</a></li>
+                
+                    <li><a href="../../../../../../agile/">敏捷研发</a></li>
+                
+                    <li><a href="../../../../../../ci-cd/">CI/CD</a></li>
+                
+                    <li><a href="../../../../../../unit-test/">单元测试</a></li>
+                
+                    <li><a href="../../../../../../api-test/">接口测试</a></li>
+                
+                    <li><a href="../../../../../../ui-test/">UI测试</a></li>
+                
+                    <li><a href="../../../../../../note/">随笔</a></li>
+                
+                    <li><a href="../../../../../../tags/">标签云</a></li>
+                
+                    <li><a href="../../../../../../archives/">所有文章</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-postman-in-acton/section1/installation" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="" class="article-date">
+      <time datetime="2019-10-21T16:00:03.000Z" itemprop="datePublished">2019-10-22</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Postman 接口自动化测试与持续集成全栈-Postman 下载与安装
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="../../../../../../categories/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/">接口测试</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../../tags/Postman/" rel="tag">Postman</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>Postman 有 Windows、Linux、MacOS 等多个版本，另外也可在 Chrome 上面安装插件，基于 Chrome 浏览器运行。当前 Postman 的最新版本为 7.6.0 。</p>
+<p>+<a id="more"></a></p>
+<h2 id="Postman-下载与安装"><a href="#Postman-下载与安装" class="headerlink" title="Postman 下载与安装"></a>Postman 下载与安装</h2><h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>Postman 有 Windows、Linux、MacOS 等多个版本，另外也可在 Chrome 上面安装插件，基于 Chrome 浏览器运行。当前 Postman 的最新版本为 7.6.0 。</p>
+<p><img src="/img/postman-in-action/02-02-01-postman-download-view.png" alt=""></p>
+<p>读者可以根据自己的需要选择下载不同操作系统对应的版本。</p>
+<h4 id="Windows-安装"><a href="#Windows-安装" class="headerlink" title="Windows 安装"></a>Windows 安装</h4><ul>
+<li><p>下载 Windows 安装包</p>
+<p><a href="https://www.getpostman.com/downloads/" target="_blank" rel="noopener"><img src="/img/postman-in-action/02-02-02-postman-windows-download.png"/></a></p>
+</li>
+<li><p>点击安装包</p>
+</li>
+</ul>
+<p><img src="/img/postman-in-action/02-02-03-postman-windows-mis.png" alt=""></p>
+<h4 id="MacOS-安装"><a href="#MacOS-安装" class="headerlink" title="MacOS 安装"></a>MacOS 安装</h4><ul>
+<li>下载 macOS 安装程序</li>
+</ul>
+<p>  <a href="https://www.getpostman.com/downloads/" target="_blank" rel="noopener"><img src="/img/postman-in-action/02-02-04-postman-mac-download-ico.png"></a></p>
+<p>Mac OS 的安装文件下载后为 <strong>Postman-osx-7.6.0.zip</strong>， 需要使用 <strong>unzip</strong> 解压缩。解压后双击 Postman，或者在控制台终端 （terminate） 使用 <strong>unzip</strong> 解压。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/Downloads</span><br><span class="line"></span><br><span class="line">unzip Postman-osx-7.6.0.zip</span><br></pre></td></tr></table></figure>
+
+<p>解压完毕生成的目录为 <strong>Postman.app</strong> 。可以 <strong>mv</strong> 命令手动移动到根目录的  <strong>Applications</strong>  目录下，也可以双击 Postman.app 的目录图标根据提示点击按钮让程序自己移动到 <strong>Applications</strong> 目录下。</p>
+<ul>
+<li>使用 <strong>mv</strong> 安装 Postman 程序</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv Postman.app /Applications</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>双击解压后的 <strong>Postman.app</strong> 目录图标安装</p>
+<p><img src="/img/postman-in-action/02-02-05-Postman-install-ico.png" alt=""></p>
+</li>
+</ul>
+<p>第1次运行时，由于 Postman 安装程序是从互联网下载的， MacOS 会提示安全风险，让用户确认是否打开，点击 【打开】按钮。</p>
+<p><img src="/img/postman-in-action/02-02-06-postman-firstrun-tip.png" alt=""></p>
+<p>然后系统会弹出对话框提示是否移动到 Applications 目录。</p>
+<p>如果您已经使用 <strong>mv</strong> 命令移动到 Applications 目录，则选择 “Do Not Move”, 注意 ⚠️ 如果此时选择了 “Move to Applications Folder” ，Applications 目录下 Postman.app 程序目录会被删除。</p>
+<p>如果您是在下载目录直接双击图标允许的 Postman 程序，则需要选择 “Move to Applications Folder”。</p>
+<p>以上两种方式都可以正确安装 Postman 程序。</p>
+<hr>
+<p>如果您的 Mac 不允许安装非 <strong>App Store</strong> 来源的软件可以安照下面步骤设置为 <strong>允许安装任何来源</strong> 的软件。</p>
+<ul>
+<li><p>终端执行命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo spctl --master-disable</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安全行与隐私中设置 <strong>任何来源</strong> 选项</p>
+</li>
+</ul>
+<p><img src="/img/postman-in-action/02-02-07-mac-install-app.png" alt=""></p>
+<h3 id="Linux-安装"><a href="#Linux-安装" class="headerlink" title="Linux 安装"></a>Linux 安装</h3><h3 id="安装后设置"><a href="#安装后设置" class="headerlink" title="安装后设置"></a>安装后设置</h3><h4 id="创建账户"><a href="#创建账户" class="headerlink" title="创建账户"></a>创建账户</h4><p>建议第一次使用 Postman 时，创建一个账户，如果没有账户，将不能使用 Workspace （工作空间），Workspace 可以管理测试集 （Collection）、变量 （Variable）和环境参数 （Environment）。用户账户创建很容易，只需填入 Email、UserName、以及 Password 即可。</p>
+<p><img src="/img/postman-in-action/02-02-08-postman-create-account.png" alt=""></p>
+<h4 id="登陆账户"><a href="#登陆账户" class="headerlink" title="登陆账户"></a>登陆账户</h4><p>如果您已经拥有 Postman 账户可以直接登录。登陆使用创建用户账户时填入的 Email 或 UserName 以及秘密。</p>
+<p><img src="/img/postman-in-action/02-02-09-postman-login.png" alt=""></p>
+<h4 id="登陆成功"><a href="#登陆成功" class="headerlink" title="登陆成功"></a>登陆成功</h4><p>登陆成功后，Postman 主界面将会显示 【创建】窗口，这个窗口里面用户可以创建 Request 、 Collection 、 Environment 、API Document 、 Mock Server 、 Monitor 等。</p>
+<p><img src="/img/postman-in-action/02-02-10-postman-login-scuccess.png" alt=""></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="">Postman 接口自动化测试与持续集成全栈-Postman 下载与安装</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">DevOps Tools</a></p>
+        <p><span>发布时间:</span>2019-10-22, 00:00:03</p>
+        <p><span>最后更新:</span>2019-10-22, 11:31:29</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="" title="Postman 接口自动化测试与持续集成全栈-Postman 下载与安装">http://devopstools.cn/2019/10/22/postman-in-acton/section1/installation/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://devopstools.cn/2019/10/22/postman-in-acton/section1/installation/　　作者: DevOps Tools" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="../menus/">
+                    Postman 接口自动化测试与持续集成全栈-Postman 功能介绍
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="../introduction-to-api/">
+                    Postman 接口自动化测试与持续集成全栈-API 测试介绍
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Postman-下载与安装"><span class="toc-number">1.</span> <span class="toc-text">Postman 下载与安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#下载"><span class="toc-number">1.1.</span> <span class="toc-text">下载</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Windows-安装"><span class="toc-number">1.1.1.</span> <span class="toc-text">Windows 安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#MacOS-安装"><span class="toc-number">1.1.2.</span> <span class="toc-text">MacOS 安装</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux-安装"><span class="toc-number">1.2.</span> <span class="toc-text">Linux 安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装后设置"><span class="toc-number">1.3.</span> <span class="toc-text">安装后设置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#创建账户"><span class="toc-number">1.3.1.</span> <span class="toc-text">创建账户</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#登陆账户"><span class="toc-number">1.3.2.</span> <span class="toc-text">登陆账户</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#登陆成功"><span class="toc-number">1.3.3.</span> <span class="toc-text">登陆成功</span></a></li></ol></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"Postman 接口自动化测试与持续集成全栈-Postman 下载与安装　| DevOps 技术与工具　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="../menus/" title="上一篇: Postman 接口自动化测试与持续集成全栈-Postman 功能介绍">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="../introduction-to-api/" title="下一篇: Postman 接口自动化测试与持续集成全栈-API 测试介绍">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="../making-hands-dirty/">Postman 接口自动化测试与持续集成全栈-实战环节之Demon 演练快速上手</a></li><li class="post-list-item"><a class="post-list-link" href="../setting-parameters/">Postman 接口自动化测试与持续集成全栈- 设置请求参数</a></li><li class="post-list-item"><a class="post-list-link" href="../request-response/">Postman 接口自动化测试与持续集成全栈- API 请求响应处理</a></li><li class="post-list-item"><a class="post-list-link" href="../create-request/">Postman 接口自动化测试与持续集成全栈-创建请求</a></li><li class="post-list-item"><a class="post-list-link" href="../menus/">Postman 接口自动化测试与持续集成全栈-Postman 功能介绍</a></li><li class="post-list-item"><a class="post-list-link" href="">Postman 接口自动化测试与持续集成全栈-Postman 下载与安装</a></li><li class="post-list-item"><a class="post-list-link" href="../introduction-to-api/">Postman 接口自动化测试与持续集成全栈-API 测试介绍</a></li><li class="post-list-item"><a class="post-list-link" href="../../introduction/">Postman 接口自动化测试与持续集成全栈-前言</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../19/ci-cd/devops-tools/">DevOps 工具链-Java 持续集成发布流水线</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2018-2019 DevOps Tools 沪ICP备18014300号-3
+            </div>
+            <div class="footer-right">
+                <a href="http://devopstools.cn/" target="_blank" title="快速、简洁且高效的博客框架">Power by DevOpsTools</a>  <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+        
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                    <span id="busuanzi_container_site_pv">
+                        本站总访问量<span id="busuanzi_value_site_pv"></span>次
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+    <script src="../../../../../../js/GithubRepoWidget.js"></script>
+
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+    <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+             github: ".github-widget a", 
+             title: "a.article-title, .article-more-link a", 
+             post: ".article-entry a[href], .copyright a[href]", 
+             tags: ".article-tag a", 
+             categories: ".article-category a, a.tag-list-link", 
+             articleNav: "#article-nav a, #post-nav-button a", 
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+             menu: ".header-menu a", 
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

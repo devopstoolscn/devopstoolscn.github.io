@@ -19,7 +19,7 @@
 
 
 <meta name="description" content="DevOps技术与工具">
-<meta name="keywords" content="DevOps CI&#x2F;CD  Jenkins github gitlab SonarQube 代码评审 单元测试 自动化测试 ansible k8s">
+<meta name="keywords" content="DevOps CI&#x2F;CD  Jenkins github gitlab SonarQube 代码评审 单元测试 JUnit 自动化测试 Selenium ansible k8s kubernetes">
 <meta property="og:type" content="website">
 <meta property="og:title" content="DevOps 技术与工具">
 <meta property="og:url" content="http:&#x2F;&#x2F;devopstools.cn&#x2F;index.html">
@@ -168,17 +168,21 @@
                         
                             <li><a href="index.html">主页</a></li>
                         
-                            <li><a href="/archives/">所有文章</a></li>
+                            <li><a href="/agile/">敏捷研发</a></li>
                         
                             <li><a href="/ci-cd/">CI/CD</a></li>
                         
-                            <li><a href="/agile/">敏捷</a></li>
+                            <li><a href="/unit-test/">单元测试</a></li>
                         
-                            <li><a href="/auto-test/">测试</a></li>
+                            <li><a href="/api-test/">接口测试</a></li>
+                        
+                            <li><a href="/ui-test/">UI测试</a></li>
                         
                             <li><a href="/note/">随笔</a></li>
                         
                             <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
                         
                         </ul>
                     </nav>
@@ -192,7 +196,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="tags/CI-CD/" rel="tag">CI-CD</a></li></ul>
+                        <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="tags/Postman/" rel="tag">Postman</a></li><li class="tag-list-item"><a class="tag-list-link" href="tags/%E4%BB%A3%E7%A0%81%E6%89%AB%E6%8F%8F/" rel="tag">代码扫描</a></li><li class="tag-list-item"><a class="tag-list-link" href="tags/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" rel="tag">单元测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="tags/%E6%95%8F%E6%8D%B7%E7%A0%94%E5%8F%91/" rel="tag">敏捷研发</a></li><li class="tag-list-item"><a class="tag-list-link" href="tags/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/" rel="tag">版本管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="tags/%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/" rel="tag">自动部署</a></li></ul>
                     </div>
                 </section>
                 
@@ -227,17 +231,21 @@
                 
                     <li><a href="index.html">主页</a></li>
                 
-                    <li><a href="/archives/">所有文章</a></li>
+                    <li><a href="/agile/">敏捷研发</a></li>
                 
                     <li><a href="/ci-cd/">CI/CD</a></li>
                 
-                    <li><a href="/agile/">敏捷</a></li>
+                    <li><a href="/unit-test/">单元测试</a></li>
                 
-                    <li><a href="/auto-test/">测试</a></li>
+                    <li><a href="/api-test/">接口测试</a></li>
+                
+                    <li><a href="/ui-test/">UI测试</a></li>
                 
                     <li><a href="/note/">随笔</a></li>
                 
                     <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
                 
                 <div class="clearfix"></div>
                 </ul>
@@ -290,20 +298,581 @@
     
     <div class="article-info article-info-index">
       
+        <div class="article-pop-out tagcloud">
+          <a class="">置顶</a>
+        </div>
+      
       
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="categories/%E6%9C%AF%E4%B8%9A%E4%B8%93%E6%94%BB/">术业专攻</a>
+    <a class="article-category-link" href="categories/CI-CD/">CI/CD</a>
     </div>
 
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/CI-CD/" rel="tag">CI-CD</a></li></ul>
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/%E4%BB%A3%E7%A0%81%E6%89%AB%E6%8F%8F/" rel="tag">代码扫描</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" rel="tag">单元测试</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/%E6%95%8F%E6%8D%B7%E7%A0%94%E5%8F%91/" rel="tag">敏捷研发</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/" rel="tag">版本管理</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/" rel="tag">自动部署</a></li></ul>
     </div>
 
       
         <p class="article-more-link">
           <a href="2019/10/19/ci-cd/devops-tools/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-postman-in-acton/section1/making-hands-dirty" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="2019/10/22/postman-in-acton/section1/making-hands-dirty/" class="article-date">
+      <time datetime="2019-10-21T16:00:08.000Z" itemprop="datePublished">2019-10-22</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="2019/10/22/postman-in-acton/section1/making-hands-dirty/">Postman 接口自动化测试与持续集成全栈-实战环节之Demon 演练快速上手</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>本节演示使用 Postman 检查服务器是否正常对外提供服务<br>验证步骤：</p>
+<ul>
+<li>创建请求和测试集，测试集用来管理测试请求。</li>
+<li>创建请求和返回结果验证脚本。</li>
+<li>运行验证脚本查看验证结果。</li>
+</ul>
+<p>+
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="categories/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/">接口测试</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/Postman/" rel="tag">Postman</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="2019/10/22/postman-in-acton/section1/making-hands-dirty/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-postman-in-acton/section1/setting-parameters" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="2019/10/22/postman-in-acton/section1/setting-parameters/" class="article-date">
+      <time datetime="2019-10-21T16:00:07.000Z" itemprop="datePublished">2019-10-22</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="2019/10/22/postman-in-acton/section1/setting-parameters/">Postman 接口自动化测试与持续集成全栈- 设置请求参数</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>参数是 URL 的一部分，用了向服务器传递具有特定含义的指令。RESTFul API 向服务器传递参数的 URL 格式如下</p>
+<p>+
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="categories/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/">接口测试</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/Postman/" rel="tag">Postman</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="2019/10/22/postman-in-acton/section1/setting-parameters/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-postman-in-acton/section1/request-response" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="2019/10/22/postman-in-acton/section1/request-response/" class="article-date">
+      <time datetime="2019-10-21T16:00:06.000Z" itemprop="datePublished">2019-10-22</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="2019/10/22/postman-in-acton/section1/request-response/">Postman 接口自动化测试与持续集成全栈- API 请求响应处理</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>使用 “GET” 方法发送 HTTP 请求。点击 【Send】按钮后，请求会发送到 URL 地址，接收到请求后，服务器端会根据请求参数返回响应的结果。</p>
+<p>+
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="categories/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/">接口测试</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/Postman/" rel="tag">Postman</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="2019/10/22/postman-in-acton/section1/request-response/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-postman-in-acton/section1/create-request" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="2019/10/22/postman-in-acton/section1/create-request/" class="article-date">
+      <time datetime="2019-10-21T16:00:05.000Z" itemprop="datePublished">2019-10-22</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="2019/10/22/postman-in-acton/section1/create-request/">Postman 接口自动化测试与持续集成全栈-创建请求</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>本节我们首先创建一个 RESTFul API 请求，填入请求地址，请求参数我们使用 “GET”，请求需要命名以便以后使用。请求选择或创建一个测试集 【Collection】 ，然后选择这个测试集，把命名后的请求保存在这个测试集里面。</p>
+<p>+
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="categories/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/">接口测试</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/Postman/" rel="tag">Postman</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="2019/10/22/postman-in-acton/section1/create-request/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-postman-in-acton/section1/menus" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="2019/10/22/postman-in-acton/section1/menus/" class="article-date">
+      <time datetime="2019-10-21T16:00:04.000Z" itemprop="datePublished">2019-10-22</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="2019/10/22/postman-in-acton/section1/menus/">Postman 接口自动化测试与持续集成全栈-Postman 功能介绍</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>Postman 为支持多样的功能提供有多个窗口和多个标签页，因此用户使用起来也很方便。它的主窗口包括三大区域：头部工具栏、左侧捷导航栏以及工作区。</p>
+<p>+
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="categories/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/">接口测试</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/Postman/" rel="tag">Postman</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="2019/10/22/postman-in-acton/section1/menus/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-postman-in-acton/section1/installation" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="2019/10/22/postman-in-acton/section1/installation/" class="article-date">
+      <time datetime="2019-10-21T16:00:03.000Z" itemprop="datePublished">2019-10-22</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="2019/10/22/postman-in-acton/section1/installation/">Postman 接口自动化测试与持续集成全栈-Postman 下载与安装</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>Postman 有 Windows、Linux、MacOS 等多个版本，另外也可在 Chrome 上面安装插件，基于 Chrome 浏览器运行。当前 Postman 的最新版本为 7.6.0 。</p>
+<p>+
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="categories/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/">接口测试</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/Postman/" rel="tag">Postman</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="2019/10/22/postman-in-acton/section1/installation/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-postman-in-acton/section1/introduction-to-api" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="2019/10/22/postman-in-acton/section1/introduction-to-api/" class="article-date">
+      <time datetime="2019-10-21T16:00:02.000Z" itemprop="datePublished">2019-10-22</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="2019/10/22/postman-in-acton/section1/introduction-to-api/">Postman 接口自动化测试与持续集成全栈-API 测试介绍</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>API 是应用程序编程接口（Application Programming Interface）的简称。从技术上讲，API 是 应用系统、操作系统、开发库等对一系列过程、函数的封装，开发人员可以使用 API 编程对其它的 应用系统、操作系统、开发库提供的功能进行调用。</p>
+<p>+
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="categories/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/">接口测试</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/Postman/" rel="tag">Postman</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="2019/10/22/postman-in-acton/section1/introduction-to-api/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-postman-in-acton/introduction" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="2019/10/22/postman-in-acton/introduction/" class="article-date">
+      <time datetime="2019-10-21T16:00:01.000Z" itemprop="datePublished">2019-10-22</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="2019/10/22/postman-in-acton/introduction/">Postman 接口自动化测试与持续集成全栈-前言</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>当想要分析一下别人开发的或者自己开发的 RESTful API 时，Postman 是一个很好的工具。Postman 深受开发人员和测试人员的欢迎，因为它提供了一个很好的用户图形界面 （GUI）发送 HTTP 请求，而不必再编写一堆辅助代码。</p>
+<p>+
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="categories/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/">接口测试</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/Postman/" rel="tag">Postman</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="2019/10/22/postman-in-acton/introduction/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>

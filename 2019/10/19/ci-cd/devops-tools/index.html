@@ -16,7 +16,7 @@
 
 
 <meta name="description" content="本篇主要介绍 DevOps 工具链，在 DevOps 流程中用到的工具包括敏捷管理工具、文档管理、代码版本管理、构建工具、测试工具、持续构建工具、部署工具、运维工具、监控工具等。 +">
-<meta name="keywords" content="CI-CD">
+<meta name="keywords" content="敏捷研发,版本管理,代码扫描,单元测试,自动部署">
 <meta property="og:type" content="article">
 <meta property="og:title" content="DevOps 工具链-Java 持续集成发布流水线">
 <meta property="og:url" content="http:&#x2F;&#x2F;devopstools.cn&#x2F;2019&#x2F;10&#x2F;19&#x2F;ci-cd&#x2F;devops-tools&#x2F;index.html">
@@ -31,7 +31,7 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;devopstools.cn&#x2F;img&#x2F;tools&#x2F;pipeline-in-blueocean.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;devopstools.cn&#x2F;img&#x2F;tools&#x2F;ansible-horizontal.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;devopstools.cn&#x2F;img&#x2F;tools&#x2F;kubernetes-logo.png">
-<meta property="og:updated_time" content="2019-10-20T11:56:06.648Z">
+<meta property="og:updated_time" content="2019-10-22T03:47:46.812Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;devopstools.cn&#x2F;img&#x2F;devopscycle.png">
 
@@ -173,17 +173,21 @@
                         
                             <li><a href="../../../../../index.html">主页</a></li>
                         
-                            <li><a href="../../../../../archives/">所有文章</a></li>
+                            <li><a href="../../../../../agile/">敏捷研发</a></li>
                         
                             <li><a href="../../../../../ci-cd/">CI/CD</a></li>
                         
-                            <li><a href="../../../../../agile/">敏捷</a></li>
+                            <li><a href="../../../../../unit-test/">单元测试</a></li>
                         
-                            <li><a href="../../../../../auto-test/">测试</a></li>
+                            <li><a href="../../../../../api-test/">接口测试</a></li>
+                        
+                            <li><a href="../../../../../ui-test/">UI测试</a></li>
                         
                             <li><a href="../../../../../note/">随笔</a></li>
                         
                             <li><a href="../../../../../tags/">标签云</a></li>
+                        
+                            <li><a href="../../../../../archives/">所有文章</a></li>
                         
                         </ul>
                     </nav>
@@ -197,7 +201,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/CI-CD/" rel="tag">CI-CD</a></li></ul>
+                        <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/Postman/" rel="tag">Postman</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/%E4%BB%A3%E7%A0%81%E6%89%AB%E6%8F%8F/" rel="tag">代码扫描</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" rel="tag">单元测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/%E6%95%8F%E6%8D%B7%E7%A0%94%E5%8F%91/" rel="tag">敏捷研发</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/" rel="tag">版本管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/" rel="tag">自动部署</a></li></ul>
                     </div>
                 </section>
                 
@@ -232,17 +236,21 @@
                 
                     <li><a href="../../../../../index.html">主页</a></li>
                 
-                    <li><a href="../../../../../archives/">所有文章</a></li>
+                    <li><a href="../../../../../agile/">敏捷研发</a></li>
                 
                     <li><a href="../../../../../ci-cd/">CI/CD</a></li>
                 
-                    <li><a href="../../../../../agile/">敏捷</a></li>
+                    <li><a href="../../../../../unit-test/">单元测试</a></li>
                 
-                    <li><a href="../../../../../auto-test/">测试</a></li>
+                    <li><a href="../../../../../api-test/">接口测试</a></li>
+                
+                    <li><a href="../../../../../ui-test/">UI测试</a></li>
                 
                     <li><a href="../../../../../note/">随笔</a></li>
                 
                     <li><a href="../../../../../tags/">标签云</a></li>
+                
+                    <li><a href="../../../../../archives/">所有文章</a></li>
                 
                 <div class="clearfix"></div>
                 </ul>
@@ -284,13 +292,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="../../../../../categories/%E6%9C%AF%E4%B8%9A%E4%B8%93%E6%94%BB/">术业专攻</a>
+    <a class="article-category-link" href="../../../../../categories/CI-CD/">CI/CD</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../tags/CI-CD/" rel="tag">CI-CD</a></li></ul>
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../tags/%E4%BB%A3%E7%A0%81%E6%89%AB%E6%8F%8F/" rel="tag">代码扫描</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../tags/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" rel="tag">单元测试</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../tags/%E6%95%8F%E6%8D%B7%E7%A0%94%E5%8F%91/" rel="tag">敏捷研发</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../tags/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/" rel="tag">版本管理</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../tags/%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/" rel="tag">自动部署</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -334,7 +342,7 @@
         <p><span>本文标题:</span><a href="">DevOps 工具链-Java 持续集成发布流水线</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">DevOps Tools</a></p>
         <p><span>发布时间:</span>2019-10-19, 03:19:53</p>
-        <p><span>最后更新:</span>2019-10-20, 19:56:06</p>
+        <p><span>最后更新:</span>2019-10-22, 11:47:46</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="" title="DevOps 工具链-Java 持续集成发布流水线">http://devopstools.cn/2019/10/19/ci-cd/devops-tools/</a>
             <span class="copy-path" data-clipboard-text="原文: http://devopstools.cn/2019/10/19/ci-cd/devops-tools/　　作者: DevOps Tools" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -346,6 +354,17 @@
     </div>
 
 
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="../../../22/postman-in-acton/introduction/">
+                    Postman 接口自动化测试与持续集成全栈-前言
+                </a>
+            </div>
+        
+        
+    </nav>
 
   
 </article>
@@ -409,7 +428,9 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="../../../22/postman-in-acton/introduction/" title="上一篇: Postman 接口自动化测试与持续集成全栈-前言">
+                <i class="fa fa-angle-left"></i>
+            </a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
@@ -419,7 +440,7 @@
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="">DevOps 工具链-Java 持续集成发布流水线</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="../../../22/postman-in-acton/section1/making-hands-dirty/">Postman 接口自动化测试与持续集成全栈-实战环节之Demon 演练快速上手</a></li><li class="post-list-item"><a class="post-list-link" href="../../../22/postman-in-acton/section1/setting-parameters/">Postman 接口自动化测试与持续集成全栈- 设置请求参数</a></li><li class="post-list-item"><a class="post-list-link" href="../../../22/postman-in-acton/section1/request-response/">Postman 接口自动化测试与持续集成全栈- API 请求响应处理</a></li><li class="post-list-item"><a class="post-list-link" href="../../../22/postman-in-acton/section1/create-request/">Postman 接口自动化测试与持续集成全栈-创建请求</a></li><li class="post-list-item"><a class="post-list-link" href="../../../22/postman-in-acton/section1/menus/">Postman 接口自动化测试与持续集成全栈-Postman 功能介绍</a></li><li class="post-list-item"><a class="post-list-link" href="../../../22/postman-in-acton/section1/installation/">Postman 接口自动化测试与持续集成全栈-Postman 下载与安装</a></li><li class="post-list-item"><a class="post-list-link" href="../../../22/postman-in-acton/section1/introduction-to-api/">Postman 接口自动化测试与持续集成全栈-API 测试介绍</a></li><li class="post-list-item"><a class="post-list-link" href="../../../22/postman-in-acton/introduction/">Postman 接口自动化测试与持续集成全栈-前言</a></li><li class="post-list-item"><a class="post-list-link" href="">DevOps 工具链-Java 持续集成发布流水线</a></li></ul>
 
 
 
