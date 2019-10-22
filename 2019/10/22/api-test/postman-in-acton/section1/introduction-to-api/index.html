@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="DevOps Tools" />
+
+
+
+<meta name="description" content="API 是应用程序编程接口（Application Programming Interface）的简称。从技术上讲，API 是 应用系统、操作系统、开发库等对一系列过程、函数的封装，开发人员可以使用 API 编程对其它的 应用系统、操作系统、开发库提供的功能进行调用。 +">
+<meta name="keywords" content="Postman,接口测试">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Postman 接口自动化测试与持续集成全栈-API 测试介绍">
+<meta property="og:url" content="http:&#x2F;&#x2F;devopstools.cn&#x2F;2019&#x2F;10&#x2F;22&#x2F;api-test&#x2F;postman-in-acton&#x2F;section1&#x2F;introduction-to-api&#x2F;index.html">
+<meta property="og:site_name" content="DevOps 技术与工具">
+<meta property="og:description" content="API 是应用程序编程接口（Application Programming Interface）的简称。从技术上讲，API 是 应用系统、操作系统、开发库等对一系列过程、函数的封装，开发人员可以使用 API 编程对其它的 应用系统、操作系统、开发库提供的功能进行调用。 +">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http:&#x2F;&#x2F;devopstools.cn&#x2F;img&#x2F;postman-in-action&#x2F;API-TEsting.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;devopstools.cn&#x2F;img&#x2F;postman-in-action&#x2F;Unit-Testing-Vs-Integartion-Testing.png">
+<meta property="og:updated_time" content="2019-10-22T06:45:42.481Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;devopstools.cn&#x2F;img&#x2F;postman-in-action&#x2F;API-TEsting.png">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="DevOps 技术与工具" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="../../../../../../../css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>Postman 接口自动化测试与持续集成全栈-API 测试介绍 | DevOps 技术与工具</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script>
+        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
+    </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?9f2ec0702d90c1f43efd0a40a2fb0479";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/tools.jpeg" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">DevOps Tools</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">技术与工具</p>
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="true" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="../../../../../../../index.html">主页</a></li>
+                        
+                            <li><a href="../../../../../../../categories/%E6%95%8F%E6%8D%B7%E7%A0%94%E5%8F%91/">敏捷研发</a></li>
+                        
+                            <li><a href="../../../../../../../categories/CI-CD/">CI/CD</a></li>
+                        
+                            <li><a href="../../../../../../../categories/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/">单元测试</a></li>
+                        
+                            <li><a href="../../../../../../../categories/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/">接口测试</a></li>
+                        
+                            <li><a href="../../../../../../../categories/UI%E6%B5%8B%E8%AF%95/">UI测试</a></li>
+                        
+                            <li><a href="../../../../../../../categories/%E9%9A%8F%E7%AC%94/">随笔</a></li>
+                        
+                            <li><a href="../../../../../../../tags/">标签云</a></li>
+                        
+                            <li><a href="../../../../../../../archives/">所有文章</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../../tags/JUnit/" rel="tag">JUnit</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../../tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../../tags/NodeJS/" rel="tag">NodeJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../../tags/Postman/" rel="tag">Postman</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../../tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../../tags/Scrum/" rel="tag">Scrum</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../../tags/Selenium/" rel="tag">Selenium</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../../tags/UI%E6%B5%8B%E8%AF%95/" rel="tag">UI测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../../tags/%E4%BB%A3%E7%A0%81%E6%89%AB%E6%8F%8F/" rel="tag">代码扫描</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../../tags/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" rel="tag">单元测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../../tags/%E5%9B%BD%E5%AD%A6/" rel="tag">国学</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../../tags/%E6%8C%81%E7%BB%AD%E9%83%A8%E7%BD%B2/" rel="tag">持续部署</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../../tags/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/" rel="tag">持续集成</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../../tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/" rel="tag">接口测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../../tags/%E6%95%8F%E6%8D%B7%E7%A0%94%E5%8F%91/" rel="tag">敏捷研发</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../../tags/%E6%95%8F%E6%8D%B7%E7%AE%A1%E7%90%86/" rel="tag">敏捷管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../../tags/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/" rel="tag">版本管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../../tags/%E7%BB%8F%E5%85%B8/" rel="tag">经典</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">DevOps Tools</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/tools.jpeg" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">DevOps Tools</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">技术与工具</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="../../../../../../../index.html">主页</a></li>
+                
+                    <li><a href="../../../../../../../categories/%E6%95%8F%E6%8D%B7%E7%A0%94%E5%8F%91/">敏捷研发</a></li>
+                
+                    <li><a href="../../../../../../../categories/CI-CD/">CI/CD</a></li>
+                
+                    <li><a href="../../../../../../../categories/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/">单元测试</a></li>
+                
+                    <li><a href="../../../../../../../categories/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/">接口测试</a></li>
+                
+                    <li><a href="../../../../../../../categories/UI%E6%B5%8B%E8%AF%95/">UI测试</a></li>
+                
+                    <li><a href="../../../../../../../categories/%E9%9A%8F%E7%AC%94/">随笔</a></li>
+                
+                    <li><a href="../../../../../../../tags/">标签云</a></li>
+                
+                    <li><a href="../../../../../../../archives/">所有文章</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-api-test/postman-in-acton/section1/introduction-to-api" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="" class="article-date">
+      <time datetime="2019-10-21T16:00:02.000Z" itemprop="datePublished">2019-10-22</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Postman 接口自动化测试与持续集成全栈-API 测试介绍
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="../../../../../../../categories/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/">接口测试</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../../../tags/Postman/" rel="tag">Postman</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../../../tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/" rel="tag">接口测试</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>API 是应用程序编程接口（Application Programming Interface）的简称。从技术上讲，API 是 应用系统、操作系统、开发库等对一系列过程、函数的封装，开发人员可以使用 API 编程对其它的 应用系统、操作系统、开发库提供的功能进行调用。</p>
+<p>+<a id="more"></a></p>
+<h2 id="API-测试介绍"><a href="#API-测试介绍" class="headerlink" title="API 测试介绍"></a>API 测试介绍</h2><h3 id="什么是-API"><a href="#什么是-API" class="headerlink" title="什么是 API"></a>什么是 API</h3><p>API 是应用程序编程接口（Application Programming Interface）的简称。从技术上讲，API 是 应用系统、操作系统、开发库等对一系列过程、函数的封装，开发人员可以使用 API 编程对其它的 应用系统、操作系统、开发库提供的功能进行调用。</p>
+<p>如果以上对 API 的解释比较难以理解的话，我们举一个例子说明。假如你到了一个来到一个餐馆，不巧的时服务员这个时候不在。你可以到餐桌上拿到菜单，然后直接像厨师点菜，厨师就会按照你的要求去做。但是有时也会存在你点的菜没有原材料了。你就需要再次拿起菜单，再点一个其它菜。当有很多顾客都同时向厨师直接点菜时，厨师就要分出很大的精力去处理客户的订单，而不能专心做菜了。</p>
+<p>另外我们这个世界有几百种语言。如果厨师不能听懂客户的语言该怎么办？这是最好有一个专门能听懂客户点菜的服务员。服务员就是厨师的 API，他（她）接收顾客的请求，然后传递给厨师，最后把顾客点的菜从厨师那里返回给顾客。服务员可以听懂顾客和厨师双方的语言。如果顾客点的菜后厨已经售罄，然后请顾客再选一个其它菜。这样可以节省顾客直接询问厨师的往返时间，顾客的体验也好多了。以上服务员服务顾客的这个过程也就是 API 的作用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">sequenceDiagram</span><br><span class="line">participant Customer as 顾客🧒</span><br><span class="line">participant Waiter as 服务员💁</span><br><span class="line">participant Chef as 厨师👨‍🍳</span><br><span class="line"></span><br><span class="line">Customer-&gt;&gt;Waiter: 服务员点菜！</span><br><span class="line">Waiter-&gt;&gt;Chef: 大厨兰州拉面一份！</span><br><span class="line">Chef-&gt;&gt;Waiter: Bing Ling…… 服务员菜做好了。</span><br><span class="line">Waiter-&gt;&gt;Customer: 美女您的菜来了！</span><br></pre></td></tr></table></figure>
+
+<p>如上面的图所描述的那样，顾客向服务员提出订单，服务员的作用就时 API ，他（她）接收到订单转发给厨师，厨师这是就是后台的服务程序。服务程序处理完请求后把结果返回给顾客。像上面例子，厨师就是服务器应用，他从服务员（API）那里获得服务请求，处理请求（烹煮食物），然后把处理完成的结果（美味菜肴）返回给 API (服务员)。至于 调用 API 需要传入的不同参数，可以认为是顾客对菜肴不同口味的要求，例如多放辣椒、放自然、放咖喱、多加盐等。这些参数可以让服务器应用（厨师）采用不同的处理方式来处理请求。</p>
+<p>API （应用程序接口）从客户终端设备中获得请求，然后把请请求发送给远程服务器，服务器处理完成后，API 从服务器获得处理结果，把处理结果再传回给客户终端。在现在的 IT 架构中，API 到处可见，被大量应用。API 根据使用要求，传入不同的参数后，从服务器端获得相应的处理结果。例如航班查询中，根据对航班的出发港、到达港、起飞时间等要求，可以查询出不同的航班、不同的票价等信息。作为客户端开发人员，通过 API 处理复杂且难以处理的请求，变得和容易，只要按照 API 的调用要求，正确的传入请求参数即可。这也是 API 的好处，它让 API 变得非常流行，随处可见。</p>
+<h3 id="API-测试"><a href="#API-测试" class="headerlink" title="API 测试"></a>API 测试</h3><p>我们上面介绍了 API ，也知道了 API 对当前世界中分布式 IT 服务应用的重要性，因此 API 测试也随之变的重要。</p>
+<p>API 测试可以提高服务应用的代码质量，提前发现服务应用的问题，并及时修复。相对于传统的 GUI 测试，API 测试可以底层的角度发现 GUI 测试不容易暴露的服务端问题，具有更短的问题反馈时间，更高效的解决问题的方式。</p>
+<p>API 测试既可以使用手工测试，也可以使用自动化测试。在敏捷和 DevOps 更加流行的当下，持续测试已经成了被广泛认可的方法。由于 GUI 的自动化存在不少的缺点，例如测试脚本经常由于 GUI 变动而导致失败、测试执行效率低耗时长、测试人员等待时间长测试时节靠后需要开发提供 GUI 才能测试等。</p>
+<p>在敏捷时代，测试应该前移，应该尽可能早地开始，应该进行更低层级的测试，例如 API 层、单元层。API 测试可以有开发人员执行，可以在 GUI 尚未开发的情况下进行。特别是在基于契约测试的情况下，API 甚至可以在服务端开发没有完成的情况下进行。</p>
+<p><img src="/img/postman-in-action/API-TEsting.png" alt=""></p>
+<p>软件应用中的 API 在被正式部署前应该很好的测试，API 测试既是开发人员的工作，也是测试人员的工作。高质量的 API 对于应用程序很重要，它可以消除掉应用服务在被正式部署后可能出现的很多问题。基于此业界范围内也开发出了很多 API 测试工具、框架等。Postman 就是其中比较著名的一个。</p>
+<h3 id="测试人员在-API-测试中的角色和职责"><a href="#测试人员在-API-测试中的角色和职责" class="headerlink" title="测试人员在 API 测试中的角色和职责"></a>测试人员在 API 测试中的角色和职责</h3><p>作为 API 测试人员，应该对 API 有全面的知识体系，例如 Web 服务、REST、SOAP、微服务等。</p>
+<p>API 测试需要的技能栈：</p>
+<ul>
+<li><p>能够使用 WEB 调用方法 GET、POST、PUT、DELETE等</p>
+</li>
+<li><p>能够验证请求响应 （RESPONSE）、错误代码（ERROR CODE）等</p>
+</li>
+<li><p>JSON 格式、XML 格式的内容</p>
+</li>
+<li><p>能够使用鉴权方法，例如 OAuth、 OAuth2、BASIC Authorization等</p>
+</li>
+<li><p>能够做 WEB SERVICE 的性能、安全测试</p>
+</li>
+<li><p>能够读懂 API 说明文档</p>
+</li>
+<li><p>能够编写 API 测试案例和场景测试案例</p>
+</li>
+<li><p>能够编写 SQL 验证与 API 相关的数据库数据</p>
+</li>
+<li><p>能够熟练掌握 API 测试工具</p>
+</li>
+</ul>
+<blockquote>
+<p>SOAP UI、Postman、JMeter、RestAssured、Rest Sharp、Node modules等</p>
+</blockquote>
+<h3 id="API-测试与单元测试"><a href="#API-测试与单元测试" class="headerlink" title="API 测试与单元测试"></a>API 测试与单元测试</h3><p>很多测试人员把 API 测试和单元测试混在了一起，事实上它们是不同的，负责的范围也不一样。单元测试是基于类的测试或根类同一级别组件的测试。单元测试常常由开发人员负责，验证类或模块是否完成了它的设计功能。开发人员自测负责的类，发现缺陷后自行修改，直至达到设计要求。单元测试保证了么一个类或者模块的正确性，它们是软件质量的基石。</p>
+<p><img src="/img/postman-in-action/Unit-Testing-Vs-Integartion-Testing.png" alt="Unit Testing Vs Integartion Testing"></p>
+<p>相对于单元测试白盒测试，API 测试应该算是黑盒测试，测试功能连接服务程序对外提供的接口进行测试，而不会对外暴露内部的实现逻辑。API 测试需要对应的服务运行，通过 API 接口与服务器应用交互。</p>
+<p>API 测试主要是测试系统架构中的业务逻辑，由集成测试团队负责。测试人员通过调用指定版本的服务程序提供的接口进行测试。这样单元测试主要由开发人员负责，在负责角色上有所区别。</p>
+<p>API 测试也对单元进行测试，与单元测试所不同的是，单元测试是把被测单元与系统其它部分隔离出来进行测试，API 测试是把被测单元作为系统相系联系的一部分进行测试。API 测试其实也是端到端的测试。当我们进行 API 测试时，跟 API 相关的模块都会测试到。然而进行单元测试时，仅仅对被测模块或类进行测试，被测试的模块或类是与系统的其他部分隔离开的。</p>
+<h3 id="API-测试关注那些点"><a href="#API-测试关注那些点" class="headerlink" title="API 测试关注那些点"></a>API 测试关注那些点</h3><p> 当我们用API工具进行测试时，往往会遇到很多报错。这些报错不仅有API报错，也有软件应用报错，甚至是服务器错误。这使得软件测试人员关注的范围更广，相关的知识和技能也更重要。软件测试跟软件开发一样遵循一定的顺序和步骤。在软件开发阶段，测试人员可以编写测试案例和测试脚本。开发人员也可以使用测试人员编写的脚本来发现处于开发状态的软件应用的问题。在生产阶段，测试人员可以改善和升级测试案例，让测试案例兼容性更好，对软件的测试质量更有帮助。</p>
+<blockquote>
+<p>本课程托管地址：</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/toolsqacn/postman-in-action</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="">Postman 接口自动化测试与持续集成全栈-API 测试介绍</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">DevOps Tools</a></p>
+        <p><span>发布时间:</span>2019-10-22, 00:00:02</p>
+        <p><span>最后更新:</span>2019-10-22, 14:45:42</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="" title="Postman 接口自动化测试与持续集成全栈-API 测试介绍">http://devopstools.cn/2019/10/22/api-test/postman-in-acton/section1/introduction-to-api/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://devopstools.cn/2019/10/22/api-test/postman-in-acton/section1/introduction-to-api/　　作者: DevOps Tools" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="../installation/">
+                    Postman 接口自动化测试与持续集成全栈-Postman 下载与安装
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="../../introduction/">
+                    Postman 接口自动化测试与持续集成全栈-前言
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#API-测试介绍"><span class="toc-number">1.</span> <span class="toc-text">API 测试介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是-API"><span class="toc-number">1.1.</span> <span class="toc-text">什么是 API</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#API-测试"><span class="toc-number">1.2.</span> <span class="toc-text">API 测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#测试人员在-API-测试中的角色和职责"><span class="toc-number">1.3.</span> <span class="toc-text">测试人员在 API 测试中的角色和职责</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#API-测试与单元测试"><span class="toc-number">1.4.</span> <span class="toc-text">API 测试与单元测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#API-测试关注那些点"><span class="toc-number">1.5.</span> <span class="toc-text">API 测试关注那些点</span></a></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"Postman 接口自动化测试与持续集成全栈-API 测试介绍　| DevOps 技术与工具　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="../installation/" title="上一篇: Postman 接口自动化测试与持续集成全栈-Postman 下载与安装">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="../../introduction/" title="下一篇: Postman 接口自动化测试与持续集成全栈-前言">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="../../../../note/lunyu/">论语杂谈</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../ui-test/selenium/">UI测试框架-Selenium</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../unit-test/junit-framework/">Java 单元测试框架-JUnit</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../agile/scrum-agile/">Scrum 敏捷管理</a></li><li class="post-list-item"><a class="post-list-link" href="../making-hands-dirty/">Postman 接口自动化测试与持续集成全栈-实战环节之Demon 演练快速上手</a></li><li class="post-list-item"><a class="post-list-link" href="../setting-parameters/">Postman 接口自动化测试与持续集成全栈- 设置请求参数</a></li><li class="post-list-item"><a class="post-list-link" href="../request-response/">Postman 接口自动化测试与持续集成全栈- API 请求响应处理</a></li><li class="post-list-item"><a class="post-list-link" href="../create-request/">Postman 接口自动化测试与持续集成全栈-创建请求</a></li><li class="post-list-item"><a class="post-list-link" href="../menus/">Postman 接口自动化测试与持续集成全栈-Postman 功能介绍</a></li><li class="post-list-item"><a class="post-list-link" href="../installation/">Postman 接口自动化测试与持续集成全栈-Postman 下载与安装</a></li><li class="post-list-item"><a class="post-list-link" href="">Postman 接口自动化测试与持续集成全栈-API 测试介绍</a></li><li class="post-list-item"><a class="post-list-link" href="../../introduction/">Postman 接口自动化测试与持续集成全栈-前言</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../../19/ci-cd/devops-tools/">DevOps 工具链-Java 持续集成发布流水线</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2018-2019 DevOps Tools 沪ICP备18014300号-3
+            </div>
+            <div class="footer-right">
+                <a href="http://devopstools.cn/" target="_blank" title="快速、简洁且高效的博客框架">Power by DevOpsTools</a>  <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+        
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                    <span id="busuanzi_container_site_pv">
+                        本站总访问量<span id="busuanzi_value_site_pv"></span>次
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+    <script src="../../../../../../../js/GithubRepoWidget.js"></script>
+
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+    <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+             github: ".github-widget a", 
+             title: "a.article-title, .article-more-link a", 
+             post: ".article-entry a[href], .copyright a[href]", 
+             tags: ".article-tag a", 
+             categories: ".article-category a, a.tag-list-link", 
+             articleNav: "#article-nav a, #post-nav-button a", 
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+             menu: ".header-menu a", 
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
