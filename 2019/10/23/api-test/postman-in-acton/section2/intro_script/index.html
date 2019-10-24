@@ -15,16 +15,19 @@
 
 
 
-<meta name="description" content="本节演示使用 Postman 检查服务器是否正常对外提供服务验证步骤：  创建请求和测试集，测试集用来管理测试请求。 创建请求和返回结果验证脚本。 运行验证脚本查看验证结果。  +">
+<meta name="description" content="Postman 使用 Javascript 编写测试脚本，它运行在 Node.js 之上，因此也继承了 Node.js 强大的编程能力，可以动态灵活的处理请求和测试集的事物。例如可以在测试脚本中包含动态参数，在不同的请求之间传递数据。 +">
 <meta name="keywords" content="接口测试,Postman">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Postman 接口自动化测试与持续集成全栈-实战环节之Demon 演练快速上手">
-<meta property="og:url" content="http:&#x2F;&#x2F;devopstools.cn&#x2F;2019&#x2F;10&#x2F;22&#x2F;api-test&#x2F;postman-in-acton&#x2F;section1&#x2F;making-hands-dirty&#x2F;index.html">
+<meta property="og:title" content="Postman 接口自动化测试与持续集成全栈-Postman 脚本编程">
+<meta property="og:url" content="http:&#x2F;&#x2F;devopstools.cn&#x2F;2019&#x2F;10&#x2F;23&#x2F;api-test&#x2F;postman-in-acton&#x2F;section2&#x2F;intro_script&#x2F;index.html">
 <meta property="og:site_name" content="DevOps 技术与工具">
-<meta property="og:description" content="本节演示使用 Postman 检查服务器是否正常对外提供服务验证步骤：  创建请求和测试集，测试集用来管理测试请求。 创建请求和返回结果验证脚本。 运行验证脚本查看验证结果。  +">
+<meta property="og:description" content="Postman 使用 Javascript 编写测试脚本，它运行在 Node.js 之上，因此也继承了 Node.js 强大的编程能力，可以动态灵活的处理请求和测试集的事物。例如可以在测试脚本中包含动态参数，在不同的请求之间传递数据。 +">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-22T06:46:02.230Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;devopstools.cn&#x2F;img&#x2F;postman-in-action&#x2F;03-01-01-collecion-pre-script.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;devopstools.cn&#x2F;img&#x2F;postman-in-action&#x2F;03-01-02-collection-test.png">
+<meta property="og:updated_time" content="2019-10-24T00:24:36.310Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;devopstools.cn&#x2F;img&#x2F;postman-in-action&#x2F;03-01-01-collecion-pre-script.png">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +59,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Postman 接口自动化测试与持续集成全栈-实战环节之Demon 演练快速上手 | DevOps 技术与工具</title>
+<title>Postman 接口自动化测试与持续集成全栈-Postman 脚本编程 | DevOps 技术与工具</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -253,11 +256,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-api-test/postman-in-acton/section1/making-hands-dirty" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-api-test/postman-in-acton/section2/intro_script" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
       <a href="" class="article-date">
-      <time datetime="2019-10-21T16:00:08.000Z" itemprop="datePublished">2019-10-22</time>
+      <time datetime="2019-10-23T14:42:45.860Z" itemprop="datePublished">2019-10-23</time>
 </a>
 
 
@@ -272,7 +275,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Postman 接口自动化测试与持续集成全栈-实战环节之Demon 演练快速上手
+      Postman 接口自动化测试与持续集成全栈-Postman 脚本编程
     </h1>
   
 
@@ -297,25 +300,26 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>本节演示使用 Postman 检查服务器是否正常对外提供服务<br>验证步骤：</p>
-<ul>
-<li>创建请求和测试集，测试集用来管理测试请求。</li>
-<li>创建请求和返回结果验证脚本。</li>
-<li>运行验证脚本查看验证结果。</li>
-</ul>
+        <p>Postman 使用 Javascript 编写测试脚本，它运行在 Node.js 之上，因此也继承了 Node.js 强大的编程能力，可以动态灵活的处理请求和测试集的事物。例如可以在测试脚本中包含动态参数，在不同的请求之间传递数据。</p>
 <p>+<a id="more"></a></p>
-<h2 id="实战环节：Demon-演练快速上手"><a href="#实战环节：Demon-演练快速上手" class="headerlink" title="实战环节：Demon 演练快速上手"></a>实战环节：Demon 演练快速上手</h2><h3 id="本节演示使用-Postman-检查服务器是否正常对外提供服务"><a href="#本节演示使用-Postman-检查服务器是否正常对外提供服务" class="headerlink" title="本节演示使用 Postman 检查服务器是否正常对外提供服务"></a>本节演示使用 Postman 检查服务器是否正常对外提供服务</h3><p>验证步骤：</p>
+<h2 id="Postman-脚本编程"><a href="#Postman-脚本编程" class="headerlink" title="Postman 脚本编程"></a>Postman 脚本编程</h2><p>Postman 使用 Javascript 编写测试脚本，它运行在 Node.js 之上，因此也继承了 Node.js 强大的编程能力，可以动态灵活的处理请求和测试集的事物。例如可以在测试脚本中包含动态参数，在不同的请求之间传递数据。</p>
 <ul>
-<li>创建请求和测试集，测试集用来管理测试请求。</li>
-<li>创建请求和返回结果验证脚本。</li>
-<li>运行验证脚本查看验证结果。</li>
+<li>在请求发送服务器之前，在前置栏中可以编写前置脚本处理前置信息。</li>
+<li>在测试脚本栏中可以编写处理服务器响应结果的处理脚本，例如对比响应结果进行测试。</li>
 </ul>
-<video id="video" controls="" preload="none" poster="/vedio/postman/2-6-verfyserverstate.png">
-      <source id="mp4" src="/vedio/postman/2-6-verfyserverstate.mp4" type="video/mp4">
-      <p>Your user agent does not support the HTML5 Video element.</p>
- </video>
+<p>请求、文件夹、测试集中都可以在前置请求脚本、测试脚本栏上编写对请求、文件夹、测试集中编写前置请求脚本和测试脚本。</p>
+<h3 id="测试集设置前置处理脚本和测试脚本"><a href="#测试集设置前置处理脚本和测试脚本" class="headerlink" title="测试集设置前置处理脚本和测试脚本"></a>测试集设置前置处理脚本和测试脚本</h3><ul>
+<li>设置前置处理脚本</li>
+</ul>
+<p>选择测试集，然后点击 <strong>“Pre-script Request”</strong> 标签栏，可以在前置脚本栏中编写前置处理脚本，例如获取环境变量中的 <strong>“Token”</strong>。</p>
+<p><img src="/img/postman-in-action/03-01-01-collecion-pre-script.png" alt=""></p>
+<ul>
+<li>设置测试脚本</li>
+</ul>
+<p>选择测试集，然后点击 <strong>“Test”</strong> 标签栏，在 <strong>“Test”</strong> 标签栏的文本框中可以输入处理服务器响应结果的脚本。例如验证服务器是否正常工作。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pm.test(<span class="string">"Status code is 200"</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    pm.response.to.have.status(<span class="number">200</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
-
+<p><img src="/img/postman-in-action/03-01-02-collection-test.png" alt=""></p>
 
       
     </div>
@@ -324,13 +328,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="">Postman 接口自动化测试与持续集成全栈-实战环节之Demon 演练快速上手</a></p>
+        <p><span>本文标题:</span><a href="">Postman 接口自动化测试与持续集成全栈-Postman 脚本编程</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">DevOps Tools</a></p>
-        <p><span>发布时间:</span>2019-10-22, 00:00:08</p>
-        <p><span>最后更新:</span>2019-10-22, 14:46:02</p>
+        <p><span>发布时间:</span>2019-10-23, 22:42:45</p>
+        <p><span>最后更新:</span>2019-10-24, 08:24:36</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="" title="Postman 接口自动化测试与持续集成全栈-实战环节之Demon 演练快速上手">http://devopstools.cn/2019/10/22/api-test/postman-in-acton/section1/making-hands-dirty/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://devopstools.cn/2019/10/22/api-test/postman-in-acton/section1/making-hands-dirty/　　作者: DevOps Tools" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="" title="Postman 接口自动化测试与持续集成全栈-Postman 脚本编程">http://devopstools.cn/2019/10/23/api-test/postman-in-acton/section2/intro_script/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://devopstools.cn/2019/10/23/api-test/postman-in-acton/section2/intro_script/　　作者: DevOps Tools" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -342,16 +346,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="../../../../agile/scrum-agile/">
-                    Scrum 敏捷管理
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="../setting-parameters/">
-                    Postman 接口自动化测试与持续集成全栈- 设置请求参数
+                <a href="../../../../../22/note/zhiyue/">
+                    指月新录
                 </a>
             </div>
         
@@ -363,7 +361,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#实战环节：Demon-演练快速上手"><span class="toc-number">1.</span> <span class="toc-text">实战环节：Demon 演练快速上手</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#本节演示使用-Postman-检查服务器是否正常对外提供服务"><span class="toc-number">1.1.</span> <span class="toc-text">本节演示使用 Postman 检查服务器是否正常对外提供服务</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Postman-脚本编程"><span class="toc-number">1.</span> <span class="toc-text">Postman 脚本编程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#测试集设置前置处理脚本和测试脚本"><span class="toc-number">1.1.</span> <span class="toc-text">测试集设置前置处理脚本和测试脚本</span></a></li></ol></li></ol>
         
     </div>
     <style>
@@ -399,7 +397,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Postman 接口自动化测试与持续集成全栈-实战环节之Demon 演练快速上手　| DevOps 技术与工具　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Postman 接口自动化测试与持续集成全栈-Postman 脚本编程　| DevOps 技术与工具　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -419,21 +417,19 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="../../../../agile/scrum-agile/" title="上一篇: Scrum 敏捷管理">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="../setting-parameters/" title="下一篇: Postman 接口自动化测试与持续集成全栈- 设置请求参数">
+            <a href="../../../../../22/note/zhiyue/" title="下一篇: 指月新录">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="../../../../../23/api-test/postman-in-acton/section2/intro_script/">Postman 接口自动化测试与持续集成全栈-Postman 脚本编程</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../note/zhiyue/">指月新录</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../note/lunyu/">论语杂谈</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../ui-test/selenium/">UI测试框架-Selenium</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../unit-test/junit-framework/">Java 单元测试框架-JUnit</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../agile/scrum-agile/">Scrum 敏捷管理</a></li><li class="post-list-item"><a class="post-list-link" href="">Postman 接口自动化测试与持续集成全栈-实战环节之Demon 演练快速上手</a></li><li class="post-list-item"><a class="post-list-link" href="../setting-parameters/">Postman 接口自动化测试与持续集成全栈- 设置请求参数</a></li><li class="post-list-item"><a class="post-list-link" href="../request-response/">Postman 接口自动化测试与持续集成全栈- API 请求响应处理</a></li><li class="post-list-item"><a class="post-list-link" href="../create-request/">Postman 接口自动化测试与持续集成全栈-创建请求</a></li><li class="post-list-item"><a class="post-list-link" href="../menus/">Postman 接口自动化测试与持续集成全栈-Postman 功能介绍</a></li><li class="post-list-item"><a class="post-list-link" href="../installation/">Postman 接口自动化测试与持续集成全栈-Postman 下载与安装</a></li><li class="post-list-item"><a class="post-list-link" href="../introduction-to-api/">Postman 接口自动化测试与持续集成全栈-API 测试介绍</a></li><li class="post-list-item"><a class="post-list-link" href="../../introduction/">Postman 接口自动化测试与持续集成全栈-前言</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../../19/ci-cd/devops-tools/">DevOps 工具链-Java 持续集成发布流水线</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="">Postman 接口自动化测试与持续集成全栈-Postman 脚本编程</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../../22/note/zhiyue/">指月新录</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../../22/note/lunyu/">论语杂谈</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../../22/ui-test/selenium/">UI测试框架-Selenium</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../../22/unit-test/junit-framework/">Java 单元测试框架-JUnit</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../../22/agile/scrum-agile/">Scrum 敏捷管理</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../../22/api-test/postman-in-acton/section1/making-hands-dirty/">Postman 接口自动化测试与持续集成全栈-实战环节之Demon 演练快速上手</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../../22/api-test/postman-in-acton/section1/setting-parameters/">Postman 接口自动化测试与持续集成全栈- 设置请求参数</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../../22/api-test/postman-in-acton/section1/request-response/">Postman 接口自动化测试与持续集成全栈- API 请求响应处理</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../../22/api-test/postman-in-acton/section1/create-request/">Postman 接口自动化测试与持续集成全栈-创建请求</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../../22/api-test/postman-in-acton/section1/menus/">Postman 接口自动化测试与持续集成全栈-Postman 功能介绍</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../../22/api-test/postman-in-acton/section1/installation/">Postman 接口自动化测试与持续集成全栈-Postman 下载与安装</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../../22/api-test/postman-in-acton/section1/introduction-to-api/">Postman 接口自动化测试与持续集成全栈-API 测试介绍</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../../22/api-test/postman-in-acton/introduction/">Postman 接口自动化测试与持续集成全栈-前言</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../../19/ci-cd/devops-tools/">DevOps 工具链-Java 持续集成发布流水线</a></li></ul>
 
 
 
