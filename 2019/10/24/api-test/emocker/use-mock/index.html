@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="DevOps Tools" />
+
+
+
+<meta name="description" content="Mock 服务器可以模拟任何使用 HTTP &#x2F; HTTPS 对外提供服务的 WebService 服务、系统或网站。">
+<meta name="keywords" content="敏捷研发,接口测试,Mock">
+<meta property="og:type" content="article">
+<meta property="og:title" content="EMocker 易墨客 --HTTP&#x2F;HTTPS 接口服务模拟与监控">
+<meta property="og:url" content="http:&#x2F;&#x2F;devopstools.cn&#x2F;2019&#x2F;10&#x2F;24&#x2F;api-test&#x2F;emocker&#x2F;use-mock&#x2F;index.html">
+<meta property="og:site_name" content="DevOps 技术与工具">
+<meta property="og:description" content="Mock 服务器可以模拟任何使用 HTTP &#x2F; HTTPS 对外提供服务的 WebService 服务、系统或网站。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http:&#x2F;&#x2F;devopstools.cn&#x2F;img&#x2F;mocker&#x2F;01-01-01-request-mock.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;devopstools.cn&#x2F;img&#x2F;mocker&#x2F;01-01-02-proxy-service.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;devopstools.cn&#x2F;img&#x2F;mocker&#x2F;01-01-03-callback-mock.png">
+<meta property="og:updated_time" content="2019-10-24T23:47:15.999Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;devopstools.cn&#x2F;img&#x2F;mocker&#x2F;01-01-01-request-mock.png">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="DevOps 技术与工具" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="../../../../../../css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>EMocker 易墨客 --HTTP/HTTPS 接口服务模拟与监控 | DevOps 技术与工具</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?9f2ec0702d90c1f43efd0a40a2fb0479";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/tools.jpeg" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">DevOps Tools</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">技术与工具</p>
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="true" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="../../../../../../index.html">主页</a></li>
+                        
+                            <li><a href="../../../../../../categories/%E6%95%8F%E6%8D%B7%E7%A0%94%E5%8F%91/">敏捷研发</a></li>
+                        
+                            <li><a href="../../../../../../categories/CI-CD/">CI/CD</a></li>
+                        
+                            <li><a href="../../../../../../categories/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/">单元测试</a></li>
+                        
+                            <li><a href="../../../../../../categories/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/">接口测试</a></li>
+                        
+                            <li><a href="../../../../../../categories/UI%E6%B5%8B%E8%AF%95/">UI测试</a></li>
+                        
+                            <li><a href="../../../../../../categories/%E9%9A%8F%E7%AC%94/">随笔</a></li>
+                        
+                            <li><a href="../../../../../../tags/">标签云</a></li>
+                        
+                            <li><a href="../../../../../../archives/">所有文章</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../tags/BDD/" rel="tag">BDD</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../tags/JUnit/" rel="tag">JUnit</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../tags/Mock/" rel="tag">Mock</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../tags/NodeJS/" rel="tag">NodeJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../tags/Postman/" rel="tag">Postman</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../tags/SAFe/" rel="tag">SAFe</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../tags/Scrum/" rel="tag">Scrum</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../tags/Selenium/" rel="tag">Selenium</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../tags/UI%E6%B5%8B%E8%AF%95/" rel="tag">UI测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../tags/%E4%BB%A3%E7%A0%81%E6%89%AB%E6%8F%8F/" rel="tag">代码扫描</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../tags/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" rel="tag">单元测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../tags/%E5%9B%BD%E5%AD%A6/" rel="tag">国学</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../tags/%E6%8C%81%E7%BB%AD%E9%83%A8%E7%BD%B2/" rel="tag">持续部署</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../tags/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/" rel="tag">持续集成</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/" rel="tag">接口测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../tags/%E6%95%8F%E6%8D%B7%E7%A0%94%E5%8F%91/" rel="tag">敏捷研发</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../tags/%E6%95%8F%E6%8D%B7%E7%AE%A1%E7%90%86/" rel="tag">敏捷管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../tags/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/" rel="tag">版本管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../tags/%E7%A6%85%E5%AE%97/" rel="tag">禅宗</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../../tags/%E7%BB%8F%E5%85%B8/" rel="tag">经典</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">DevOps Tools</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/tools.jpeg" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">DevOps Tools</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">技术与工具</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="../../../../../../index.html">主页</a></li>
+                
+                    <li><a href="../../../../../../categories/%E6%95%8F%E6%8D%B7%E7%A0%94%E5%8F%91/">敏捷研发</a></li>
+                
+                    <li><a href="../../../../../../categories/CI-CD/">CI/CD</a></li>
+                
+                    <li><a href="../../../../../../categories/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/">单元测试</a></li>
+                
+                    <li><a href="../../../../../../categories/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/">接口测试</a></li>
+                
+                    <li><a href="../../../../../../categories/UI%E6%B5%8B%E8%AF%95/">UI测试</a></li>
+                
+                    <li><a href="../../../../../../categories/%E9%9A%8F%E7%AC%94/">随笔</a></li>
+                
+                    <li><a href="../../../../../../tags/">标签云</a></li>
+                
+                    <li><a href="../../../../../../archives/">所有文章</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-api-test/emocker/use-mock" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="" class="article-date">
+      <time datetime="2019-10-24T05:54:24.010Z" itemprop="datePublished">2019-10-24</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      EMocker 易墨客 --HTTP/HTTPS 接口服务模拟与监控
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="../../../../../../categories/%E6%95%8F%E6%8D%B7%E7%A0%94%E5%8F%91/">敏捷研发</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../../tags/Mock/" rel="tag">Mock</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../../tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/" rel="tag">接口测试</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../../tags/%E6%95%8F%E6%8D%B7%E7%A0%94%E5%8F%91/" rel="tag">敏捷研发</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>Mock 服务器可以模拟任何使用 HTTP / HTTPS 对外提供服务的 WebService 服务、系统或网站。</p>
+<a id="more"></a>
+
+<h2 id="EMocker–易墨客🦜"><a href="#EMocker–易墨客🦜" class="headerlink" title="EMocker–易墨客🦜"></a>EMocker–易墨客🦜</h2><h3 id="EMOCKER-易墨客的作用"><a href="#EMOCKER-易墨客的作用" class="headerlink" title="EMOCKER 易墨客的作用"></a>EMOCKER 易墨客的作用</h3><p>服务器可以模拟任何使用 HTTP / HTTPS 对外提供服务的 WebService 服务、系统或网站。<br>当服务接收到请求时，它会查找请求对应的响应规则，然后按照规则返回请求者所需的约定格式的数据。响应规则可以定制配置，它定义了响应数据所需的规范要求。</p>
+<ul>
+<li>向客户端返回模拟响应</li>
+</ul>
+<!--mermaid
+sequenceDiagram
+participant Client as 客户端📱
+participant Mocker as 鹦鹉模拟🦜
+Client->>Mocker: 发送请求！
+Mocker->>Mocker: 匹配请求
+Mocker->>Client: 根据规则返回响应！
+-->
+
+
+<p><img src="/img/mocker/01-01-01-request-mock.png" alt=""></p>
+<ul>
+<li><p>代理转发请求给真实服务</p>
+<!--mermaid
+sequenceDiagram
+participant Client as 客户端📱
+participant Mocker as 鹦鹉模拟🦜
+participant Service as 真实服务🎎
+Client->>Mocker: 发送请求！
+Mocker->>Mocker: 匹配请求
+Mocker->>Service: 转发请求
+Service->>Client: 返回真实响应
+-->
+
+</li>
+</ul>
+<p><img src="/img/mocker/01-01-02-proxy-service.png" alt=""></p>
+<ul>
+<li><p>回调自定义处理逻辑</p>
+<!--mermaid
+sequenceDiagram
+participant Client as 客户端📱
+participant Mocker as 鹦鹉模拟🦜
+participant CallBack as 回调逻辑🦸‍♂️
+Client->>Mocker: 发送请求！
+Mocker->>Mocker: 匹配请求
+Mocker->>CallBack: 请求回调处理
+CallBack->>Mocker: 返回处理结果
+Mocker->>Client: 返回响应
+-->
+
+</li>
+</ul>
+<p><img src="/img/mocker/01-01-03-callback-mock.png" alt=""></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="">EMocker 易墨客 --HTTP/HTTPS 接口服务模拟与监控</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">DevOps Tools</a></p>
+        <p><span>发布时间:</span>2019-10-24, 13:54:24</p>
+        <p><span>最后更新:</span>2019-10-25, 07:47:15</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="" title="EMocker 易墨客 --HTTP/HTTPS 接口服务模拟与监控">http://devopstools.cn/2019/10/24/api-test/emocker/use-mock/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://devopstools.cn/2019/10/24/api-test/emocker/use-mock/　　作者: DevOps Tools" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="../../../agile/bdd/">
+                    敏捷研发流程-行为驱动开发 Behavior Driven Development （BDD）
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="../../../../23/api-test/postman-in-acton/section2/intro_script/">
+                    Postman 接口自动化测试与持续集成全栈-Postman 脚本编程
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#EMocker–易墨客🦜"><span class="toc-number">1.</span> <span class="toc-text">EMocker–易墨客🦜</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#EMOCKER-易墨客的作用"><span class="toc-number">1.1.</span> <span class="toc-text">EMOCKER 易墨客的作用</span></a></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"EMocker 易墨客 --HTTP/HTTPS 接口服务模拟与监控　| DevOps 技术与工具　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="../../../agile/bdd/" title="上一篇: 敏捷研发流程-行为驱动开发 Behavior Driven Development （BDD）">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="../../../../23/api-test/postman-in-acton/section2/intro_script/" title="下一篇: Postman 接口自动化测试与持续集成全栈-Postman 脚本编程">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="../../../agile/SAFe-Tutorial/">企业敏捷 Scaled Agile Framework (SAFe) 全面介绍</a></li><li class="post-list-item"><a class="post-list-link" href="../../../agile/bdd/">敏捷研发流程-行为驱动开发 Behavior Driven Development （BDD）</a></li><li class="post-list-item"><a class="post-list-link" href="">EMocker 易墨客 --HTTP/HTTPS 接口服务模拟与监控</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../23/api-test/postman-in-acton/section2/intro_script/">Postman 接口自动化测试与持续集成全栈-Postman 脚本编程</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../22/note/zhiyue/">指月新录</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../22/note/lunyu/">论语杂谈</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../22/ui-test/selenium/">UI测试框架-Selenium</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../22/unit-test/junit-framework/">Java 单元测试框架-JUnit</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../22/agile/scrum-agile/">Scrum 敏捷管理</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../22/api-test/postman-in-acton/section1/making-hands-dirty/">Postman 接口自动化测试与持续集成全栈-实战环节之Demon 演练快速上手</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../22/api-test/postman-in-acton/section1/setting-parameters/">Postman 接口自动化测试与持续集成全栈- 设置请求参数</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../22/api-test/postman-in-acton/section1/request-response/">Postman 接口自动化测试与持续集成全栈- API 请求响应处理</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../22/api-test/postman-in-acton/section1/create-request/">Postman 接口自动化测试与持续集成全栈-创建请求</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../22/api-test/postman-in-acton/section1/menus/">Postman 接口自动化测试与持续集成全栈-Postman 功能介绍</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../22/api-test/postman-in-acton/section1/installation/">Postman 接口自动化测试与持续集成全栈-Postman 下载与安装</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../22/api-test/postman-in-acton/section1/introduction-to-api/">Postman 接口自动化测试与持续集成全栈-API 测试介绍</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../22/api-test/postman-in-acton/introduction/">Postman 接口自动化测试与持续集成全栈-前言</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../19/ci-cd/devops-tools/">DevOps 工具链-Java 持续集成发布流水线</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2019 DevOps Tools 沪ICP备18014300号-3
+            </div>
+            <div class="footer-right">
+                <a href="http://devopstools.cn/" target="_blank" title="快速、简洁且高效的博客框架">Power by DevOpsTools</a>  
+                <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+        
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        
+        <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                    <span id="busuanzi_container_site_pv">
+                        本站总访问量<span id="busuanzi_value_site_pv"></span>次
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+    <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
