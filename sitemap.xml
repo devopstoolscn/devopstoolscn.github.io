@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>http://devopstools.cn/2019/10/24/api-test/emocker/use-mock/</loc>
+    
+    <lastmod>2019-10-25T15:44:30.205Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://devopstools.cn/2019/10/22/note/lunyu/</loc>
+    
+    <lastmod>2019-10-25T14:57:14.938Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://devopstools.cn/2019/10/25/note/yuqieshidilun/</loc>
+    
+    <lastmod>2019-10-25T14:12:16.293Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://devopstools.cn/2019/10/23/api-test/postman-in-acton/section2/intro_script/</loc>
+    
+    <lastmod>2019-10-25T08:40:06.427Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://devopstools.cn/2019/10/22/agile/scrum-agile/</loc>
+    
+    <lastmod>2019-10-24T23:58:23.604Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://devopstools.cn/2019/10/22/unit-test/junit-framework/</loc>
+    
+    <lastmod>2019-10-24T23:55:26.634Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://devopstools.cn/2019/10/22/ui-test/selenium/</loc>
+    
+    <lastmod>2019-10-24T23:55:10.604Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://devopstools.cn/2019/10/22/note/zhiyue/</loc>
+    
+    <lastmod>2019-10-24T23:54:35.088Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://devopstools.cn/2019/10/22/api-test/postman-in-acton/section1/setting-parameters/</loc>
+    
+    <lastmod>2019-10-24T23:49:31.393Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://devopstools.cn/2019/10/22/api-test/postman-in-acton/section1/request-response/</loc>
+    
+    <lastmod>2019-10-24T23:49:19.261Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://devopstools.cn/2019/10/22/api-test/postman-in-acton/section1/menus/</loc>
+    
+    <lastmod>2019-10-24T23:49:08.074Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://devopstools.cn/2019/10/22/api-test/postman-in-acton/section1/making-hands-dirty/</loc>
+    
+    <lastmod>2019-10-24T23:48:55.644Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://devopstools.cn/2019/10/22/api-test/postman-in-acton/section1/introduction-to-api/</loc>
+    
+    <lastmod>2019-10-24T23:48:43.416Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://devopstools.cn/2019/10/22/api-test/postman-in-acton/section1/installation/</loc>
+    
+    <lastmod>2019-10-24T23:48:30.557Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://devopstools.cn/2019/10/22/api-test/postman-in-acton/section1/create-request/</loc>
+    
+    <lastmod>2019-10-24T23:48:19.097Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://devopstools.cn/2019/10/22/api-test/postman-in-acton/introduction/</loc>
+    
+    <lastmod>2019-10-24T23:48:05.992Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://devopstools.cn/2019/10/19/ci-cd/devops-tools/</loc>
+    
+    <lastmod>2019-10-24T23:47:41.904Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://devopstools.cn/2019/10/24/agile/SAFe-Tutorial/</loc>
+    
+    <lastmod>2019-10-24T23:35:26.705Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://devopstools.cn/2019/10/24/agile/bdd/</loc>
+    
+    <lastmod>2019-10-24T23:35:14.948Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://devopstools.cn/note/index.html</loc>
+    
+    <lastmod>2019-10-22T02:28:28.364Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://devopstools.cn/unit-test/index.html</loc>
+    
+    <lastmod>2019-10-22T02:26:32.115Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://devopstools.cn/ui-test/index.html</loc>
+    
+    <lastmod>2019-10-22T02:25:29.919Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://devopstools.cn/api-test/index.html</loc>
+    
+    <lastmod>2019-10-22T02:23:55.260Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://devopstools.cn/ci-cd/index.html</loc>
+    
+    <lastmod>2019-10-22T02:22:46.579Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://devopstools.cn/agile/index.html</loc>
+    
+    <lastmod>2019-10-22T00:41:11.260Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://devopstools.cn/404.html</loc>
+    
+    <lastmod>2019-10-21T08:21:02.044Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://devopstools.cn/tags/index.html</loc>
+    
+    <lastmod>2019-10-20T14:06:06.997Z</lastmod>
+    
+  </url>
+  
+</urlset>

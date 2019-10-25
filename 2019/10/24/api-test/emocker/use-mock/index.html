@@ -26,7 +26,7 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;devopstools.cn&#x2F;img&#x2F;mocker&#x2F;01-01-01-request-mock.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;devopstools.cn&#x2F;img&#x2F;mocker&#x2F;01-01-02-proxy-service.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;devopstools.cn&#x2F;img&#x2F;mocker&#x2F;01-01-03-callback-mock.png">
-<meta property="og:updated_time" content="2019-10-24T23:47:15.999Z">
+<meta property="og:updated_time" content="2019-10-25T15:44:30.205Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;devopstools.cn&#x2F;img&#x2F;mocker&#x2F;01-01-01-request-mock.png">
 
@@ -101,7 +101,7 @@
         })();
     </script>
 
-
+<script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/9cce7023.js","daovoice")</script>
 </head>
 <body>
   <div id="container">
@@ -308,14 +308,12 @@
 <ul>
 <li>向客户端返回模拟响应</li>
 </ul>
-<!--mermaid
-sequenceDiagram
+<pre class="mermaid">sequenceDiagram
 participant Client as 客户端📱
-participant Mocker as 鹦鹉模拟🦜
+participant Mocker as EMocker🦜
 Client->>Mocker: 发送请求！
 Mocker->>Mocker: 匹配请求
-Mocker->>Client: 根据规则返回响应！
--->
+Mocker->>Client: 根据规则返回响应！</pre>
 
 
 <p><img src="/img/mocker/01-01-01-request-mock.png" alt=""></p>
@@ -363,7 +361,7 @@ Mocker->>Client: 返回响应
         <p><span>本文标题:</span><a href="">EMocker 易墨客 --HTTP/HTTPS 接口服务模拟与监控</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">DevOps Tools</a></p>
         <p><span>发布时间:</span>2019-10-24, 13:54:24</p>
-        <p><span>最后更新:</span>2019-10-25, 07:47:15</p>
+        <p><span>最后更新:</span>2019-10-25, 23:44:30</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="" title="EMocker 易墨客 --HTTP/HTTPS 接口服务模拟与监控">http://devopstools.cn/2019/10/24/api-test/emocker/use-mock/</a>
             <span class="copy-path" data-clipboard-text="原文: http://devopstools.cn/2019/10/24/api-test/emocker/use-mock/　　作者: DevOps Tools" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -591,6 +589,18 @@ MathJax.Hub.Queue(function() {
 
 <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>
+
+  <script src='https://unpkg.com/mermaid@7.1.2/dist/mermaid.min.js'></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({theme: 'yelee'});
+    }
+    daovoice('init', {
+  app_id: "9cce7023"
+});
+daovoice('update');
+  </script>
+
   </div>
 </body>
 </html>
