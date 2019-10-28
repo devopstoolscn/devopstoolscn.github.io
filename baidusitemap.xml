@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://devopstools.cn/2019/10/24/api-test/emocker/use-mock/</loc>
-    <lastmod>2019-10-25</lastmod>
+    <loc>http://devopstools.cn/2019/10/28/performance/JMeter/JMeter-performance/</loc>
+    <lastmod>2019-10-28</lastmod>
   </url>  <url>
-    <loc>http://devopstools.cn/2019/10/22/note/lunyu/</loc>
-    <lastmod>2019-10-25</lastmod>
+    <loc>http://devopstools.cn/2019/10/24/api-test/emocker/intro-mock/</loc>
+    <lastmod>2019-10-28</lastmod>
   </url>  <url>
     <loc>http://devopstools.cn/2019/10/25/note/yuqieshidilun/</loc>
-    <lastmod>2019-10-25</lastmod>
+    <lastmod>2019-10-27</lastmod>
+  </url>  <url>
+    <loc>http://devopstools.cn/2019/10/22/note/lunyu/</loc>
+    <lastmod>2019-10-27</lastmod>
   </url>  <url>
     <loc>http://devopstools.cn/2019/10/23/api-test/postman-in-acton/section2/intro_script/</loc>
     <lastmod>2019-10-25</lastmod>

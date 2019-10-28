@@ -15,18 +15,20 @@
 
 
 
-<meta name="description" content="当想要分析一下别人开发的或者自己开发的 RESTful API 时，Postman 是一个很好的工具。Postman 深受开发人员和测试人员的欢迎，因为它提供了一个很好的用户图形界面 （GUI）发送 HTTP 请求，而不必再编写一堆辅助代码。">
-<meta name="keywords" content="接口测试,Postman">
+<meta name="description" content="Mock 服务器可以模拟任何使用 HTTP &#x2F; HTTPS 对外提供服务的 WebService 服务、系统或网站。">
+<meta name="keywords" content="敏捷研发,接口测试,Mock">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Postman 接口自动化测试与持续集成全栈-前言">
-<meta property="og:url" content="http:&#x2F;&#x2F;devopstools.cn&#x2F;2019&#x2F;10&#x2F;22&#x2F;api-test&#x2F;postman-in-acton&#x2F;introduction&#x2F;index.html">
+<meta property="og:title" content="EMocker 易墨客 --HTTP&#x2F;HTTPS 接口服务模拟与监控">
+<meta property="og:url" content="http:&#x2F;&#x2F;devopstools.cn&#x2F;2019&#x2F;10&#x2F;24&#x2F;api-test&#x2F;emocker&#x2F;intro-mock&#x2F;index.html">
 <meta property="og:site_name" content="DevOps 技术与工具">
-<meta property="og:description" content="当想要分析一下别人开发的或者自己开发的 RESTful API 时，Postman 是一个很好的工具。Postman 深受开发人员和测试人员的欢迎，因为它提供了一个很好的用户图形界面 （GUI）发送 HTTP 请求，而不必再编写一堆辅助代码。">
+<meta property="og:description" content="Mock 服务器可以模拟任何使用 HTTP &#x2F; HTTPS 对外提供服务的 WebService 服务、系统或网站。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http:&#x2F;&#x2F;devopstools.cn&#x2F;img&#x2F;postman-in-action&#x2F;api-5000.svg">
-<meta property="og:updated_time" content="2019-10-24T23:48:05.992Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;devopstools.cn&#x2F;img&#x2F;mocker&#x2F;01-01-01-request-mock.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;devopstools.cn&#x2F;img&#x2F;mocker&#x2F;01-01-02-proxy-service.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;devopstools.cn&#x2F;img&#x2F;mocker&#x2F;01-01-03-callback-mock.png">
+<meta property="og:updated_time" content="2019-10-28T02:22:37.715Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http:&#x2F;&#x2F;devopstools.cn&#x2F;img&#x2F;postman-in-action&#x2F;api-5000.svg">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;devopstools.cn&#x2F;img&#x2F;mocker&#x2F;01-01-01-request-mock.png">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -58,7 +60,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Postman 接口自动化测试与持续集成全栈-前言 | DevOps 技术与工具</title>
+<title>EMocker 易墨客 --HTTP/HTTPS 接口服务模拟与监控 | DevOps 技术与工具</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -259,11 +261,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-api-test/postman-in-acton/introduction" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-api-test/emocker/intro-mock" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
       <a href="" class="article-date">
-      <time datetime="2019-10-21T16:00:01.000Z" itemprop="datePublished">2019-10-22</time>
+      <time datetime="2019-10-24T05:54:24.010Z" itemprop="datePublished">2019-10-24</time>
 </a>
 
 
@@ -278,7 +280,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Postman 接口自动化测试与持续集成全栈-前言
+      EMocker 易墨客 --HTTP/HTTPS 接口服务模拟与监控
     </h1>
   
 
@@ -287,13 +289,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="../../../../../../categories/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/">接口测试</a>
+    <a class="article-category-link" href="../../../../../../categories/%E6%95%8F%E6%8D%B7%E7%A0%94%E5%8F%91/">敏捷研发</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../../tags/Postman/" rel="tag">Postman</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../../tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/" rel="tag">接口测试</a></li></ul>
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../../tags/Mock/" rel="tag">Mock</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../../tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/" rel="tag">接口测试</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../../tags/%E6%95%8F%E6%8D%B7%E7%A0%94%E5%8F%91/" rel="tag">敏捷研发</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -303,16 +305,84 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>当想要分析一下别人开发的或者自己开发的 RESTful API 时，Postman 是一个很好的工具。Postman 深受开发人员和测试人员的欢迎，因为它提供了一个很好的用户图形界面 （GUI）发送 HTTP 请求，而不必再编写一堆辅助代码。</p>
+        <p>Mock 服务器可以模拟任何使用 HTTP / HTTPS 对外提供服务的 WebService 服务、系统或网站。</p>
 <a id="more"></a>
 
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><img src="/img/postman-in-action/api-5000.svg" alt="UFO"></p>
-<p>当想要分析一下别人开发的或者自己开发的 RESTful API 时，Postman 是一个很好的工具。Postman 深受开发人员和测试人员的欢迎，因为它提供了一个很好的用户图形界面 （GUI）发送 HTTP 请求，而不必再编写一堆辅助代码。</p>
-<p>如果不使用类似 Postman 之类的 API 测试工具时，要验证服务器端 API 返回的响应是否正确，就需要把客户端调用相应 API 的全部代码写出来，人工查看返回结果，并且返回结果如果需要格式化显示或者生成测试报告，就需要更大的工作量。Postman 确保开发人员把主要精力放在真正有价值的特性开发上，而不用为了验证 API 是否正确花费太大的精力。同时也降低了测试人员验证 API 正确性的复杂程度，不用掌握太高深的编程技能也能进行 API 测试。</p>
-<p>有了 Postman API 测试变得简单很多。使用 Postman 发送一个 RESTful API 请求只需要选择请求的方法，例如 GET、POST 等，在地址栏 （URL） 栏输入被请求资源的地址，在请求头（HEADERS）填入请求需要的参数，然后选择服务器响应后返回的数据格式，点击发送即可。接收到服务器返回的数据后，Postman 自动解析成易读的 JSON 格式，也可以设置好验证断言，让 Postman 自动验证服务器返回结果是否符合预期。</p>
-<blockquote>
-<h4 id="Success-友情提醒👭"><a href="#Success-友情提醒👭" class="headerlink" title="Success::友情提醒👭"></a>Success::友情提醒👭</h4><p>如果您喜欢，请赞赏购买《Postman API 测试与持续集成全栈攻略》完整电子版！购买后请留下您的Email，我们将及时送达您的邮箱！</p>
-</blockquote>
+<h2 id="EMocker–易墨客🦜"><a href="#EMocker–易墨客🦜" class="headerlink" title="EMocker–易墨客🦜"></a>EMocker–易墨客🦜</h2><h3 id="EMOCKER-易墨客的作用"><a href="#EMOCKER-易墨客的作用" class="headerlink" title="EMOCKER 易墨客的作用"></a>EMOCKER 易墨客的作用</h3><p>服务器可以模拟任何使用 HTTP / HTTPS 对外提供服务的 WebService 服务、系统或网站。<br>当服务接收到请求时，它会查找请求对应的响应规则，然后按照规则返回请求者所需的约定格式的数据。响应规则可以定制配置，它定义了响应数据所需的规范要求。</p>
+<ul>
+<li>向客户端返回模拟响应</li>
+</ul>
+<pre class="mermaid">sequenceDiagram
+participant Client as 客户端📱
+participant Mocker as EMocker🦜
+Client->>Mocker: 发送请求！
+Mocker->>Mocker: 匹配请求
+Mocker->>Client: 根据规则返回响应！</pre>
+
+
+<p><img src="/img/mocker/01-01-01-request-mock.png" alt=""></p>
+<ul>
+<li><p>代理转发请求给真实服务</p>
+<pre class="mermaid">  sequenceDiagram
+participant Client as 客户端📱
+participant Mocker as EMocker🦜
+participant Service as 真实服务🎎
+Client->>Mocker: 发送请求！
+Mocker->>Mocker: 匹配请求
+Mocker->>Service: 转发请求
+Service->>Client: 返回真实响应</pre>
+
+</li>
+</ul>
+<p><img src="/img/mocker/01-01-02-proxy-service.png" alt=""></p>
+<ul>
+<li><p>回调自定义处理逻辑</p>
+<pre class="mermaid">  sequenceDiagram
+participant Client as 客户端📱
+participant Mocker as EMocker🦜
+participant CallBack as 回调逻辑🦸‍♂️
+Client->>Mocker: 发送请求！
+Mocker->>Mocker: 匹配请求
+Mocker->>CallBack: 请求回调处理
+CallBack->>Mocker: 返回处理结果
+Mocker->>Client: 返回响应</pre>
+
+
+</li>
+</ul>
+<p><img src="/img/mocker/01-01-03-callback-mock.png" alt=""></p>
+<ul>
+<li>发送请求验证</li>
+</ul>
+<pre class="mermaid">  sequenceDiagram
+  participant Client as 客户端📱
+  participant Mocker as EMocker🦜
+  participant Persistance as 存储系统
+  participant CallBack as 回调逻辑🦸‍♂️
+  Client->>Mocker: 发送请求！
+  Mocker->>Persistance: 记录请求
+  Persistance->>CallBack: 返回记录
+  Mocker->>CallBack: 验证请求
+  CallBack->>Mocker: 返回结果
+  Mocker->>Client: 返回响应</pre>
+
+
+<ul>
+<li>获取日志和异常</li>
+</ul>
+<pre class="mermaid">  sequenceDiagram
+  participant Client as 客户端📱
+  participant Mocker as EMocker🦜
+  participant Persistance as 存储系统
+  participant CallBack as 回调逻辑🦸‍♂️
+  Client->>Mocker: 发送请求！
+  Mocker->>Persistance: 记录日志
+  Persistance->>CallBack: 返回日志
+  Mocker->>CallBack: 获取日志
+  CallBack->>Mocker: 返回结果
+  Mocker->>Client: 返回响应</pre>
+
+<h3 id="EMocker-代理"><a href="#EMocker-代理" class="headerlink" title="EMocker 代理"></a>EMocker 代理</h3><p>EMocker 可以记录所代理系统/应用/服务的全部请求，例如端口转发、HTTP代理、HTTPS代理、SOCKS代理，可以验证其所代理的请求，可以记录分析被代理系统的请求和响应行为。</p>
 
       
     </div>
@@ -321,13 +391,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="">Postman 接口自动化测试与持续集成全栈-前言</a></p>
+        <p><span>本文标题:</span><a href="">EMocker 易墨客 --HTTP/HTTPS 接口服务模拟与监控</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">DevOps Tools</a></p>
-        <p><span>发布时间:</span>2019-10-22, 00:00:01</p>
-        <p><span>最后更新:</span>2019-10-25, 07:48:05</p>
+        <p><span>发布时间:</span>2019-10-24, 13:54:24</p>
+        <p><span>最后更新:</span>2019-10-28, 10:22:37</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="" title="Postman 接口自动化测试与持续集成全栈-前言">http://devopstools.cn/2019/10/22/api-test/postman-in-acton/introduction/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://devopstools.cn/2019/10/22/api-test/postman-in-acton/introduction/　　作者: DevOps Tools" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="" title="EMocker 易墨客 --HTTP/HTTPS 接口服务模拟与监控">http://devopstools.cn/2019/10/24/api-test/emocker/intro-mock/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://devopstools.cn/2019/10/24/api-test/emocker/intro-mock/　　作者: DevOps Tools" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -340,15 +410,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="../section1/introduction-to-api/">
-                    Postman 接口自动化测试与持续集成全栈-API 测试介绍
+                <a href="../../../agile/bdd/">
+                    敏捷研发流程-行为驱动开发 Behavior Driven Development （BDD）
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="../../../../19/ci-cd/devops-tools/">
-                    DevOps 工具链-Java 持续集成发布流水线
+                <a href="../../../../23/api-test/postman-in-acton/section2/intro_script/">
+                    Postman 接口自动化测试与持续集成全栈-Postman 脚本编程
                 </a>
             </div>
         
@@ -360,7 +430,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Success-友情提醒👭"><span class="toc-number">1.0.1.</span> <span class="toc-text">Success::友情提醒👭</span></a></li></ol></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#EMocker–易墨客🦜"><span class="toc-number">1.</span> <span class="toc-text">EMocker–易墨客🦜</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#EMOCKER-易墨客的作用"><span class="toc-number">1.1.</span> <span class="toc-text">EMOCKER 易墨客的作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EMocker-代理"><span class="toc-number">1.2.</span> <span class="toc-text">EMocker 代理</span></a></li></ol></li></ol>
         
     </div>
     <style>
@@ -396,7 +466,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Postman 接口自动化测试与持续集成全栈-前言　| DevOps 技术与工具　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"EMocker 易墨客 --HTTP/HTTPS 接口服务模拟与监控　| DevOps 技术与工具　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -416,7 +486,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="../section1/introduction-to-api/" title="上一篇: Postman 接口自动化测试与持续集成全栈-API 测试介绍">
+            <a href="../../../agile/bdd/" title="上一篇: 敏捷研发流程-行为驱动开发 Behavior Driven Development （BDD）">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -424,13 +494,13 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="../../../../19/ci-cd/devops-tools/" title="下一篇: DevOps 工具链-Java 持续集成发布流水线">
+            <a href="../../../../23/api-test/postman-in-acton/section2/intro_script/" title="下一篇: Postman 接口自动化测试与持续集成全栈-Postman 脚本编程">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="../../../../28/performance/JMeter/JMeter-performance/">使用JMeter 进行性能测试</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../25/note/yuqieshidilun/">小木读《瑜伽（qie）师地论》</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../24/agile/SAFe-Tutorial/">企业敏捷 Scaled Agile Framework (SAFe) 全面介绍</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../24/agile/bdd/">敏捷研发流程-行为驱动开发 Behavior Driven Development （BDD）</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../24/api-test/emocker/intro-mock/">EMocker 易墨客 --HTTP/HTTPS 接口服务模拟与监控</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../23/api-test/postman-in-acton/section2/intro_script/">Postman 接口自动化测试与持续集成全栈-Postman 脚本编程</a></li><li class="post-list-item"><a class="post-list-link" href="../../../note/zhiyue/">指月新录</a></li><li class="post-list-item"><a class="post-list-link" href="../../../note/lunyu/">论语杂谈</a></li><li class="post-list-item"><a class="post-list-link" href="../../../ui-test/selenium/">UI测试框架-Selenium</a></li><li class="post-list-item"><a class="post-list-link" href="../../../unit-test/junit-framework/">Java 单元测试框架-JUnit</a></li><li class="post-list-item"><a class="post-list-link" href="../../../agile/scrum-agile/">Scrum 敏捷管理</a></li><li class="post-list-item"><a class="post-list-link" href="../section1/making-hands-dirty/">Postman 接口自动化测试与持续集成全栈-实战环节之Demon 演练快速上手</a></li><li class="post-list-item"><a class="post-list-link" href="../section1/setting-parameters/">Postman 接口自动化测试与持续集成全栈- 设置请求参数</a></li><li class="post-list-item"><a class="post-list-link" href="../section1/request-response/">Postman 接口自动化测试与持续集成全栈- API 请求响应处理</a></li><li class="post-list-item"><a class="post-list-link" href="../section1/create-request/">Postman 接口自动化测试与持续集成全栈-创建请求</a></li><li class="post-list-item"><a class="post-list-link" href="../section1/menus/">Postman 接口自动化测试与持续集成全栈-Postman 功能介绍</a></li><li class="post-list-item"><a class="post-list-link" href="../section1/installation/">Postman 接口自动化测试与持续集成全栈-Postman 下载与安装</a></li><li class="post-list-item"><a class="post-list-link" href="../section1/introduction-to-api/">Postman 接口自动化测试与持续集成全栈-API 测试介绍</a></li><li class="post-list-item"><a class="post-list-link" href="">Postman 接口自动化测试与持续集成全栈-前言</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../19/ci-cd/devops-tools/">DevOps 工具链-Java 持续集成发布流水线</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="../../../../28/performance/JMeter/JMeter-performance/">使用JMeter 进行性能测试</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../25/note/yuqieshidilun/">小木读《瑜伽（qie）师地论》</a></li><li class="post-list-item"><a class="post-list-link" href="../../../agile/SAFe-Tutorial/">企业敏捷 Scaled Agile Framework (SAFe) 全面介绍</a></li><li class="post-list-item"><a class="post-list-link" href="../../../agile/bdd/">敏捷研发流程-行为驱动开发 Behavior Driven Development （BDD）</a></li><li class="post-list-item"><a class="post-list-link" href="">EMocker 易墨客 --HTTP/HTTPS 接口服务模拟与监控</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../23/api-test/postman-in-acton/section2/intro_script/">Postman 接口自动化测试与持续集成全栈-Postman 脚本编程</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../22/note/zhiyue/">指月新录</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../22/note/lunyu/">论语杂谈</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../22/ui-test/selenium/">UI测试框架-Selenium</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../22/unit-test/junit-framework/">Java 单元测试框架-JUnit</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../22/agile/scrum-agile/">Scrum 敏捷管理</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../22/api-test/postman-in-acton/section1/making-hands-dirty/">Postman 接口自动化测试与持续集成全栈-实战环节之Demon 演练快速上手</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../22/api-test/postman-in-acton/section1/setting-parameters/">Postman 接口自动化测试与持续集成全栈- 设置请求参数</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../22/api-test/postman-in-acton/section1/request-response/">Postman 接口自动化测试与持续集成全栈- API 请求响应处理</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../22/api-test/postman-in-acton/section1/create-request/">Postman 接口自动化测试与持续集成全栈-创建请求</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../22/api-test/postman-in-acton/section1/menus/">Postman 接口自动化测试与持续集成全栈-Postman 功能介绍</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../22/api-test/postman-in-acton/section1/installation/">Postman 接口自动化测试与持续集成全栈-Postman 下载与安装</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../22/api-test/postman-in-acton/section1/introduction-to-api/">Postman 接口自动化测试与持续集成全栈-API 测试介绍</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../22/api-test/postman-in-acton/introduction/">Postman 接口自动化测试与持续集成全栈-前言</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../19/ci-cd/devops-tools/">DevOps 工具链-Java 持续集成发布流水线</a></li></ul>
 
 
 
