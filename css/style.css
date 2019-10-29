@@ -687,7 +687,7 @@ a {
   position: relative;
   width: 100%;
   overflow: hidden;
-  min-height: 300px;
+  min-height: 170px;
   font-size: 0.875rem;
 }
 #header .switch-area .switch-wrap {
@@ -721,14 +721,14 @@ a {
 #header .switch-part2 {
   left: 100%;
   overflow-y: auto;
-  max-height: 300px;
+  max-height: 170px;
   font-size: 0.75rem;
 }
 #header .switch-part3 {
   left: 200%;
   line-height: 1.6;
   overflow-y: auto;
-  max-height: 300px;
+  max-height: 170px;
 }
 #header .switch-part3 .switch-friends-link {
   display: inline-block;
