@@ -135,9 +135,9 @@
       <category term="敏捷研发" scheme="http://devopstools.cn/categories/%E6%95%8F%E6%8D%B7%E7%A0%94%E5%8F%91/"/>
     
     
-      <category term="敏捷管理" scheme="http://devopstools.cn/tags/%E6%95%8F%E6%8D%B7%E7%AE%A1%E7%90%86/"/>
-    
       <category term="SAFe" scheme="http://devopstools.cn/tags/SAFe/"/>
+    
+      <category term="敏捷管理" scheme="http://devopstools.cn/tags/%E6%95%8F%E6%8D%B7%E7%AE%A1%E7%90%86/"/>
     
   </entry>
   
@@ -158,9 +158,9 @@
       <category term="敏捷研发" scheme="http://devopstools.cn/categories/%E6%95%8F%E6%8D%B7%E7%A0%94%E5%8F%91/"/>
     
     
-      <category term="BDD" scheme="http://devopstools.cn/tags/BDD/"/>
-    
       <category term="敏捷管理" scheme="http://devopstools.cn/tags/%E6%95%8F%E6%8D%B7%E7%AE%A1%E7%90%86/"/>
+    
+      <category term="BDD" scheme="http://devopstools.cn/tags/BDD/"/>
     
   </entry>
   
