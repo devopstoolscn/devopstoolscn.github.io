@@ -1,0 +1,502 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>DevOps 技术与工具</title>
+  <icon>http://devopstools.cn/icon.png</icon>
+  <subtitle>技术与工具</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://devopstools.cn/"/>
+  <updated>2019-10-29T04:06:47.755Z</updated>
+  <id>http://devopstools.cn/</id>
+  
+  <author>
+    <name>DevOps Tools</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>敬请关注社区微信公众号</title>
+    <link href="http://devopstools.cn/2019/10/29/community/webchat/"/>
+    <id>http://devopstools.cn/2019/10/29/community/webchat/</id>
+    <published>2019-10-29T03:39:51.721Z</published>
+    <updated>2019-10-29T04:06:47.755Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;img src=&quot;/img/tools/weixinmp.png&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="技术社区" scheme="http://devopstools.cn/categories/%E6%8A%80%E6%9C%AF%E7%A4%BE%E5%8C%BA/"/>
+    
+    
+      <category term="微信公众号" scheme="http://devopstools.cn/tags/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>EMocker 易墨客 --HTTP/HTTPS 接口服务模拟与监控工具简介</title>
+    <link href="http://devopstools.cn/2019/10/29/api-test/emocker/getting-started/"/>
+    <id>http://devopstools.cn/2019/10/29/api-test/emocker/getting-started/</id>
+    <published>2019-10-29T02:44:59.197Z</published>
+    <updated>2019-10-29T02:45:04.640Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;EMocker 快速上手使用，精准测试、模拟服务、服务代理转发等。使用 Java 或 Node.js 自定义规则。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="接口测试" scheme="http://devopstools.cn/categories/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/"/>
+    
+    
+      <category term="敏捷研发" scheme="http://devopstools.cn/tags/%E6%95%8F%E6%8D%B7%E7%A0%94%E5%8F%91/"/>
+    
+      <category term="接口测试" scheme="http://devopstools.cn/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/"/>
+    
+      <category term="Mock" scheme="http://devopstools.cn/tags/Mock/"/>
+    
+      <category term="精准测试" scheme="http://devopstools.cn/tags/%E7%B2%BE%E5%87%86%E6%B5%8B%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用JMeter 进行性能测试</title>
+    <link href="http://devopstools.cn/2019/10/28/performance/JMeter/JMeter-performance/"/>
+    <id>http://devopstools.cn/2019/10/28/performance/JMeter/JMeter-performance/</id>
+    <published>2019-10-28T02:26:56.665Z</published>
+    <updated>2019-10-28T02:41:21.082Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;JMeter 是 Apache 的著名的开源工具，常用来做性能测试和接口测试。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="性能测试" scheme="http://devopstools.cn/categories/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/"/>
+    
+    
+      <category term="接口测试" scheme="http://devopstools.cn/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/"/>
+    
+      <category term="性能测试" scheme="http://devopstools.cn/tags/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/"/>
+    
+      <category term="JMeter" scheme="http://devopstools.cn/tags/JMeter/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>小木读《瑜伽（qie）师地论》</title>
+    <link href="http://devopstools.cn/2019/10/25/classic/yuqieshidilun/"/>
+    <id>http://devopstools.cn/2019/10/25/classic/yuqieshidilun/</id>
+    <published>2019-10-25T05:00:00.000Z</published>
+    <updated>2019-10-28T23:59:13.627Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;《瑜伽师地论》是有未来佛-弥勒菩萨所讲，世亲菩萨记录，玄奘法师翻译成汉语的。是唯识法相宗最重要的佛学大纲。本篇结合《瑜伽师地轮》和本人学习的心得，使用白话文对原文进行翻译、介绍和心得说明。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="随笔" scheme="http://devopstools.cn/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+      <category term="经典" scheme="http://devopstools.cn/tags/%E7%BB%8F%E5%85%B8/"/>
+    
+      <category term="唯识法相" scheme="http://devopstools.cn/tags/%E5%94%AF%E8%AF%86%E6%B3%95%E7%9B%B8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>企业敏捷 Scaled Agile Framework (SAFe) 全面介绍</title>
+    <link href="http://devopstools.cn/2019/10/24/agile/SAFe-Tutorial/"/>
+    <id>http://devopstools.cn/2019/10/24/agile/SAFe-Tutorial/</id>
+    <published>2019-10-24T14:49:13.413Z</published>
+    <updated>2019-10-24T23:35:26.705Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;企业敏捷 Scaled Agile Framework (SAFe) 是一个大规模敏捷框架，它不仅包括团队敏捷，还包括了价值流、投资组合、项目集等层级的敏捷管理方法和架构。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="敏捷研发" scheme="http://devopstools.cn/categories/%E6%95%8F%E6%8D%B7%E7%A0%94%E5%8F%91/"/>
+    
+    
+      <category term="SAFe" scheme="http://devopstools.cn/tags/SAFe/"/>
+    
+      <category term="敏捷管理" scheme="http://devopstools.cn/tags/%E6%95%8F%E6%8D%B7%E7%AE%A1%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>敏捷研发流程-行为驱动开发 Behavior Driven Development （BDD）</title>
+    <link href="http://devopstools.cn/2019/10/24/agile/bdd/"/>
+    <id>http://devopstools.cn/2019/10/24/agile/bdd/</id>
+    <published>2019-10-24T14:41:54.219Z</published>
+    <updated>2019-10-24T23:35:14.948Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;行为驱动开发 Behavior Driven Development （BDD）是一个比较流行的敏捷流程落地方法，它包括了产品特性、用户故事、测试场景梳理、单元测试、集成测试、接口测试、验收测试自动化框架。如果说 Scrum 是敏捷管理方法，BDD 就是管理方法落地的流程、技术和工具集合。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="敏捷研发" scheme="http://devopstools.cn/categories/%E6%95%8F%E6%8D%B7%E7%A0%94%E5%8F%91/"/>
+    
+    
+      <category term="敏捷管理" scheme="http://devopstools.cn/tags/%E6%95%8F%E6%8D%B7%E7%AE%A1%E7%90%86/"/>
+    
+      <category term="BDD" scheme="http://devopstools.cn/tags/BDD/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>EMocker 易墨客 --快速上手入门教程</title>
+    <link href="http://devopstools.cn/2019/10/24/api-test/emocker/intro-mock/"/>
+    <id>http://devopstools.cn/2019/10/24/api-test/emocker/intro-mock/</id>
+    <published>2019-10-24T05:54:24.010Z</published>
+    <updated>2019-10-29T02:45:52.928Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Mock 服务器可以模拟任何使用 HTTP / HTTPS 对外提供服务的 WebService 服务、系统或网站。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="接口测试" scheme="http://devopstools.cn/categories/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/"/>
+    
+    
+      <category term="敏捷研发" scheme="http://devopstools.cn/tags/%E6%95%8F%E6%8D%B7%E7%A0%94%E5%8F%91/"/>
+    
+      <category term="接口测试" scheme="http://devopstools.cn/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/"/>
+    
+      <category term="Mock" scheme="http://devopstools.cn/tags/Mock/"/>
+    
+      <category term="精准测试" scheme="http://devopstools.cn/tags/%E7%B2%BE%E5%87%86%E6%B5%8B%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Postman 接口自动化测试与持续集成全栈-Postman 脚本编程</title>
+    <link href="http://devopstools.cn/2019/10/23/api-test/postman-in-acton/section2/intro_script/"/>
+    <id>http://devopstools.cn/2019/10/23/api-test/postman-in-acton/section2/intro_script/</id>
+    <published>2019-10-23T14:42:45.860Z</published>
+    <updated>2019-10-25T08:40:06.427Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Postman 使用 Javascript 编写测试脚本，它运行在 Node.js 之上，因此也继承了 Node.js 强大的编程能力，可以动态灵活的处理请求和测试集的事物。例如可以在测试脚本中包含动态参数，在不同的请求之间传递数据。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="接口测试" scheme="http://devopstools.cn/categories/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/"/>
+    
+    
+      <category term="接口测试" scheme="http://devopstools.cn/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/"/>
+    
+      <category term="Postman" scheme="http://devopstools.cn/tags/Postman/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>指月新录</title>
+    <link href="http://devopstools.cn/2019/10/22/note/zhiyue/"/>
+    <id>http://devopstools.cn/2019/10/22/note/zhiyue/</id>
+    <published>2019-10-22T14:52:27.222Z</published>
+    <updated>2019-10-24T23:54:35.088Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;《指月录》是历史上禅宗大师们事迹和经典语录的记录，其中充满了哲学和智慧，可以做学问，可以修身。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="随笔" scheme="http://devopstools.cn/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+      <category term="经典" scheme="http://devopstools.cn/tags/%E7%BB%8F%E5%85%B8/"/>
+    
+      <category term="禅宗" scheme="http://devopstools.cn/tags/%E7%A6%85%E5%AE%97/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>论语杂谈</title>
+    <link href="http://devopstools.cn/2019/10/22/classic/lunyu/"/>
+    <id>http://devopstools.cn/2019/10/22/classic/lunyu/</id>
+    <published>2019-10-22T07:15:18.945Z</published>
+    <updated>2019-10-28T23:58:41.279Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;《论语》是孔子所说，其弟子记录的不朽经典国学。很多观点仍然值得现代人学习。学习国学《论语》是重要经典之一。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="随笔" scheme="http://devopstools.cn/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+      <category term="经典" scheme="http://devopstools.cn/tags/%E7%BB%8F%E5%85%B8/"/>
+    
+      <category term="国学" scheme="http://devopstools.cn/tags/%E5%9B%BD%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>UI测试框架-Selenium</title>
+    <link href="http://devopstools.cn/2019/10/22/ui-test/selenium/"/>
+    <id>http://devopstools.cn/2019/10/22/ui-test/selenium/</id>
+    <published>2019-10-22T07:12:35.542Z</published>
+    <updated>2019-10-24T23:55:10.604Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Selenium 测试框架是最流行的浏览器应用测试框架，它支持多种编程语言，例如 Java、Python、C#、NodeJS 等。Selenium 的强大之处在于，它几乎支持现有的全部浏览器。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="UI测试" scheme="http://devopstools.cn/categories/UI%E6%B5%8B%E8%AF%95/"/>
+    
+    
+      <category term="Selenium" scheme="http://devopstools.cn/tags/Selenium/"/>
+    
+      <category term="Java" scheme="http://devopstools.cn/tags/Java/"/>
+    
+      <category term="Python" scheme="http://devopstools.cn/tags/Python/"/>
+    
+      <category term="NodeJS" scheme="http://devopstools.cn/tags/NodeJS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java 单元测试框架-JUnit</title>
+    <link href="http://devopstools.cn/2019/10/22/unit-test/junit-framework/"/>
+    <id>http://devopstools.cn/2019/10/22/unit-test/junit-framework/</id>
+    <published>2019-10-22T07:00:55.203Z</published>
+    <updated>2019-10-24T23:55:26.634Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;JUnit 是最流行的 Java 单元测试框架。开发人员使用 JUnit 对类和方法进行测试。单元测试是白盒测试方法。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="单元测试" scheme="http://devopstools.cn/categories/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/"/>
+    
+    
+      <category term="Java" scheme="http://devopstools.cn/tags/Java/"/>
+    
+      <category term="JUnit" scheme="http://devopstools.cn/tags/JUnit/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Scrum 敏捷管理</title>
+    <link href="http://devopstools.cn/2019/10/22/agile/scrum-agile/"/>
+    <id>http://devopstools.cn/2019/10/22/agile/scrum-agile/</id>
+    <published>2019-10-22T06:54:12.465Z</published>
+    <updated>2019-10-24T23:58:23.604Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Scrum是一种用于开发创新产品和服务的敏捷方式。它包括了工件（产品列表、冲刺列表、潜在可交付产品增量）、角色（产品负责人、Scrum Master、开发团队）、活动（冲刺、冲刺规划、每日例会、冲刺执行、冲刺评审、冲刺回顾、产品列表梳理）和规则。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="敏捷研发" scheme="http://devopstools.cn/categories/%E6%95%8F%E6%8D%B7%E7%A0%94%E5%8F%91/"/>
+    
+    
+      <category term="敏捷管理" scheme="http://devopstools.cn/tags/%E6%95%8F%E6%8D%B7%E7%AE%A1%E7%90%86/"/>
+    
+      <category term="Scrum" scheme="http://devopstools.cn/tags/Scrum/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Postman 接口自动化测试与持续集成全栈-实战环节之Demon 演练快速上手</title>
+    <link href="http://devopstools.cn/2019/10/22/api-test/postman-in-acton/section1/making-hands-dirty/"/>
+    <id>http://devopstools.cn/2019/10/22/api-test/postman-in-acton/section1/making-hands-dirty/</id>
+    <published>2019-10-21T16:00:08.000Z</published>
+    <updated>2019-10-24T23:48:55.644Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本节演示使用 Postman 检查服务器是否正常对外提供服务&lt;br&gt;验证步骤：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;创建请求和测试集，测试集用来管理测试请求。&lt;/li&gt;
+&lt;li&gt;创建请求和返回结果验证脚本。&lt;/li&gt;
+&lt;li&gt;运行验证脚本查看验证结果。&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+    
+      <category term="接口测试" scheme="http://devopstools.cn/categories/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/"/>
+    
+    
+      <category term="接口测试" scheme="http://devopstools.cn/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/"/>
+    
+      <category term="Postman" scheme="http://devopstools.cn/tags/Postman/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Postman 接口自动化测试与持续集成全栈- 设置请求参数</title>
+    <link href="http://devopstools.cn/2019/10/22/api-test/postman-in-acton/section1/setting-parameters/"/>
+    <id>http://devopstools.cn/2019/10/22/api-test/postman-in-acton/section1/setting-parameters/</id>
+    <published>2019-10-21T16:00:07.000Z</published>
+    <updated>2019-10-24T23:49:31.393Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;参数是 URL 的一部分，用了向服务器传递具有特定含义的指令。RESTFul API 向服务器传递参数的 URL 格式如下&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="接口测试" scheme="http://devopstools.cn/categories/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/"/>
+    
+    
+      <category term="接口测试" scheme="http://devopstools.cn/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/"/>
+    
+      <category term="Postman" scheme="http://devopstools.cn/tags/Postman/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Postman 接口自动化测试与持续集成全栈- API 请求响应处理</title>
+    <link href="http://devopstools.cn/2019/10/22/api-test/postman-in-acton/section1/request-response/"/>
+    <id>http://devopstools.cn/2019/10/22/api-test/postman-in-acton/section1/request-response/</id>
+    <published>2019-10-21T16:00:06.000Z</published>
+    <updated>2019-10-24T23:49:19.261Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;使用 “GET” 方法发送 HTTP 请求。点击 【Send】按钮后，请求会发送到 URL 地址，接收到请求后，服务器端会根据请求参数返回响应的结果。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="接口测试" scheme="http://devopstools.cn/categories/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/"/>
+    
+    
+      <category term="接口测试" scheme="http://devopstools.cn/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/"/>
+    
+      <category term="Postman" scheme="http://devopstools.cn/tags/Postman/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Postman 接口自动化测试与持续集成全栈-创建请求</title>
+    <link href="http://devopstools.cn/2019/10/22/api-test/postman-in-acton/section1/create-request/"/>
+    <id>http://devopstools.cn/2019/10/22/api-test/postman-in-acton/section1/create-request/</id>
+    <published>2019-10-21T16:00:05.000Z</published>
+    <updated>2019-10-24T23:48:19.097Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本节我们首先创建一个 RESTFul API 请求，填入请求地址，请求参数我们使用 “GET”，请求需要命名以便以后使用。请求选择或创建一个测试集 【Collection】 ，然后选择这个测试集，把命名后的请求保存在这个测试集里面。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="接口测试" scheme="http://devopstools.cn/categories/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/"/>
+    
+    
+      <category term="接口测试" scheme="http://devopstools.cn/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/"/>
+    
+      <category term="Postman" scheme="http://devopstools.cn/tags/Postman/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Postman 接口自动化测试与持续集成全栈-Postman 功能介绍</title>
+    <link href="http://devopstools.cn/2019/10/22/api-test/postman-in-acton/section1/menus/"/>
+    <id>http://devopstools.cn/2019/10/22/api-test/postman-in-acton/section1/menus/</id>
+    <published>2019-10-21T16:00:04.000Z</published>
+    <updated>2019-10-24T23:49:08.074Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Postman 为支持多样的功能提供有多个窗口和多个标签页，因此用户使用起来也很方便。它的主窗口包括三大区域：头部工具栏、左侧捷导航栏以及工作区。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="接口测试" scheme="http://devopstools.cn/categories/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/"/>
+    
+    
+      <category term="接口测试" scheme="http://devopstools.cn/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/"/>
+    
+      <category term="Postman" scheme="http://devopstools.cn/tags/Postman/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Postman 接口自动化测试与持续集成全栈-Postman 下载与安装</title>
+    <link href="http://devopstools.cn/2019/10/22/api-test/postman-in-acton/section1/installation/"/>
+    <id>http://devopstools.cn/2019/10/22/api-test/postman-in-acton/section1/installation/</id>
+    <published>2019-10-21T16:00:03.000Z</published>
+    <updated>2019-10-24T23:48:30.557Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Postman 有 Windows、Linux、MacOS 等多个版本，另外也可在 Chrome 上面安装插件，基于 Chrome 浏览器运行。当前 Postman 的最新版本为 7.6.0 。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="接口测试" scheme="http://devopstools.cn/categories/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/"/>
+    
+    
+      <category term="接口测试" scheme="http://devopstools.cn/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/"/>
+    
+      <category term="Postman" scheme="http://devopstools.cn/tags/Postman/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Postman 接口自动化测试与持续集成全栈-API 测试介绍</title>
+    <link href="http://devopstools.cn/2019/10/22/api-test/postman-in-acton/section1/introduction-to-api/"/>
+    <id>http://devopstools.cn/2019/10/22/api-test/postman-in-acton/section1/introduction-to-api/</id>
+    <published>2019-10-21T16:00:02.000Z</published>
+    <updated>2019-10-24T23:48:43.416Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;API 是应用程序编程接口（Application Programming Interface）的简称。从技术上讲，API 是 应用系统、操作系统、开发库等对一系列过程、函数的封装，开发人员可以使用 API 编程对其它的 应用系统、操作系统、开发库提供的功能进行调用。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="接口测试" scheme="http://devopstools.cn/categories/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/"/>
+    
+    
+      <category term="接口测试" scheme="http://devopstools.cn/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/"/>
+    
+      <category term="Postman" scheme="http://devopstools.cn/tags/Postman/"/>
+    
+  </entry>
+  
+</feed>
