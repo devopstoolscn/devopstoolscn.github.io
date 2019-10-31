@@ -2,19 +2,46 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>DevOps 技术与工具</title>
   <icon>http://devopstools.cn/icon.png</icon>
-  <subtitle>技术与工具</subtitle>
+  <subtitle>DevOps Tools</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://devopstools.cn/"/>
-  <updated>2019-10-29T05:47:26.189Z</updated>
+  <updated>2019-10-31T14:55:57.320Z</updated>
   <id>http://devopstools.cn/</id>
   
   <author>
-    <name>DevOps Tools</name>
+    <name>DevOps技术谈</name>
     
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>小木笔记之佛学杂谈</title>
+    <link href="http://devopstools.cn/2019/10/31/note/buddhism/"/>
+    <id>http://devopstools.cn/2019/10/31/note/buddhism/</id>
+    <published>2019-10-31T13:43:43.784Z</published>
+    <updated>2019-10-31T14:55:57.320Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;小木是一个 IT 从业者，主要从事敏捷管理产品、DevOps 产品的架构、咨询和实施。有时也客串 DevOps 、行为驱动开发（BDD）、测试驱动开发（TDD）的培训教师。爱好国学经典，利用业余时间学习 《论语》、《道德经》、《心经》、《金刚经》、《楞严经》、《地藏经》、《地藏十轮经》、《瑜伽（qie）师地论》等经典国学著作。学习约十余年，略有心得。然做为爱好者一枚，对于佛学并无真修实证，笔记系列纯属个人有感而发，随意评论，谬解之处先做忏悔，欢迎拍砖。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="随笔" scheme="http://devopstools.cn/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+      <category term="经典" scheme="http://devopstools.cn/tags/%E7%BB%8F%E5%85%B8/"/>
+    
+      <category term="唯识法相" scheme="http://devopstools.cn/tags/%E5%94%AF%E8%AF%86%E6%B3%95%E7%9B%B8/"/>
+    
+      <category term="禅宗" scheme="http://devopstools.cn/tags/%E7%A6%85%E5%AE%97/"/>
+    
+      <category term="净土宗" scheme="http://devopstools.cn/tags/%E5%87%80%E5%9C%9F%E5%AE%97/"/>
+    
+  </entry>
   
   <entry>
     <title>敏捷研发社区微信公众号</title>
@@ -463,29 +490,6 @@
     <summary type="html">
     
       &lt;p&gt;Postman 有 Windows、Linux、MacOS 等多个版本，另外也可在 Chrome 上面安装插件，基于 Chrome 浏览器运行。当前 Postman 的最新版本为 7.6.0 。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="接口测试" scheme="http://devopstools.cn/categories/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/"/>
-    
-    
-      <category term="接口测试" scheme="http://devopstools.cn/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/"/>
-    
-      <category term="Postman" scheme="http://devopstools.cn/tags/Postman/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Postman 接口自动化测试与持续集成全栈-API 测试介绍</title>
-    <link href="http://devopstools.cn/2019/10/22/api-test/postman-in-acton/section1/introduction-to-api/"/>
-    <id>http://devopstools.cn/2019/10/22/api-test/postman-in-acton/section1/introduction-to-api/</id>
-    <published>2019-10-21T16:00:02.000Z</published>
-    <updated>2019-10-24T23:48:43.416Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;API 是应用程序编程接口（Application Programming Interface）的简称。从技术上讲，API 是 应用系统、操作系统、开发库等对一系列过程、函数的封装，开发人员可以使用 API 编程对其它的 应用系统、操作系统、开发库提供的功能进行调用。&lt;/p&gt;
     
     </summary>
     

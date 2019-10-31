@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="DevOps技术谈" />
+
+
+
+<meta name="description" content="小木是一个 IT 从业者，主要从事敏捷管理产品、DevOps 产品的架构、咨询和实施。有时也客串 DevOps 、行为驱动开发（BDD）、测试驱动开发（TDD）的培训教师。爱好国学经典，利用业余时间学习 《论语》、《道德经》、《心经》、《金刚经》、《楞严经》、《地藏经》、《地藏十轮经》、《瑜伽（qie）师地论》等经典国学著作。学习约十余年，略有心得。然做为爱好者一枚，对于佛学并无真修实证，笔记系列">
+<meta name="keywords" content="经典,唯识法相,禅宗,净土宗">
+<meta property="og:type" content="article">
+<meta property="og:title" content="小木笔记之佛学杂谈">
+<meta property="og:url" content="http:&#x2F;&#x2F;devopstools.cn&#x2F;2019&#x2F;10&#x2F;31&#x2F;note&#x2F;buddhism&#x2F;index.html">
+<meta property="og:site_name" content="DevOps 技术与工具">
+<meta property="og:description" content="小木是一个 IT 从业者，主要从事敏捷管理产品、DevOps 产品的架构、咨询和实施。有时也客串 DevOps 、行为驱动开发（BDD）、测试驱动开发（TDD）的培训教师。爱好国学经典，利用业余时间学习 《论语》、《道德经》、《心经》、《金刚经》、《楞严经》、《地藏经》、《地藏十轮经》、《瑜伽（qie）师地论》等经典国学著作。学习约十余年，略有心得。然做为爱好者一枚，对于佛学并无真修实证，笔记系列">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-10-31T14:55:57.320Z">
+<meta name="twitter:card" content="summary">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="DevOps 技术与工具" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="../../../../../css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>小木笔记之佛学杂谈 | DevOps 技术与工具</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?9f2ec0702d90c1f43efd0a40a2fb0479";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/tools.jpeg" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">DevOps技术谈</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">DevOps Tools</p>
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="../../../../../index.html">主页</a></li>
+                        
+                            <li><a href="../../../../../categories/%E9%9A%8F%E7%AC%94/">随笔</a></li>
+                        
+                            <li><a href="../../../../../tags/">标签云</a></li>
+                        
+                            <li><a href="../../../../../archives/">所有文章</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto:support@devopstools.cn" title="Email"></a>
+                            
+                                <a class="fa RSS" href="../../../../../atom.xml" title="RSS"></a>
+                            
+                                <a class="fa 简书" href="https://www.jianshu.com/u/7a6f21a30e94" target="_blank" rel="noopener" title="简书"></a>
+                            
+                                <a class="fa CSDN" href="https://blog.csdn.net/winteroak" target="_blank" rel="noopener" title="CSDN"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/BDD/" rel="tag">BDD</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/JMeter/" rel="tag">JMeter</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/JUnit/" rel="tag">JUnit</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/Mock/" rel="tag">Mock</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/NodeJS/" rel="tag">NodeJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/Postman/" rel="tag">Postman</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/SAFe/" rel="tag">SAFe</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/Scrum/" rel="tag">Scrum</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/Selenium/" rel="tag">Selenium</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/UI%E6%B5%8B%E8%AF%95/" rel="tag">UI测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/%E4%BB%A3%E7%A0%81%E6%89%AB%E6%8F%8F/" rel="tag">代码扫描</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/%E5%87%80%E5%9C%9F%E5%AE%97/" rel="tag">净土宗</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" rel="tag">单元测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/%E5%94%AF%E8%AF%86%E6%B3%95%E7%9B%B8/" rel="tag">唯识法相</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/%E5%9B%BD%E5%AD%A6/" rel="tag">国学</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7/" rel="tag">微信公众号</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/" rel="tag">性能测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/%E6%8C%81%E7%BB%AD%E9%83%A8%E7%BD%B2/" rel="tag">持续部署</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/" rel="tag">持续集成</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/" rel="tag">接口测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/%E6%95%8F%E6%8D%B7%E7%A0%94%E5%8F%91/" rel="tag">敏捷研发</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/%E6%95%8F%E6%8D%B7%E7%AE%A1%E7%90%86/" rel="tag">敏捷管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/" rel="tag">版本管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/%E7%A6%85%E5%AE%97/" rel="tag">禅宗</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/%E7%B2%BE%E5%87%86%E6%B5%8B%E8%AF%95/" rel="tag">精准测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/%E7%BB%8F%E5%85%B8/" rel="tag">经典</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">DevOps技术谈</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/tools.jpeg" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">DevOps技术谈</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">DevOps Tools</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="../../../../../index.html">主页</a></li>
+                
+                    <li><a href="../../../../../categories/%E9%9A%8F%E7%AC%94/">随笔</a></li>
+                
+                    <li><a href="../../../../../tags/">标签云</a></li>
+                
+                    <li><a href="../../../../../archives/">所有文章</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:support@devopstools.cn" title="Email"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="../../../../../atom.xml" title="RSS"></a>
+                            
+                                <a class="fa 简书" target="_blank" href="https://www.jianshu.com/u/7a6f21a30e94" title="简书"></a>
+                            
+                                <a class="fa CSDN" target="_blank" href="https://blog.csdn.net/winteroak" title="CSDN"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-note/buddhism" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="" class="article-date">
+      <time datetime="2019-10-31T13:43:43.784Z" itemprop="datePublished">2019-10-31</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      小木笔记之佛学杂谈
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="../../../../../categories/%E9%9A%8F%E7%AC%94/">随笔</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../tags/%E5%87%80%E5%9C%9F%E5%AE%97/" rel="tag">净土宗</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../tags/%E5%94%AF%E8%AF%86%E6%B3%95%E7%9B%B8/" rel="tag">唯识法相</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../tags/%E7%A6%85%E5%AE%97/" rel="tag">禅宗</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../tags/%E7%BB%8F%E5%85%B8/" rel="tag">经典</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>小木是一个 IT 从业者，主要从事敏捷管理产品、DevOps 产品的架构、咨询和实施。有时也客串 DevOps 、行为驱动开发（BDD）、测试驱动开发（TDD）的培训教师。爱好国学经典，利用业余时间学习 《论语》、《道德经》、《心经》、《金刚经》、《楞严经》、《地藏经》、《地藏十轮经》、《瑜伽（qie）师地论》等经典国学著作。学习约十余年，略有心得。然做为爱好者一枚，对于佛学并无真修实证，笔记系列纯属个人有感而发，随意评论，谬解之处先做忏悔，欢迎拍砖。</p>
+<a id="more"></a>
+
+<h2 id="弥勒菩萨对学习差的二十点分析"><a href="#弥勒菩萨对学习差的二十点分析" class="headerlink" title="弥勒菩萨对学习差的二十点分析"></a>弥勒菩萨对学习差的二十点分析</h2><p><strong>摘选自《瑜伽师地论》第二十卷</strong><br><strong>弥勒菩萨说，世亲菩萨记录，大唐三藏法师玄奘奉诏译</strong><br><strong>小木胡批</strong></p>
+<h3 id="此中最初有二十种得三摩地所对治法。能令不得胜三摩地。何等二十。"><a href="#此中最初有二十种得三摩地所对治法。能令不得胜三摩地。何等二十。" class="headerlink" title="此中最初有二十种得三摩地所对治法。能令不得胜三摩地。何等二十。"></a>此中最初有二十种得三摩地所对治法。能令不得胜三摩地。何等二十。</h3><p><strong>小木解说：</strong> 学习不好有二十个原因，二十点原因分别是什么呢？</p>
+<h3 id="一有不乐断同梵行者为伴过失。"><a href="#一有不乐断同梵行者为伴过失。" class="headerlink" title="一有不乐断同梵行者为伴过失。"></a>一有不乐断同梵行者为伴过失。</h3><p><strong>小木解说：</strong> 第一，交友不善，同伴不好好学习，干扰了本人学习。例如跟随同伴沉迷游戏。🎮</p>
+<h3 id="二伴虽有德然能宣说修定方便。师有过失。谓颠倒说修定方便"><a href="#二伴虽有德然能宣说修定方便。师有过失。谓颠倒说修定方便" class="headerlink" title="二伴虽有德然能宣说修定方便。师有过失。谓颠倒说修定方便"></a>二伴虽有德然能宣说修定方便。师有过失。谓颠倒说修定方便</h3><p><strong>小木解说：</strong>第二，虽然同伴没问题，但老师有问题，老师能力不够，或不认真教学</p>
+<h3 id="三师虽有德然于所说修定方便。其能听者欲乐羸劣心散乱故。不能领受过失。"><a href="#三师虽有德然于所说修定方便。其能听者欲乐羸劣心散乱故。不能领受过失。" class="headerlink" title="三师虽有德然于所说修定方便。其能听者欲乐羸劣心散乱故。不能领受过失。"></a>三师虽有德然于所说修定方便。其能听者欲乐羸劣心散乱故。不能领受过失。</h3><p><strong>小木解说：</strong>第三，虽然老师是好老师，但学生根性不行，上课心散乱，开小差，不认真学习，不能领受老师的讲解。</p>
+<h3 id="四其能听者虽有乐欲属耳而听。然闇钝故。觉慧劣故。不能领受过失。"><a href="#四其能听者虽有乐欲属耳而听。然闇钝故。觉慧劣故。不能领受过失。" class="headerlink" title="四其能听者虽有乐欲属耳而听。然闇钝故。觉慧劣故。不能领受过失。"></a>四其能听者虽有乐欲属耳而听。然闇钝故。觉慧劣故。不能领受过失。</h3><p><strong>小木解说：</strong> 第四，虽然听课，但左耳朵听，右耳朵仍，没有听到心里面，转头就忘。</p>
+<h3 id="五虽有智德。然是爱行多求利养恭敬过失。"><a href="#五虽有智德。然是爱行多求利养恭敬过失。" class="headerlink" title="五虽有智德。然是爱行多求利养恭敬过失。"></a>五虽有智德。然是爱行多求利养恭敬过失。</h3><p><strong>小木解说：</strong> 第五，学生虽然很聪明，但是太贪学习以外的事情，例如好吃，好玩。</p>
+<h3 id="六多分忧愁难养难满不知喜足过失。"><a href="#六多分忧愁难养难满不知喜足过失。" class="headerlink" title="六多分忧愁难养难满不知喜足过失。"></a>六多分忧愁难养难满不知喜足过失。</h3><p><strong>小木解说：</strong> 第六，学生太挑剔，难满足，嫌东嫌西。例如嫌弃座位不好，笔不好，教室不好，教师不好，学校不好，父母不好等等。不安心学习。</p>
+<h3 id="七即由如是增上力故。多诸事务过失。"><a href="#七即由如是增上力故。多诸事务过失。" class="headerlink" title="七即由如是增上力故。多诸事务过失。"></a>七即由如是增上力故。多诸事务过失。</h3><p><strong>小木解说：</strong> 第七，学生杂事太多，例如当了班干部，学生会干部，心都在外部事务上，不安心学习。</p>
+<h3 id="八虽无此失然有懈怠懒惰故。弃舍加行过失。"><a href="#八虽无此失然有懈怠懒惰故。弃舍加行过失。" class="headerlink" title="八虽无此失然有懈怠懒惰故。弃舍加行过失。"></a>八虽无此失然有懈怠懒惰故。弃舍加行过失。</h3><p><strong>小木解说：</strong>第八，学生比较懒惰，上课下课多在睡觉，发呆。课前不预习，上课不听讲，课后不复习。</p>
+<h3 id="九虽无此失然有为他种种障碍生起过失。"><a href="#九虽无此失然有为他种种障碍生起过失。" class="headerlink" title="九虽无此失然有为他种种障碍生起过失。"></a>九虽无此失然有为他种种障碍生起过失。</h3><p><strong>小木解说：</strong> 第九，虽然没有以上不对的地方，但是学习障碍重重，例如常常得病，影响学习。</p>
+<h3 id="十虽无此失然有于寒热等苦不能堪忍过失。"><a href="#十虽无此失然有于寒热等苦不能堪忍过失。" class="headerlink" title="十虽无此失然有于寒热等苦不能堪忍过失。"></a>十虽无此失然有于寒热等苦不能堪忍过失。</h3><p><strong>小木解说：</strong>第十，虽然没有以上过失，但学习不能刻苦，天热不想学，天冷不想学等等。</p>
+<h3 id="十一虽无此失然有慢恚过故。不能领受教诲过失。"><a href="#十一虽无此失然有慢恚过故。不能领受教诲过失。" class="headerlink" title="十一虽无此失然有慢恚过故。不能领受教诲过失。"></a>十一虽无此失然有慢恚过故。不能领受教诲过失。</h3><p><strong>小木解说：</strong>第十一，虽然没有以上过失，但自高自傲，认为为老师讲的不对，不听讲解。</p>
+<h3 id="十二虽无此失然有于教颠倒思惟过失。"><a href="#十二虽无此失然有于教颠倒思惟过失。" class="headerlink" title="十二虽无此失然有于教颠倒思惟过失。"></a>十二虽无此失然有于教颠倒思惟过失。</h3><p><strong>小木解说：</strong> 第十二，虽然没有以上过失，但是老师讲的理解错误，当然做题也不对了。</p>
+<h3 id="十三虽无此失然。于所受教有忘念过失。"><a href="#十三虽无此失然。于所受教有忘念过失。" class="headerlink" title="十三虽无此失然。于所受教有忘念过失。"></a>十三虽无此失然。于所受教有忘念过失。</h3><p><strong>小木解说：</strong>第十三，虽然没有以上错误，但是老师所讲的不能记住，转眼就忘。</p>
+<h3 id="十四虽无此失然有在家出家杂住过失。"><a href="#十四虽无此失然有在家出家杂住过失。" class="headerlink" title="十四虽无此失然有在家出家杂住过失。"></a>十四虽无此失然有在家出家杂住过失。</h3><p><strong>小木解说：</strong>第十四，虽然没有以上过失，但是跟社会上的人瞎混，影响学习。</p>
+<h3 id="十五虽无此失然有受用五失相应卧具过失。五失相应卧具。应知如声闻地当说。"><a href="#十五虽无此失然有受用五失相应卧具过失。五失相应卧具。应知如声闻地当说。" class="headerlink" title="十五虽无此失然有受用五失相应卧具过失。五失相应卧具。应知如声闻地当说。"></a>十五虽无此失然有受用五失相应卧具过失。五失相应卧具。应知如声闻地当说。</h3><p><strong>小木解说：</strong>第十五，虽然没有以上过失，但是睡觉不好，导致经常生病，或不舒服，影响学习。</p>
+<h3 id="十六虽无此失然于远离处不守护诸根故。有不正寻思过失。"><a href="#十六虽无此失然于远离处不守护诸根故。有不正寻思过失。" class="headerlink" title="十六虽无此失然于远离处不守护诸根故。有不正寻思过失。"></a>十六虽无此失然于远离处不守护诸根故。有不正寻思过失。</h3><p><strong>小木解说：</strong>第十六，虽然没有以上过失，但是精神放佚，注意力不在学习上。</p>
+<h3 id="十七虽无此失然由食不平等故。有身沉重无所堪能过失。"><a href="#十七虽无此失然由食不平等故。有身沉重无所堪能过失。" class="headerlink" title="十七虽无此失然由食不平等故。有身沉重无所堪能过失。"></a>十七虽无此失然由食不平等故。有身沉重无所堪能过失。</h3><p><strong>小木解说：</strong>第十七，虽然没有以上过失，但是饭吃不好，身体经常不舒服，影响学习。</p>
+<h3 id="十八虽无此失然性多睡眠。有多睡眠随烦恼现行过失。"><a href="#十八虽无此失然性多睡眠。有多睡眠随烦恼现行过失。" class="headerlink" title="十八虽无此失然性多睡眠。有多睡眠随烦恼现行过失。"></a>十八虽无此失然性多睡眠。有多睡眠随烦恼现行过失。</h3><p><strong>小木解说：</strong>第十八，虽然没有以上过失，但是太爱睡觉，上课睡，下课睡，影响学习。</p>
+<h3 id="十九虽无此失然不先修行奢摩他品故。于内心寂止远离中有不欣乐过失。"><a href="#十九虽无此失然不先修行奢摩他品故。于内心寂止远离中有不欣乐过失。" class="headerlink" title="十九虽无此失然不先修行奢摩他品故。于内心寂止远离中有不欣乐过失。"></a>十九虽无此失然不先修行奢摩他品故。于内心寂止远离中有不欣乐过失。</h3><p><strong>小木解说：</strong>第十九，虽然没有以上过失，但从心里不喜欢学习，学习起来不能专入，硬着头皮学，学习效率不高。</p>
+<h3 id="二十虽无此失然先不修行毗钵舍那品故。于增上慧法毗钵舍那如实观中有不欣乐过失。"><a href="#二十虽无此失然先不修行毗钵舍那品故。于增上慧法毗钵舍那如实观中有不欣乐过失。" class="headerlink" title="二十虽无此失然先不修行毗钵舍那品故。于增上慧法毗钵舍那如实观中有不欣乐过失。"></a>二十虽无此失然先不修行毗钵舍那品故。于增上慧法毗钵舍那如实观中有不欣乐过失。</h3><p><strong>小木解说：</strong>第二十，虽然没有以上过失，但学习方法不对，事倍而功未半。导致学习不好。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="">小木笔记之佛学杂谈</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">DevOps技术谈</a></p>
+        <p><span>发布时间:</span>2019-10-31, 21:43:43</p>
+        <p><span>最后更新:</span>2019-10-31, 22:55:57</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="" title="小木笔记之佛学杂谈">http://devopstools.cn/2019/10/31/note/buddhism/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://devopstools.cn/2019/10/31/note/buddhism/　　作者: DevOps技术谈" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="../../../29/community/webchat/">
+                    敏捷研发社区微信公众号
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#弥勒菩萨对学习差的二十点分析"><span class="toc-number">1.</span> <span class="toc-text">弥勒菩萨对学习差的二十点分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#此中最初有二十种得三摩地所对治法。能令不得胜三摩地。何等二十。"><span class="toc-number">1.1.</span> <span class="toc-text">此中最初有二十种得三摩地所对治法。能令不得胜三摩地。何等二十。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一有不乐断同梵行者为伴过失。"><span class="toc-number">1.2.</span> <span class="toc-text">一有不乐断同梵行者为伴过失。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二伴虽有德然能宣说修定方便。师有过失。谓颠倒说修定方便"><span class="toc-number">1.3.</span> <span class="toc-text">二伴虽有德然能宣说修定方便。师有过失。谓颠倒说修定方便</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三师虽有德然于所说修定方便。其能听者欲乐羸劣心散乱故。不能领受过失。"><span class="toc-number">1.4.</span> <span class="toc-text">三师虽有德然于所说修定方便。其能听者欲乐羸劣心散乱故。不能领受过失。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四其能听者虽有乐欲属耳而听。然闇钝故。觉慧劣故。不能领受过失。"><span class="toc-number">1.5.</span> <span class="toc-text">四其能听者虽有乐欲属耳而听。然闇钝故。觉慧劣故。不能领受过失。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#五虽有智德。然是爱行多求利养恭敬过失。"><span class="toc-number">1.6.</span> <span class="toc-text">五虽有智德。然是爱行多求利养恭敬过失。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#六多分忧愁难养难满不知喜足过失。"><span class="toc-number">1.7.</span> <span class="toc-text">六多分忧愁难养难满不知喜足过失。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#七即由如是增上力故。多诸事务过失。"><span class="toc-number">1.8.</span> <span class="toc-text">七即由如是增上力故。多诸事务过失。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#八虽无此失然有懈怠懒惰故。弃舍加行过失。"><span class="toc-number">1.9.</span> <span class="toc-text">八虽无此失然有懈怠懒惰故。弃舍加行过失。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#九虽无此失然有为他种种障碍生起过失。"><span class="toc-number">1.10.</span> <span class="toc-text">九虽无此失然有为他种种障碍生起过失。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#十虽无此失然有于寒热等苦不能堪忍过失。"><span class="toc-number">1.11.</span> <span class="toc-text">十虽无此失然有于寒热等苦不能堪忍过失。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#十一虽无此失然有慢恚过故。不能领受教诲过失。"><span class="toc-number">1.12.</span> <span class="toc-text">十一虽无此失然有慢恚过故。不能领受教诲过失。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#十二虽无此失然有于教颠倒思惟过失。"><span class="toc-number">1.13.</span> <span class="toc-text">十二虽无此失然有于教颠倒思惟过失。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#十三虽无此失然。于所受教有忘念过失。"><span class="toc-number">1.14.</span> <span class="toc-text">十三虽无此失然。于所受教有忘念过失。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#十四虽无此失然有在家出家杂住过失。"><span class="toc-number">1.15.</span> <span class="toc-text">十四虽无此失然有在家出家杂住过失。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#十五虽无此失然有受用五失相应卧具过失。五失相应卧具。应知如声闻地当说。"><span class="toc-number">1.16.</span> <span class="toc-text">十五虽无此失然有受用五失相应卧具过失。五失相应卧具。应知如声闻地当说。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#十六虽无此失然于远离处不守护诸根故。有不正寻思过失。"><span class="toc-number">1.17.</span> <span class="toc-text">十六虽无此失然于远离处不守护诸根故。有不正寻思过失。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#十七虽无此失然由食不平等故。有身沉重无所堪能过失。"><span class="toc-number">1.18.</span> <span class="toc-text">十七虽无此失然由食不平等故。有身沉重无所堪能过失。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#十八虽无此失然性多睡眠。有多睡眠随烦恼现行过失。"><span class="toc-number">1.19.</span> <span class="toc-text">十八虽无此失然性多睡眠。有多睡眠随烦恼现行过失。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#十九虽无此失然不先修行奢摩他品故。于内心寂止远离中有不欣乐过失。"><span class="toc-number">1.20.</span> <span class="toc-text">十九虽无此失然不先修行奢摩他品故。于内心寂止远离中有不欣乐过失。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二十虽无此失然先不修行毗钵舍那品故。于增上慧法毗钵舍那如实观中有不欣乐过失。"><span class="toc-number">1.21.</span> <span class="toc-text">二十虽无此失然先不修行毗钵舍那品故。于增上慧法毗钵舍那如实观中有不欣乐过失。</span></a></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"小木笔记之佛学杂谈　| DevOps 技术与工具　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="../../../29/community/webchat/" title="下一篇: 敏捷研发社区微信公众号">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="">小木笔记之佛学杂谈</a></li><li class="post-list-item"><a class="post-list-link" href="../../../29/community/webchat/">敏捷研发社区微信公众号</a></li><li class="post-list-item"><a class="post-list-link" href="../../../29/api-test/emocker/getting-started/">EMocker 易墨客 --30分钟上手教程</a></li><li class="post-list-item"><a class="post-list-link" href="../../../28/performance/JMeter/JMeter-performance/">使用JMeter 进行性能测试</a></li><li class="post-list-item"><a class="post-list-link" href="../../../25/classic/yuqieshidilun/">小木读《瑜伽（qie）师地论》</a></li><li class="post-list-item"><a class="post-list-link" href="../../../24/agile/SAFe-Tutorial/">大规模敏捷 Scaled Agile Framework (SAFe) 全面介绍</a></li><li class="post-list-item"><a class="post-list-link" href="../../../24/agile/bdd/">敏捷研发流程-行为驱动开发 Behavior Driven Development （BDD）</a></li><li class="post-list-item"><a class="post-list-link" href="../../../24/api-test/emocker/intro-mock/">EMocker 易墨客 --HTTP/HTTPS 接口服务模拟与监控工具简介</a></li><li class="post-list-item"><a class="post-list-link" href="../../../23/api-test/postman-in-acton/section2/intro_script/">Postman 接口自动化测试与持续集成全栈-Postman 脚本编程</a></li><li class="post-list-item"><a class="post-list-link" href="../../../22/note/zhiyue/">指月新录</a></li><li class="post-list-item"><a class="post-list-link" href="../../../22/classic/lunyu/">论语杂谈</a></li><li class="post-list-item"><a class="post-list-link" href="../../../22/ui-test/selenium/">UI测试框架-Selenium</a></li><li class="post-list-item"><a class="post-list-link" href="../../../22/unit-test/junit-framework/">Java 单元测试框架-JUnit</a></li><li class="post-list-item"><a class="post-list-link" href="../../../22/agile/scrum-agile/">Scrum 敏捷管理</a></li><li class="post-list-item"><a class="post-list-link" href="../../../22/api-test/postman-in-acton/section1/making-hands-dirty/">Postman 接口自动化测试与持续集成全栈-实战环节之Demon 演练快速上手</a></li><li class="post-list-item"><a class="post-list-link" href="../../../22/api-test/postman-in-acton/section1/setting-parameters/">Postman 接口自动化测试与持续集成全栈- 设置请求参数</a></li><li class="post-list-item"><a class="post-list-link" href="../../../22/api-test/postman-in-acton/section1/request-response/">Postman 接口自动化测试与持续集成全栈- API 请求响应处理</a></li><li class="post-list-item"><a class="post-list-link" href="../../../22/api-test/postman-in-acton/section1/create-request/">Postman 接口自动化测试与持续集成全栈-创建请求</a></li><li class="post-list-item"><a class="post-list-link" href="../../../22/api-test/postman-in-acton/section1/menus/">Postman 接口自动化测试与持续集成全栈-Postman 功能介绍</a></li><li class="post-list-item"><a class="post-list-link" href="../../../22/api-test/postman-in-acton/section1/installation/">Postman 接口自动化测试与持续集成全栈-Postman 下载与安装</a></li><li class="post-list-item"><a class="post-list-link" href="../../../22/api-test/postman-in-acton/section1/introduction-to-api/">Postman 接口自动化测试与持续集成全栈-API 测试介绍</a></li><li class="post-list-item"><a class="post-list-link" href="../../../22/api-test/postman-in-acton/introduction/">Postman 接口自动化测试与持续集成全栈-前言</a></li><li class="post-list-item"><a class="post-list-link" href="../../../19/ci-cd/devops-tools/">DevOps 工具链-Java 持续集成发布流水线</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2019 DevOps技术谈 沪ICP备18014300号-3
+            </div>
+            <div class="footer-right">
+                <a href="https://devopstools.cn/" target="_blank" title="快速、简洁且高效的博客框架">Power by DevOpsTools</a>  
+                <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+        
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        
+        <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                    <span id="busuanzi_container_site_pv">
+                        本站总访问量<span id="busuanzi_value_site_pv"></span>次
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+    <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script src='https://unpkg.com/mermaid@8.4/dist/mermaid.min.js'></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({theme: 'yelee'});
+    }
+  </script>
+
+  </div>
+</body>
+</html>
