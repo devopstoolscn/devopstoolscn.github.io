@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>DevOps 技术与工具</title>
   <icon>http://devopstools.cn/icon.png</icon>
-  <subtitle>DevOps Tools</subtitle>
+  <subtitle>DevOps 技术 工具</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://devopstools.cn/"/>
@@ -150,7 +150,7 @@
     <link href="http://devopstools.cn/2019/10/24/agile/SAFe-Tutorial/"/>
     <id>http://devopstools.cn/2019/10/24/agile/SAFe-Tutorial/</id>
     <published>2019-10-24T14:49:13.413Z</published>
-    <updated>2019-10-30T15:28:58.216Z</updated>
+    <updated>2019-11-01T00:15:47.261Z</updated>
     
     <summary type="html">
     
