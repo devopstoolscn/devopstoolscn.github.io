@@ -139,9 +139,9 @@
       <category term="敏捷研发" scheme="http://devopstools.cn/categories/%E6%95%8F%E6%8D%B7%E7%A0%94%E5%8F%91/"/>
     
     
-      <category term="敏捷管理" scheme="http://devopstools.cn/tags/%E6%95%8F%E6%8D%B7%E7%AE%A1%E7%90%86/"/>
-    
       <category term="SAFe" scheme="http://devopstools.cn/tags/SAFe/"/>
+    
+      <category term="敏捷管理" scheme="http://devopstools.cn/tags/%E6%95%8F%E6%8D%B7%E7%AE%A1%E7%90%86/"/>
     
   </entry>
   
@@ -200,15 +200,15 @@
   </entry>
   
   <entry>
-    <title>小木读《瑜伽（qie）师地论》</title>
-    <link href="http://devopstools.cn/2019/10/25/classic/yuqieshidilun/"/>
-    <id>http://devopstools.cn/2019/10/25/classic/yuqieshidilun/</id>
+    <title>三界、六道、瑜伽十七地对照表</title>
+    <link href="http://devopstools.cn/2019/10/25/classic/sanjie_liudao/"/>
+    <id>http://devopstools.cn/2019/10/25/classic/sanjie_liudao/</id>
     <published>2019-10-25T05:00:00.000Z</published>
-    <updated>2019-11-03T14:25:04.766Z</updated>
+    <updated>2019-11-03T14:25:38.810Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;《瑜伽师地论》是有未来佛-弥勒菩萨所讲，世亲菩萨记录，玄奘法师翻译成汉语的。是唯识法相宗最重要的佛学大纲。本篇结合《瑜伽师地轮》和本人学习的心得，使用白话文对原文进行翻译、介绍和心得说明。&lt;/p&gt;
+      &lt;p&gt;本篇整理了三界天人表、六道和瑜伽师地论中的十七地。&lt;/p&gt;
     
     </summary>
     
@@ -223,15 +223,15 @@
   </entry>
   
   <entry>
-    <title>三界、六道、瑜伽十七地对照表</title>
-    <link href="http://devopstools.cn/2019/10/25/classic/sanjie_liudao/"/>
-    <id>http://devopstools.cn/2019/10/25/classic/sanjie_liudao/</id>
+    <title>小木读《瑜伽（qie）师地论》</title>
+    <link href="http://devopstools.cn/2019/10/25/classic/yuqieshidilun/"/>
+    <id>http://devopstools.cn/2019/10/25/classic/yuqieshidilun/</id>
     <published>2019-10-25T05:00:00.000Z</published>
-    <updated>2019-11-03T14:25:38.810Z</updated>
+    <updated>2019-11-03T14:25:04.766Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;本篇整理了三界天人表、六道和瑜伽师地论中的十七地。&lt;/p&gt;
+      &lt;p&gt;《瑜伽师地论》是有未来佛-弥勒菩萨所讲，世亲菩萨记录，玄奘法师翻译成汉语的。是唯识法相宗最重要的佛学大纲。本篇结合《瑜伽师地轮》和本人学习的心得，使用白话文对原文进行翻译、介绍和心得说明。&lt;/p&gt;
     
     </summary>
     
@@ -431,9 +431,9 @@
       <category term="敏捷研发" scheme="http://devopstools.cn/categories/%E6%95%8F%E6%8D%B7%E7%A0%94%E5%8F%91/"/>
     
     
-      <category term="Scrum" scheme="http://devopstools.cn/tags/Scrum/"/>
-    
       <category term="敏捷管理" scheme="http://devopstools.cn/tags/%E6%95%8F%E6%8D%B7%E7%AE%A1%E7%90%86/"/>
+    
+      <category term="Scrum" scheme="http://devopstools.cn/tags/Scrum/"/>
     
   </entry>
   
