@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://devopstools.cn/"/>
-  <updated>2019-11-02T14:03:25.984Z</updated>
+  <updated>2019-11-03T02:18:32.009Z</updated>
   <id>http://devopstools.cn/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>敏捷研发社区微信公众号</title>
+    <link href="http://devopstools.cn/2019/11/03/community/webchat/"/>
+    <id>http://devopstools.cn/2019/11/03/community/webchat/</id>
+    <published>2019-11-02T16:00:00.000Z</published>
+    <updated>2019-11-03T02:18:32.009Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;img src=&quot;/img/tools/weixinmp.png&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="技术社区" scheme="http://devopstools.cn/categories/%E6%8A%80%E6%9C%AF%E7%A4%BE%E5%8C%BA/"/>
+    
+    
+      <category term="微信公众号" scheme="http://devopstools.cn/tags/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7/"/>
+    
+  </entry>
   
   <entry>
     <title>通过案例学习测试驱动开发（TDD）</title>
@@ -86,33 +113,6 @@
       <category term="禅宗" scheme="http://devopstools.cn/tags/%E7%A6%85%E5%AE%97/"/>
     
       <category term="净土宗" scheme="http://devopstools.cn/tags/%E5%87%80%E5%9C%9F%E5%AE%97/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>敏捷研发社区微信公众号</title>
-    <link href="http://devopstools.cn/2019/10/29/community/webchat/"/>
-    <id>http://devopstools.cn/2019/10/29/community/webchat/</id>
-    <published>2019-10-29T03:39:51.721Z</published>
-    <updated>2019-10-29T05:47:26.189Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;&lt;img src=&quot;/img/tools/weixinmp.png&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="技术社区" scheme="http://devopstools.cn/categories/%E6%8A%80%E6%9C%AF%E7%A4%BE%E5%8C%BA/"/>
-    
-    
-      <category term="微信公众号" scheme="http://devopstools.cn/tags/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7/"/>
     
   </entry>
   
@@ -327,9 +327,9 @@
       <category term="UI测试" scheme="http://devopstools.cn/categories/UI%E6%B5%8B%E8%AF%95/"/>
     
     
-      <category term="Selenium" scheme="http://devopstools.cn/tags/Selenium/"/>
-    
       <category term="Java" scheme="http://devopstools.cn/tags/Java/"/>
+    
+      <category term="Selenium" scheme="http://devopstools.cn/tags/Selenium/"/>
     
       <category term="Python" scheme="http://devopstools.cn/tags/Python/"/>
     
@@ -354,9 +354,9 @@
       <category term="单元测试" scheme="http://devopstools.cn/categories/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/"/>
     
     
-      <category term="Java" scheme="http://devopstools.cn/tags/Java/"/>
-    
       <category term="JUnit" scheme="http://devopstools.cn/tags/JUnit/"/>
+    
+      <category term="Java" scheme="http://devopstools.cn/tags/Java/"/>
     
   </entry>
   
