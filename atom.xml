@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://devopstools.cn/"/>
-  <updated>2019-11-03T02:18:32.009Z</updated>
+  <updated>2019-11-03T14:12:45.125Z</updated>
   <id>http://devopstools.cn/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>版本管理工具 Git、GitHub、Gitee、与GitLab</title>
+    <link href="http://devopstools.cn/2019/11/03/ci-cd/git_vcs/"/>
+    <id>http://devopstools.cn/2019/11/03/ci-cd/git_vcs/</id>
+    <published>2019-11-03T14:12:42.463Z</published>
+    <updated>2019-11-03T14:12:45.125Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Git、GitHub、Gitee、与GitLab 是最流行的版本管理工具当中的几个。 是全球最大的开源社区，Gitee 是国内免费的开源社区，下载速度快。GitLab 是最受欢迎的企业搭建 Git 管理私库软件。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="CI/CD" scheme="http://devopstools.cn/categories/CI-CD/"/>
+    
+    
+      <category term="敏捷研发" scheme="http://devopstools.cn/tags/%E6%95%8F%E6%8D%B7%E7%A0%94%E5%8F%91/"/>
+    
+      <category term="版本管理" scheme="http://devopstools.cn/tags/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/"/>
+    
+      <category term="Git" scheme="http://devopstools.cn/tags/Git/"/>
+    
+      <category term="GitHub" scheme="http://devopstools.cn/tags/GitHub/"/>
+    
+      <category term="Gitee" scheme="http://devopstools.cn/tags/Gitee/"/>
+    
+      <category term="GitLab" scheme="http://devopstools.cn/tags/GitLab/"/>
+    
+  </entry>
   
   <entry>
     <title>敏捷研发社区微信公众号</title>
@@ -40,6 +71,31 @@
     
     
       <category term="微信公众号" scheme="http://devopstools.cn/tags/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用JMeter 对 WEB 进行应用性能测试</title>
+    <link href="http://devopstools.cn/2019/11/03/performance/JMeter/jmeter-performance/"/>
+    <id>http://devopstools.cn/2019/11/03/performance/JMeter/jmeter-performance/</id>
+    <published>2019-11-02T16:00:00.000Z</published>
+    <updated>2019-11-03T14:20:28.833Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;JMeter 是 Apache 的著名的开源工具，常用来做性能测试和接口测试。本篇介绍如何使用 JMeter 进行 Web 应用的性能测试。包括搭建性能测试框架，设计性能测试场景、验证 Web 应用返回结果的正确性，以及 JMeter 脚本调试和形成测试报告。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="性能测试" scheme="http://devopstools.cn/categories/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/"/>
+    
+    
+      <category term="接口测试" scheme="http://devopstools.cn/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/"/>
+    
+      <category term="性能测试" scheme="http://devopstools.cn/tags/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/"/>
+    
+      <category term="JMeter" scheme="http://devopstools.cn/tags/JMeter/"/>
     
   </entry>
   
@@ -144,40 +200,38 @@
   </entry>
   
   <entry>
-    <title>使用JMeter 进行性能测试</title>
-    <link href="http://devopstools.cn/2019/10/28/performance/JMeter/JMeter-performance/"/>
-    <id>http://devopstools.cn/2019/10/28/performance/JMeter/JMeter-performance/</id>
-    <published>2019-10-28T02:26:56.665Z</published>
-    <updated>2019-10-28T02:41:21.082Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;JMeter 是 Apache 的著名的开源工具，常用来做性能测试和接口测试。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="性能测试" scheme="http://devopstools.cn/categories/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/"/>
-    
-    
-      <category term="接口测试" scheme="http://devopstools.cn/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/"/>
-    
-      <category term="性能测试" scheme="http://devopstools.cn/tags/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/"/>
-    
-      <category term="JMeter" scheme="http://devopstools.cn/tags/JMeter/"/>
-    
-  </entry>
-  
-  <entry>
     <title>小木读《瑜伽（qie）师地论》</title>
     <link href="http://devopstools.cn/2019/10/25/classic/yuqieshidilun/"/>
     <id>http://devopstools.cn/2019/10/25/classic/yuqieshidilun/</id>
     <published>2019-10-25T05:00:00.000Z</published>
-    <updated>2019-10-31T00:15:21.088Z</updated>
+    <updated>2019-11-03T14:25:04.766Z</updated>
     
     <summary type="html">
     
       &lt;p&gt;《瑜伽师地论》是有未来佛-弥勒菩萨所讲，世亲菩萨记录，玄奘法师翻译成汉语的。是唯识法相宗最重要的佛学大纲。本篇结合《瑜伽师地轮》和本人学习的心得，使用白话文对原文进行翻译、介绍和心得说明。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="随笔" scheme="http://devopstools.cn/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+      <category term="经典" scheme="http://devopstools.cn/tags/%E7%BB%8F%E5%85%B8/"/>
+    
+      <category term="唯识法相" scheme="http://devopstools.cn/tags/%E5%94%AF%E8%AF%86%E6%B3%95%E7%9B%B8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>三界、六道、瑜伽十七地对照表</title>
+    <link href="http://devopstools.cn/2019/10/25/classic/sanjie_liudao/"/>
+    <id>http://devopstools.cn/2019/10/25/classic/sanjie_liudao/</id>
+    <published>2019-10-25T05:00:00.000Z</published>
+    <updated>2019-11-03T14:25:38.810Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本篇整理了三界天人表、六道和瑜伽师地论中的十七地。&lt;/p&gt;
     
     </summary>
     
@@ -327,9 +381,9 @@
       <category term="UI测试" scheme="http://devopstools.cn/categories/UI%E6%B5%8B%E8%AF%95/"/>
     
     
-      <category term="Java" scheme="http://devopstools.cn/tags/Java/"/>
-    
       <category term="Selenium" scheme="http://devopstools.cn/tags/Selenium/"/>
+    
+      <category term="Java" scheme="http://devopstools.cn/tags/Java/"/>
     
       <category term="Python" scheme="http://devopstools.cn/tags/Python/"/>
     
@@ -354,9 +408,9 @@
       <category term="单元测试" scheme="http://devopstools.cn/categories/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/"/>
     
     
-      <category term="JUnit" scheme="http://devopstools.cn/tags/JUnit/"/>
-    
       <category term="Java" scheme="http://devopstools.cn/tags/Java/"/>
+    
+      <category term="JUnit" scheme="http://devopstools.cn/tags/JUnit/"/>
     
   </entry>
   
@@ -444,52 +498,6 @@
     <summary type="html">
     
       &lt;p&gt;使用 “GET” 方法发送 HTTP 请求。点击 【Send】按钮后，请求会发送到 URL 地址，接收到请求后，服务器端会根据请求参数返回响应的结果。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="接口测试" scheme="http://devopstools.cn/categories/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/"/>
-    
-    
-      <category term="接口测试" scheme="http://devopstools.cn/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/"/>
-    
-      <category term="Postman" scheme="http://devopstools.cn/tags/Postman/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Postman 接口自动化测试与持续集成全栈-创建请求</title>
-    <link href="http://devopstools.cn/2019/10/22/api-test/postman-in-acton/section1/create-request/"/>
-    <id>http://devopstools.cn/2019/10/22/api-test/postman-in-acton/section1/create-request/</id>
-    <published>2019-10-21T16:00:05.000Z</published>
-    <updated>2019-10-24T23:48:19.097Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;本节我们首先创建一个 RESTFul API 请求，填入请求地址，请求参数我们使用 “GET”，请求需要命名以便以后使用。请求选择或创建一个测试集 【Collection】 ，然后选择这个测试集，把命名后的请求保存在这个测试集里面。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="接口测试" scheme="http://devopstools.cn/categories/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/"/>
-    
-    
-      <category term="接口测试" scheme="http://devopstools.cn/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/"/>
-    
-      <category term="Postman" scheme="http://devopstools.cn/tags/Postman/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Postman 接口自动化测试与持续集成全栈-Postman 功能介绍</title>
-    <link href="http://devopstools.cn/2019/10/22/api-test/postman-in-acton/section1/menus/"/>
-    <id>http://devopstools.cn/2019/10/22/api-test/postman-in-acton/section1/menus/</id>
-    <published>2019-10-21T16:00:04.000Z</published>
-    <updated>2019-10-24T23:49:08.074Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Postman 为支持多样的功能提供有多个窗口和多个标签页，因此用户使用起来也很方便。它的主窗口包括三大区域：头部工具栏、左侧捷导航栏以及工作区。&lt;/p&gt;
     
     </summary>
     
