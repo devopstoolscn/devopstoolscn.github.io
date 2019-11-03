@@ -23,7 +23,7 @@
 <meta property="og:site_name" content="DevOps 技术与工具">
 <meta property="og:description" content="Git、GitHub、Gitee、与GitLab 是最流行的版本管理工具当中的几个。 是全球最大的开源社区，Gitee 是国内免费的开源社区，下载速度快。GitLab 是最受欢迎的企业搭建 Git 管理私库软件。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-11-03T14:12:45.125Z">
+<meta property="og:updated_time" content="2019-11-03T14:43:58.476Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
@@ -175,9 +175,9 @@
                             
                                 <a class="fa Email" href="mailto:support@devopstools.cn" title="Email"></a>
                             
-                                <a class="fa RSS" href="../../../../../atom.xml" title="RSS"></a>
-                            
                                 <a class="fa 简书" href="https://www.jianshu.com/u/7a6f21a30e94" target="_blank" rel="noopener" title="简书"></a>
+                            
+                                <a class="fa 博客园" href="https://www.cnblogs.com/vddalliance/" target="_blank" rel="noopener" title="博客园"></a>
                             
                                 <a class="fa CSDN" href="https://blog.csdn.net/winteroak" target="_blank" rel="noopener" title="CSDN"></a>
                             
@@ -237,9 +237,9 @@
                             
                                 <a class="fa Email" target="_blank" href="mailto:support@devopstools.cn" title="Email"></a>
                             
-                                <a class="fa RSS" target="_blank" href="../../../../../atom.xml" title="RSS"></a>
-                            
                                 <a class="fa 简书" target="_blank" href="https://www.jianshu.com/u/7a6f21a30e94" title="简书"></a>
+                            
+                                <a class="fa 博客园" target="_blank" href="https://www.cnblogs.com/vddalliance/" title="博客园"></a>
                             
                                 <a class="fa CSDN" target="_blank" href="https://blog.csdn.net/winteroak" title="CSDN"></a>
                             
@@ -295,6 +295,28 @@
           
         <p>Git、GitHub、Gitee、与GitLab 是最流行的版本管理工具当中的几个。 是全球最大的开源社区，Gitee 是国内免费的开源社区，下载速度快。GitLab 是最受欢迎的企业搭建 Git 管理私库软件。</p>
 <a id="more"></a>
+
+<h3 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h3><h3 id="配置用户"><a href="#配置用户" class="headerlink" title="配置用户"></a>配置用户</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">"devopstools"</span></span><br><span class="line">git config --global user.email <span class="string">"support@devopstools.cn"</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="创建-Git-仓库"><a href="#创建-Git-仓库" class="headerlink" title="创建 Git 仓库"></a>创建 Git 仓库</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mkdir devopstools</span><br><span class="line"><span class="built_in">cd</span> devopstools</span><br><span class="line">git init</span><br><span class="line">touch README.md</span><br><span class="line">git add README.md</span><br><span class="line">git commit -m <span class="string">"first commit"</span></span><br><span class="line">git remote add origin https://gitee.com/devopstools/devopstoolsweb.git</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
+
+<h3 id="引入已存在-Git-仓库"><a href="#引入已存在-Git-仓库" class="headerlink" title="引入已存在 Git 仓库"></a>引入已存在 Git 仓库</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> existing_git_repo</span><br><span class="line">git remote add origin https://gitee.com/devopstools/devopstoolsweb.git</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
+
+<h3 id="克隆远程仓库"><a href="#克隆远程仓库" class="headerlink" title="克隆远程仓库"></a>克隆远程仓库</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://gitee.com/devopstools/devopstoolsweb.git</span><br></pre></td></tr></table></figure>
+
+<h3 id="获取特定版本源代码"><a href="#获取特定版本源代码" class="headerlink" title="获取特定版本源代码"></a>获取特定版本源代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b v2.1.2 origin/v2.1.2</span><br></pre></td></tr></table></figure>
+
+<h3 id="从远程仓库更新代码到本地仓库"><a href="#从远程仓库更新代码到本地仓库" class="headerlink" title="从远程仓库更新代码到本地仓库"></a>从远程仓库更新代码到本地仓库</h3><p>从远程仓库更新并合并到本地仓库</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull</span><br></pre></td></tr></table></figure>
+
+<p>从远程仓库下载到本地仓库</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git fetch</span><br></pre></td></tr></table></figure>
+
+<h3 id="查看代码库分支"><a href="#查看代码库分支" class="headerlink" title="查看代码库分支"></a>查看代码库分支</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -a</span><br></pre></td></tr></table></figure>
+
+<h3 id="切换到指定版本"><a href="#切换到指定版本" class="headerlink" title="切换到指定版本"></a>切换到指定版本</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout v2.1.2</span><br></pre></td></tr></table></figure>
+
+
       
     </div>
     
@@ -305,7 +327,7 @@
         <p><span>本文标题:</span><a href="">版本管理工具 Git、GitHub、Gitee、与GitLab</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">DevOps技术谈</a></p>
         <p><span>发布时间:</span>2019-11-03, 22:12:42</p>
-        <p><span>最后更新:</span>2019-11-03, 22:12:45</p>
+        <p><span>最后更新:</span>2019-11-03, 22:43:58</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="" title="版本管理工具 Git、GitHub、Gitee、与GitLab">http://devopstools.cn/2019/11/03/ci-cd/git_vcs/</a>
             <span class="copy-path" data-clipboard-text="原文: http://devopstools.cn/2019/11/03/ci-cd/git_vcs/　　作者: DevOps技术谈" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -335,7 +357,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Git"><span class="toc-number">1.</span> <span class="toc-text">Git</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置用户"><span class="toc-number">2.</span> <span class="toc-text">配置用户</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建-Git-仓库"><span class="toc-number">3.</span> <span class="toc-text">创建 Git 仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#引入已存在-Git-仓库"><span class="toc-number">4.</span> <span class="toc-text">引入已存在 Git 仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#克隆远程仓库"><span class="toc-number">5.</span> <span class="toc-text">克隆远程仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#获取特定版本源代码"><span class="toc-number">6.</span> <span class="toc-text">获取特定版本源代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#从远程仓库更新代码到本地仓库"><span class="toc-number">7.</span> <span class="toc-text">从远程仓库更新代码到本地仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看代码库分支"><span class="toc-number">8.</span> <span class="toc-text">查看代码库分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#切换到指定版本"><span class="toc-number">9.</span> <span class="toc-text">切换到指定版本</span></a></li></ol>
         
     </div>
     <style>

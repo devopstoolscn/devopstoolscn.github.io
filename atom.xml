@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://devopstools.cn/"/>
-  <updated>2019-11-03T14:12:45.125Z</updated>
+  <updated>2019-11-03T14:43:58.476Z</updated>
   <id>http://devopstools.cn/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://devopstools.cn/2019/11/03/ci-cd/git_vcs/"/>
     <id>http://devopstools.cn/2019/11/03/ci-cd/git_vcs/</id>
     <published>2019-11-03T14:12:42.463Z</published>
-    <updated>2019-11-03T14:12:45.125Z</updated>
+    <updated>2019-11-03T14:43:58.476Z</updated>
     
     <summary type="html">
     
@@ -139,9 +139,9 @@
       <category term="敏捷研发" scheme="http://devopstools.cn/categories/%E6%95%8F%E6%8D%B7%E7%A0%94%E5%8F%91/"/>
     
     
-      <category term="SAFe" scheme="http://devopstools.cn/tags/SAFe/"/>
-    
       <category term="敏捷管理" scheme="http://devopstools.cn/tags/%E6%95%8F%E6%8D%B7%E7%AE%A1%E7%90%86/"/>
+    
+      <category term="SAFe" scheme="http://devopstools.cn/tags/SAFe/"/>
     
   </entry>
   
@@ -431,9 +431,9 @@
       <category term="敏捷研发" scheme="http://devopstools.cn/categories/%E6%95%8F%E6%8D%B7%E7%A0%94%E5%8F%91/"/>
     
     
-      <category term="敏捷管理" scheme="http://devopstools.cn/tags/%E6%95%8F%E6%8D%B7%E7%AE%A1%E7%90%86/"/>
-    
       <category term="Scrum" scheme="http://devopstools.cn/tags/Scrum/"/>
+    
+      <category term="敏捷管理" scheme="http://devopstools.cn/tags/%E6%95%8F%E6%8D%B7%E7%AE%A1%E7%90%86/"/>
     
   </entry>
   
