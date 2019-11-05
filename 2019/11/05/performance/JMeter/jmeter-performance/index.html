@@ -15,26 +15,24 @@
 
 
 
-<meta name="description" content="Mock 服务器可以模拟任何使用 HTTP &#x2F; HTTPS 对外提供服务的 WebService 服务、系统或网站。">
-<meta name="keywords" content="敏捷研发,接口测试,Mock,精准测试">
+<meta name="description" content="JMeter 是 Apache 的著名的开源工具，常用来做性能测试和接口测试。本篇介绍如何使用 JMeter 进行 Web 应用的性能测试。包括搭建性能测试框架，设计性能测试场景、验证 Web 应用返回结果的正确性，以及 JMeter 脚本调试和形成测试报告。">
+<meta name="keywords" content="接口测试,性能测试,JMeter">
 <meta property="og:type" content="article">
-<meta property="og:title" content="EMocker 易墨客 --HTTP&#x2F;HTTPS 接口服务模拟与监控工具简介">
-<meta property="og:url" content="http:&#x2F;&#x2F;devopstools.cn&#x2F;2019&#x2F;10&#x2F;24&#x2F;api-test&#x2F;emocker&#x2F;intro-mock&#x2F;index.html">
+<meta property="og:title" content="使用JMeter 对 WEB 进行应用性能测试">
+<meta property="og:url" content="http:&#x2F;&#x2F;devopstools.cn&#x2F;2019&#x2F;11&#x2F;05&#x2F;performance&#x2F;JMeter&#x2F;jmeter-performance&#x2F;index.html">
 <meta property="og:site_name" content="DevOps 技术与工具">
-<meta property="og:description" content="Mock 服务器可以模拟任何使用 HTTP &#x2F; HTTPS 对外提供服务的 WebService 服务、系统或网站。">
+<meta property="og:description" content="JMeter 是 Apache 的著名的开源工具，常用来做性能测试和接口测试。本篇介绍如何使用 JMeter 进行 Web 应用的性能测试。包括搭建性能测试框架，设计性能测试场景、验证 Web 应用返回结果的正确性，以及 JMeter 脚本调试和形成测试报告。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http:&#x2F;&#x2F;devopstools.cn&#x2F;img&#x2F;mocker&#x2F;01-01-01-request-mock-draft.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;devopstools.cn&#x2F;img&#x2F;mocker&#x2F;01-01-02-forward-request-draft.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;devopstools.cn&#x2F;img&#x2F;mocker&#x2F;01-01-03-callback-request-draft.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;devopstools.cn&#x2F;img&#x2F;mocker&#x2F;01-01-04-request-verfy-draft.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;devopstools.cn&#x2F;img&#x2F;mocker&#x2F;01-01-05-request-log-draft.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;devopstools.cn&#x2F;img&#x2F;mocker&#x2F;01-01-06-request-verfy-draft.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;devopstools.cn&#x2F;img&#x2F;mocker&#x2F;01-01-07-Isolating-service-draft.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;devopstools.cn&#x2F;img&#x2F;mocker&#x2F;01-01-08-verfy-request.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;devopstools.cn&#x2F;img&#x2F;mocker&#x2F;01-01-07-service-proxy.png">
-<meta property="og:updated_time" content="2019-10-29T05:44:19.884Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;devopstools.cn&#x2F;img&#x2F;jmeter&#x2F;manager.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;devopstools.cn&#x2F;img&#x2F;jmeter&#x2F;thread_group.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;devopstools.cn&#x2F;img&#x2F;jmeter&#x2F;test.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;devopstools.cn&#x2F;img&#x2F;jmeter&#x2F;ViewResultsTree.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;devopstools.cn&#x2F;img&#x2F;jmeter&#x2F;Report.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;devopstools.cn&#x2F;img&#x2F;jmeter&#x2F;varables.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;devopstools.cn&#x2F;img&#x2F;jmeter&#x2F;use_variable.png">
+<meta property="og:updated_time" content="2019-11-05T06:53:04.731Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http:&#x2F;&#x2F;devopstools.cn&#x2F;img&#x2F;mocker&#x2F;01-01-01-request-mock-draft.png">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;devopstools.cn&#x2F;img&#x2F;jmeter&#x2F;manager.png">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -66,7 +64,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>EMocker 易墨客 --HTTP/HTTPS 接口服务模拟与监控工具简介 | DevOps 技术与工具</title>
+<title>使用JMeter 对 WEB 进行应用性能测试 | DevOps 技术与工具</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -259,11 +257,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-api-test/emocker/intro-mock" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-performance/JMeter/jmeter-performance" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
       <a href="" class="article-date">
-      <time datetime="2019-10-24T05:54:24.010Z" itemprop="datePublished">2019-10-24</time>
+      <time datetime="2019-11-04T16:00:00.000Z" itemprop="datePublished">2019-11-05</time>
 </a>
 
 
@@ -278,7 +276,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      EMocker 易墨客 --HTTP/HTTPS 接口服务模拟与监控工具简介
+      使用JMeter 对 WEB 进行应用性能测试
     </h1>
   
 
@@ -287,13 +285,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="../../../../../../categories/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/">接口测试</a>
+    <a class="article-category-link" href="../../../../../../categories/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/">性能测试</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../../tags/Mock/" rel="tag">Mock</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../../tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/" rel="tag">接口测试</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../../tags/%E6%95%8F%E6%8D%B7%E7%A0%94%E5%8F%91/" rel="tag">敏捷研发</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../../tags/%E7%B2%BE%E5%87%86%E6%B5%8B%E8%AF%95/" rel="tag">精准测试</a></li></ul>
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../../tags/JMeter/" rel="tag">JMeter</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../../tags/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/" rel="tag">性能测试</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../../tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/" rel="tag">接口测试</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -303,154 +301,52 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Mock 服务器可以模拟任何使用 HTTP / HTTPS 对外提供服务的 WebService 服务、系统或网站。</p>
+        <p>JMeter 是 Apache 的著名的开源工具，常用来做性能测试和接口测试。本篇介绍如何使用 JMeter 进行 Web 应用的性能测试。包括搭建性能测试框架，设计性能测试场景、验证 Web 应用返回结果的正确性，以及 JMeter 脚本调试和形成测试报告。</p>
 <a id="more"></a>
 
-<h2 id="EMocker–易墨客🦜"><a href="#EMocker–易墨客🦜" class="headerlink" title="EMocker–易墨客🦜"></a>EMocker–易墨客🦜</h2><h3 id="EMOCKER-易墨客介绍"><a href="#EMOCKER-易墨客介绍" class="headerlink" title="EMOCKER 易墨客介绍"></a>EMOCKER 易墨客介绍</h3><p>服务器可以模拟任何使用 HTTP / HTTPS 对外提供服务的 WebService 服务、系统或网站。<br>当服务接收到请求时，它会查找请求对应的响应规则，然后按照规则返回请求者所需的约定格式的数据。响应规则可以定制配置，它定义了响应数据所需的规范要求。</p>
+<h2 id="使用JMeter-对-WEB-进行应用性能测试"><a href="#使用JMeter-对-WEB-进行应用性能测试" class="headerlink" title="使用JMeter 对 WEB 进行应用性能测试"></a>使用JMeter 对 WEB 进行应用性能测试</h2><h3 id="创建测试计划"><a href="#创建测试计划" class="headerlink" title="创建测试计划"></a>创建测试计划</h3><ol>
+<li>管理组件<br>测试计划中管理组件包括 HTTP Header Manager、HTTP Cookie  Manager、HTTP Cache Manager。</li>
+</ol>
 <ul>
-<li>向客户端返回模拟响应</li>
+<li>HTTP Header Manager</li>
 </ul>
-<!--mermaid
-sequenceDiagram
-participant Client as 客户端📱
-participant Mocker as EMocker🦜
-Client->>Mocker: 发送请求！
-Mocker->>Mocker: 匹配请求
-Mocker->>Client: 根据规则返回响应！
--->
-<p><img src="/img/mocker/01-01-01-request-mock-draft.png" alt=""></p>
+<p>HTTP Header Manager 用来管理 HTTP 请求的头部参数，例如 charset、status、meta等。</p>
 <ul>
-<li>代理转发请求给真实服务</li>
+<li>HTTP Cookie Manager</li>
 </ul>
-  <!--mermaid
-  sequenceDiagram
-  participant Client as 客户端📱
-  participant Mocker as EMocker🦜
-  participant Service as 真实服务🎎
-  Client->>Mocker: 发送请求！
-  Mocker->>Mocker: 匹配请求
-  Mocker->>Service: 转发请求
-  Service->>Client: 返回真实响应
- -->
-
-<p><img src="/img/mocker/01-01-02-forward-request-draft.png" alt=""></p>
+<p>HTTP Cookie Manager 用来管理 HTTP session 会话，例如用户登陆后，管理用户的认证会话，然后用户才能使用只有登录后才能使用的功能。</p>
 <ul>
-<li>回调自定义处理逻辑</li>
+<li>HTTP Cache Manager</li>
 </ul>
-<!--mermaid
-  sequenceDiagram
-  participant Client as 客户端📱
-  participant Mocker as EMocker🦜
-  participant CallBack as 回调逻辑🦸‍♂️
-  Client->>Mocker: 发送请求！
-  Mocker->>Mocker: 匹配请求
-  Mocker->>CallBack: 请求回调处理
-  CallBack->>Mocker: 返回处理结果
-  Mocker->>Client: 返回响应
- -->
-
-<p><img src="/img/mocker/01-01-03-callback-request-draft.png" alt=""></p>
+<p>HTTP Cache Manager 用来管理缓存文件，提高请求性能。</p>
+<p><img src="/img/jmeter/manager.png" alt=""></p>
+<ol start="2">
+<li>创建线程组<br>线程组用来模拟虚拟用户。</li>
+</ol>
 <ul>
-<li>发送请求验证</li>
+<li>Number of Threads ：代表虚拟用户数</li>
+<li>Ramp-Up Period： 用户数从1到设定的用户全部启动需要的时间。</li>
+<li>Loop Count:  执行次数，Forever，一直运行。</li>
 </ul>
-<!--mermaid
-  sequenceDiagram
-  participant Client as 客户端📱
-  participant Mocker as EMocker🦜
-  participant Persistance as 存储系统
-  participant CallBack as 回调逻辑🦸‍♂️
-  Client->>Mocker: 发送请求！
-  Mocker->>Persistance: 记录请求
-  Persistance->>CallBack: 返回记录
-  Mocker->>CallBack: 验证请求
-  CallBack->>Mocker: 返回结果
-  Mocker->>Client: 返回响应
--->
-
-<p><img src="/img/mocker/01-01-04-request-verfy-draft.png" alt=""></p>
-<ul>
-<li>获取日志和异常</li>
-</ul>
-<!--mermaid
-  sequenceDiagram
-  participant Client as 客户端📱
-  participant Mocker as EMocker🦜
-  participant Persistance as 存储系统
-  participant CallBack as 回调逻辑🦸‍♂️
-  Client->>Mocker: 发送请求！
-  Mocker->>Persistance: 记录日志
-  Persistance->>CallBack: 返回日志
-  Mocker->>CallBack: 获取日志
-  CallBack->>Mocker: 返回结果
-  Mocker->>Client: 返回响应
--->
-
-<p><img src="/img/mocker/01-01-05-request-log-draft.png" alt=""></p>
-<h3 id="EMocker-易墨客-代理"><a href="#EMocker-易墨客-代理" class="headerlink" title="EMocker 易墨客 代理"></a>EMocker 易墨客 代理</h3><p>EMocker 可以记录所代理系统/应用/服务的全部请求，例如端口转发、HTTP代理、HTTPS代理、SOCKS代理，可以验证其所代理的请求，可以记录分析被代理系统的请求和响应行为。</p>
-<h3 id="EMocker-易墨客-的作用"><a href="#EMocker-易墨客-的作用" class="headerlink" title="EMocker 易墨客 的作用"></a>EMocker 易墨客 的作用</h3><p>EMocker 易墨客 可以模拟任何基于 HTTP 或 HTTPS 的服务，例如 REST、SOAP、RPC等。</p>
-<p>EMocker 易墨客的这些功能特性可以用在测试、开发解耦、服务隔离等方面。</p>
-<h4 id="测试方面的应用"><a href="#测试方面的应用" class="headerlink" title="测试方面的应用"></a>测试方面的应用</h4><ul>
-<li>模拟 REST、SOAP、RPC等基于 HTTP 的服务响应，提高测试效率，降低测试难度。</li>
-<li>把被测试系统与依赖的外部服务隔离开，避免外部服务的失效影响被测系统的测试。</li>
-<li>为指定的测试目标制作特定的响应，避免共享测试数据对测试结果的影响。</li>
-<li>验证被测系统的响应结果是否符合预期。</li>
-</ul>
-<!--mermaid
-sequenceDiagram
-participant Test as 测试脚本
-participant SUT as 被测系统 🎯
-participant Mocker as EMocker🦜
-Test ->>SUT: 测试请求！
-SUT ->>Mocker: 服务请求
-Mocker ->> SUT: 返回模拟结果
-SUT ->> Test: 验证测试结果
--->
-
-<p><img src="/img/mocker/01-01-06-request-verfy-draft.png" alt=""></p>
-<h4 id="开发解耦"><a href="#开发解耦" class="headerlink" title="开发解耦"></a>开发解耦</h4><ul>
-<li>基于模拟开发客户端应用或服务，可以让开发团队不依赖真实的服务进行开发，提高开发效率。</li>
-</ul>
-<ul>
-<li>避免被依赖服务由于不稳定对开发团队造成影响。</li>
-</ul>
-<h4 id="服务隔离"><a href="#服务隔离" class="headerlink" title="服务隔离"></a>服务隔离</h4><ul>
-<li>可以把特定的服务请求重定向到指定的服务，其它请求转发给真实的服务。方便开发人员对指定服务的部署和调试。</li>
-</ul>
-<p><img src="/img/mocker/01-01-07-Isolating-service-draft.png" alt=""></p>
-<!--mermaid
-sequenceDiagram
-participant App as 单页面应用
-participant Mocker as EMocker🦜
-participant RS as 真实服务 🎯
-participant LS as 本地调试服务 🐞
-
-App ->>Mocker: 服务请求！
-Mocker ->>RS: 请求真实服务
-Mocker ->>LS: 请求模拟服务
-RS ->> Mocker: 返回真实响应数据
-LS ->> Mocker: 返回本地调试响应数据
-Mocker ->> App: 单页面应用接收响应
---->
-
-<h3 id="EMocker-易墨客代理的作用"><a href="#EMocker-易墨客代理的作用" class="headerlink" title="EMocker 易墨客代理的作用"></a>EMocker 易墨客代理的作用</h3><p>EMocker 易墨客可以记录访问代理系统的全部请求，也可以分析已有系统的发出和收到的请求。</p>
-<ul>
-<li>测试场景应用</li>
-</ul>
-<p>验证被测系统发出的请求。</p>
-<p>  <img src="/img/mocker/01-01-08-verfy-request.png" alt=""></p>
-<ul>
-<li>分析已有系统</li>
-</ul>
-<p>记录已有系统全部发出的请求，进行分析和梳理。</p>
-<p>  <img src="/img/mocker/01-01-07-service-proxy.png" alt=""></p>
-<ul>
-<li>HTTP 交互调试</li>
-</ul>
-<p>可视化全部 HTTP/HTTPS  的调用交互</p>
-<ul>
-<li>录制和重放</li>
-</ul>
-<p>录制全部请求并转化成 Java 或 JSON 格式，简化测试场景编写。</p>
+<p><img src="/img/jmeter/thread_group.png" alt=""></p>
+<p>在现场组中创建脚本，线程组中的测试脚本可以按照线程组的设置运行。</p>
+<p><img src="/img/jmeter/test.png" alt=""></p>
+<ol start="3">
+<li>脚本调试</li>
+</ol>
+<p>使用 View Results Tree 进行脚本调试，可以监控脚本的运行状态</p>
+<p><img src="/img/jmeter/ViewResultsTree.png" alt=""></p>
+<ol start="4">
+<li>测试报告</li>
+</ol>
+<p>可以使用 Summary Report、Aggregate Report、AggregateGraph、Graph Result 等组件查看性能测试数据。</p>
+<p><img src="/img/jmeter/Report.png" alt=""></p>
+<ol start="5">
+<li>参数化</li>
+</ol>
+<p>可以使用 User Defined Variables 管理测试参数，例如 host 变量来存储服务器地址，Value 为 <a href="https://devopstools.cn">https://devopstools.cn</a> 。 使用变量方式为 ${host}</p>
+<p><img src="/img/jmeter/varables.png" alt=""></p>
+<p><img src="/img/jmeter/use_variable.png" alt=""></p>
 
       
     </div>
@@ -459,13 +355,13 @@ Mocker ->> App: 单页面应用接收响应
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="">EMocker 易墨客 --HTTP/HTTPS 接口服务模拟与监控工具简介</a></p>
+        <p><span>本文标题:</span><a href="">使用JMeter 对 WEB 进行应用性能测试</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">DevOps技术谈</a></p>
-        <p><span>发布时间:</span>2019-10-24, 13:54:24</p>
-        <p><span>最后更新:</span>2019-10-29, 13:44:19</p>
+        <p><span>发布时间:</span>2019-11-05, 00:00:00</p>
+        <p><span>最后更新:</span>2019-11-05, 14:53:04</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="" title="EMocker 易墨客 --HTTP/HTTPS 接口服务模拟与监控工具简介">http://devopstools.cn/2019/10/24/api-test/emocker/intro-mock/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://devopstools.cn/2019/10/24/api-test/emocker/intro-mock/　　作者: DevOps技术谈" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="" title="使用JMeter 对 WEB 进行应用性能测试">http://devopstools.cn/2019/11/05/performance/JMeter/jmeter-performance/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://devopstools.cn/2019/11/05/performance/JMeter/jmeter-performance/　　作者: DevOps技术谈" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -477,16 +373,10 @@ Mocker ->> App: 单页面应用接收响应
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="../../../agile/bdd/">
-                    敏捷研发流程-行为驱动开发 Behavior Driven Development （BDD）
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="../../../../23/api-test/postman-in-acton/section2/intro_script/">
-                    Postman 接口自动化测试与持续集成全栈-Postman 脚本编程
+                <a href="../../../../04/agile/SAFe-Tutorial/">
+                    大规模敏捷 Scaled Agile Framework (SAFe) 全面介绍
                 </a>
             </div>
         
@@ -498,7 +388,7 @@ Mocker ->> App: 单页面应用接收响应
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#EMocker–易墨客🦜"><span class="toc-number">1.</span> <span class="toc-text">EMocker–易墨客🦜</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#EMOCKER-易墨客介绍"><span class="toc-number">1.1.</span> <span class="toc-text">EMOCKER 易墨客介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EMocker-易墨客-代理"><span class="toc-number">1.2.</span> <span class="toc-text">EMocker 易墨客 代理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EMocker-易墨客-的作用"><span class="toc-number">1.3.</span> <span class="toc-text">EMocker 易墨客 的作用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#测试方面的应用"><span class="toc-number">1.3.1.</span> <span class="toc-text">测试方面的应用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#开发解耦"><span class="toc-number">1.3.2.</span> <span class="toc-text">开发解耦</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#服务隔离"><span class="toc-number">1.3.3.</span> <span class="toc-text">服务隔离</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EMocker-易墨客代理的作用"><span class="toc-number">1.4.</span> <span class="toc-text">EMocker 易墨客代理的作用</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#使用JMeter-对-WEB-进行应用性能测试"><span class="toc-number">1.</span> <span class="toc-text">使用JMeter 对 WEB 进行应用性能测试</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建测试计划"><span class="toc-number">1.1.</span> <span class="toc-text">创建测试计划</span></a></li></ol></li></ol>
         
     </div>
     <style>
@@ -534,7 +424,7 @@ Mocker ->> App: 单页面应用接收响应
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"EMocker 易墨客 --HTTP/HTTPS 接口服务模拟与监控工具简介　| DevOps 技术与工具　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"使用JMeter 对 WEB 进行应用性能测试　| DevOps 技术与工具　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -554,21 +444,19 @@ Mocker ->> App: 单页面应用接收响应
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="../../../agile/bdd/" title="上一篇: 敏捷研发流程-行为驱动开发 Behavior Driven Development （BDD）">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="../../../../23/api-test/postman-in-acton/section2/intro_script/" title="下一篇: Postman 接口自动化测试与持续集成全栈-Postman 脚本编程">
+            <a href="../../../../04/agile/SAFe-Tutorial/" title="下一篇: 大规模敏捷 Scaled Agile Framework (SAFe) 全面介绍">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="../../../../../11/05/performance/JMeter/jmeter-performance/">使用JMeter 对 WEB 进行应用性能测试</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../../11/04/agile/SAFe-Tutorial/">大规模敏捷 Scaled Agile Framework (SAFe) 全面介绍</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../../11/03/ci-cd/git_vcs/">版本管理工具 Git、GitHub、Gitee、与GitLab</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../../11/03/community/webchat/">敏捷研发社区微信公众号</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../../11/02/unit-test/tdd-tutorial/">通过案例学习测试驱动开发（TDD）</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../31/note/buddhism/">小木笔记之佛学杂谈</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../29/api-test/emocker/getting-started/">EMocker 易墨客 --30分钟上手教程</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../25/classic/sanjie_liudao/">三界、六道、瑜伽十七地对照表</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../25/classic/yuqieshidilun/">小木读《瑜伽（qie）师地论》</a></li><li class="post-list-item"><a class="post-list-link" href="../../../agile/bdd/">敏捷研发流程-行为驱动开发 Behavior Driven Development （BDD）</a></li><li class="post-list-item"><a class="post-list-link" href="">EMocker 易墨客 --HTTP/HTTPS 接口服务模拟与监控工具简介</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../23/api-test/postman-in-acton/section2/intro_script/">Postman 接口自动化测试与持续集成全栈-Postman 脚本编程</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../22/note/zhiyue/">指月新录</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../22/classic/lunyu/">论语杂谈</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../22/ui-test/selenium/">UI测试框架-Selenium</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../22/unit-test/junit-framework/">Java 单元测试框架-JUnit</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../22/agile/scrum-agile/">Scrum 敏捷管理</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../22/api-test/postman-in-acton/section1/making-hands-dirty/">Postman 接口自动化测试与持续集成全栈-实战环节之Demon 演练快速上手</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../22/api-test/postman-in-acton/section1/setting-parameters/">Postman 接口自动化测试与持续集成全栈- 设置请求参数</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../22/api-test/postman-in-acton/section1/request-response/">Postman 接口自动化测试与持续集成全栈- API 请求响应处理</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../22/api-test/postman-in-acton/section1/create-request/">Postman 接口自动化测试与持续集成全栈-创建请求</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../22/api-test/postman-in-acton/section1/menus/">Postman 接口自动化测试与持续集成全栈-Postman 功能介绍</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../22/api-test/postman-in-acton/section1/installation/">Postman 接口自动化测试与持续集成全栈-Postman 下载与安装</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../22/api-test/postman-in-acton/section1/introduction-to-api/">Postman 接口自动化测试与持续集成全栈-API 测试介绍</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../22/api-test/postman-in-acton/introduction/">Postman 接口自动化测试与持续集成全栈-前言</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../19/ci-cd/devops-tools/">DevOps 工具链-Java 持续集成发布流水线</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="">使用JMeter 对 WEB 进行应用性能测试</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../04/agile/SAFe-Tutorial/">大规模敏捷 Scaled Agile Framework (SAFe) 全面介绍</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../03/ci-cd/git_vcs/">版本管理工具 Git、GitHub、Gitee、与GitLab</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../03/community/webchat/">敏捷研发社区微信公众号</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../02/unit-test/tdd-tutorial/">通过案例学习测试驱动开发（TDD）</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../../10/31/note/buddhism/">小木笔记之佛学杂谈</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../../10/29/api-test/emocker/getting-started/">EMocker 易墨客 --30分钟上手教程</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../../10/25/classic/sanjie_liudao/">三界、六道、瑜伽十七地对照表</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../../10/25/classic/yuqieshidilun/">小木读《瑜伽（qie）师地论》</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../../10/24/agile/bdd/">敏捷研发流程-行为驱动开发 Behavior Driven Development （BDD）</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../../10/24/api-test/emocker/intro-mock/">EMocker 易墨客 --HTTP/HTTPS 接口服务模拟与监控工具简介</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../../10/23/api-test/postman-in-acton/section2/intro_script/">Postman 接口自动化测试与持续集成全栈-Postman 脚本编程</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../../10/22/note/zhiyue/">指月新录</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../../10/22/classic/lunyu/">论语杂谈</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../../10/22/ui-test/selenium/">UI测试框架-Selenium</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../../10/22/unit-test/junit-framework/">Java 单元测试框架-JUnit</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../../10/22/agile/scrum-agile/">Scrum 敏捷管理</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../../10/22/api-test/postman-in-acton/section1/making-hands-dirty/">Postman 接口自动化测试与持续集成全栈-实战环节之Demon 演练快速上手</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../../10/22/api-test/postman-in-acton/section1/setting-parameters/">Postman 接口自动化测试与持续集成全栈- 设置请求参数</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../../10/22/api-test/postman-in-acton/section1/request-response/">Postman 接口自动化测试与持续集成全栈- API 请求响应处理</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../../10/22/api-test/postman-in-acton/section1/create-request/">Postman 接口自动化测试与持续集成全栈-创建请求</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../../10/22/api-test/postman-in-acton/section1/menus/">Postman 接口自动化测试与持续集成全栈-Postman 功能介绍</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../../10/22/api-test/postman-in-acton/section1/installation/">Postman 接口自动化测试与持续集成全栈-Postman 下载与安装</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../../10/22/api-test/postman-in-acton/section1/introduction-to-api/">Postman 接口自动化测试与持续集成全栈-API 测试介绍</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../../10/22/api-test/postman-in-acton/introduction/">Postman 接口自动化测试与持续集成全栈-前言</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../../10/19/ci-cd/devops-tools/">DevOps 工具链-Java 持续集成发布流水线</a></li></ul>
 
 
 
