@@ -15,15 +15,15 @@
 
 
 
-<meta name="description" content="《指月录》是历史上禅宗大师们事迹和经典语录的记录，其中充满了哲学和智慧，可以做学问，可以修身。">
-<meta name="keywords" content="经典,禅宗">
+<meta name="description" content="本篇介绍如何使用工程化工具构建Vue项目。Vue 常用工具有Vue cli、npm、vue-devtools、VSCode。 Vue构建工具和基础插件为什么使用构建工具虽然我们可以通过引入 CDN JS 的方式快速构建项目，这种方式只适合你刚接触 Vue ，方便你快速上手学习Vue而已。但是我们还是需要一款现代化、模块化、高效的工具在实际的项目的开发中帮助提高开发效率。 拥有良好的构建工具为我们的">
+<meta name="keywords" content="NodeJS,敏捷研发,构建工具,Vue">
 <meta property="og:type" content="article">
-<meta property="og:title" content="指月新录">
-<meta property="og:url" content="http:&#x2F;&#x2F;devopstools.cn&#x2F;2019&#x2F;10&#x2F;22&#x2F;note&#x2F;zhiyue&#x2F;index.html">
+<meta property="og:title" content="Vue构建工具和基础插件">
+<meta property="og:url" content="http:&#x2F;&#x2F;devopstools.cn&#x2F;2019&#x2F;11&#x2F;07&#x2F;ci-cd&#x2F;vue-tools&#x2F;index.html">
 <meta property="og:site_name" content="DevOps 技术与工具">
-<meta property="og:description" content="《指月录》是历史上禅宗大师们事迹和经典语录的记录，其中充满了哲学和智慧，可以做学问，可以修身。">
+<meta property="og:description" content="本篇介绍如何使用工程化工具构建Vue项目。Vue 常用工具有Vue cli、npm、vue-devtools、VSCode。 Vue构建工具和基础插件为什么使用构建工具虽然我们可以通过引入 CDN JS 的方式快速构建项目，这种方式只适合你刚接触 Vue ，方便你快速上手学习Vue而已。但是我们还是需要一款现代化、模块化、高效的工具在实际的项目的开发中帮助提高开发效率。 拥有良好的构建工具为我们的">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-24T23:54:35.088Z">
+<meta property="og:updated_time" content="2019-11-07T14:15:13.928Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
@@ -56,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>指月新录 | DevOps 技术与工具</title>
+<title>Vue构建工具和基础插件 | DevOps 技术与工具</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -249,11 +249,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-note/zhiyue" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-ci-cd/vue-tools" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
       <a href="" class="article-date">
-      <time datetime="2019-10-22T14:52:27.222Z" itemprop="datePublished">2019-10-22</time>
+      <time datetime="2019-11-07T05:47:15.805Z" itemprop="datePublished">2019-11-07</time>
 </a>
 
 
@@ -268,7 +268,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      指月新录
+      Vue构建工具和基础插件
     </h1>
   
 
@@ -277,13 +277,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="../../../../../categories/%E9%9A%8F%E7%AC%94/">随笔</a>
+    <a class="article-category-link" href="../../../../../categories/CI-CD/">CI/CD</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../tags/%E7%A6%85%E5%AE%97/" rel="tag">禅宗</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../tags/%E7%BB%8F%E5%85%B8/" rel="tag">经典</a></li></ul>
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../tags/NodeJS/" rel="tag">NodeJS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../tags/Vue/" rel="tag">Vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../tags/%E6%95%8F%E6%8D%B7%E7%A0%94%E5%8F%91/" rel="tag">敏捷研发</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../tags/%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7/" rel="tag">构建工具</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -293,27 +293,46 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>《指月录》是历史上禅宗大师们事迹和经典语录的记录，其中充满了哲学和智慧，可以做学问，可以修身。</p>
-<a id="more"></a>
+        <p>本篇介绍如何使用工程化工具构建Vue项目。Vue 常用工具有Vue cli、npm、vue-devtools、VSCode。</p>
+<h2 id="Vue构建工具和基础插件"><a href="#Vue构建工具和基础插件" class="headerlink" title="Vue构建工具和基础插件"></a>Vue构建工具和基础插件</h2><p>为什么使用构建工具<br>虽然我们可以通过引入 CDN JS 的方式快速构建项目，这种方式只适合你刚接触 Vue ，方便你快速上手学习Vue而已。但是我们还是需要一款现代化、模块化、高效的工具在实际的项目的开发中帮助提高开发效率。</p>
+<p>拥有良好的构建工具为我们的开发工作带来了便捷，不仅如此，它确保了过程的可靠性、避免了重复性、减少人为犯错的机会。接下来让我们一起简单的了解下构建工具的核心特点。</p>
+<p>使用 JavaScript 新特性</p>
+<p>使用新的语法和功能（ES6+），让我们的代码更加简洁，可读性会更好，即使现代浏览器都支持ES2015，但是你的项目很有可能需要兼容低版本的浏览器，比如政府医院的项目，还有相当多的机器使用 windows XP。</p>
+<p>通过添加 Babel 到我们的构建工具中，就能很轻松的将 ES6+ 这些语法编译成旧浏览器支持 JavaScript 语法。不仅如此，大家应该都比较清楚，ECMAScript 几乎每年都会发布新版本，估计现在都到10了，通过构建工具的引用，我们可以与时俱进的使用更多的新语法特性。</p>
+<p>保证代码质量</p>
+<p>ESLint 是一个可配置的 JavaScript 语法规则和代码风格的检查工具。ESLint 能够辅助你轻松写出高质量的 JavaScript 代码。甚至还有ESLint的官方Vue插件eslint-plugin-vue，它将帮助你生成符合最佳实践的高质量代码。</p>
+<p>组件单文件化</p>
+<p>引入构建工具的好处就是，你可以在应用程序里使用单文件组件（Vue’s single-file components，简称SFC）。SFC 的好处就是将代码、样式、模板组合在一起进行集中编写。将逻辑和UI放在一起的好处，由于所有相关内容都集中放在一起，便于维护，由于每个组件又是独立的，因此重用性更好。如下段代码所示：</p>
+<p>「vue基础」Vue相关构建工具和基础插件简介<br>工具中的 vue-loader webpack 插件，将标签内的HTML代码编译成JavaScript代码，和组件内的JavaScript代码一起打包到应用程序中。</p>
+<p>压缩版本的JS，体积更小</p>
+<p>经过构建工具压缩后，编译后的JS文件体积更小，这就意味着用户打开网站的速度会更快，用户的体验就会更好。</p>
+<p>Vue CLI<br>Vue CLI 致力于将 Vue 生态中的工具基础标准化。它确保了各种构建工具能够基于智能的默认配置即可平稳衔接，这样你可以专注在撰写应用上，而不必花好几天去纠结配置的问题。与此同时，它也为每个工具提供了调整配置的灵活性，无需 eject。</p>
+<p>安装 CLI</p>
+<p>安装 CLI 工具十分简单，但是安装的前提，你需要安装 Node 环境。接下来，我们通过以下命令全局安装 CLI：</p>
+<p>npm install -g @vue/cli<br>创建一个新项目</p>
+<p>启动控制终端，然后输入以下命令进行创建：</p>
+<p>vue create my-new-project<br>此命会在当前目录下，创建一个以项目名称命名的文件夹，然后通过交互输入的形式，进行配置项目选选项。如下图所示,我们选择默认方式：</p>
+<p>「vue基础」Vue相关构建工具和基础插件简介<br>完成创建后，项目文件的目录结构如下图所示：</p>
+<p>「vue基础」Vue相关构建工具和基础插件简介<br>切换到 package.json 你会看到项目的基础配置，如下图所示：</p>
+<p>「vue基础」Vue相关构建工具和基础插件简介<br>这里有几个命令需要解释下：</p>
+<p>npm run serve： 这将启动本地开发服务器进行编译项目，该过程将会监听项目中文件夹所有文件，任何改动都会导致导致重新编译。<br>npm run build：主要用于项目打包发布，此命令将编译你的项目，创建优化的生产版本。<br>npm run lint：检查代码质量是否符合设定的规则。<br>接下来我们运行下 npm run serve 命令，效果如下图所示：</p>
+<p>「vue基础」Vue相关构建工具和基础插件简介<br>Webpack配置</p>
+<p>Vue CLI构建工具是基于webpack之上的，但是抽象了所有配置，以方便我们进行开发和使用。你可以通过运行命令随时查看webpack的配置。命令如下所示：</p>
+<p>vue inspect<br>如果使用手工方式创建项目</p>
+<p>上述流程是通过默认集成的方式进行创建项目，你也可以选择手工的方式的方式进行创建，如下图所示：</p>
+<p>「vue基础」Vue相关构建工具和基础插件简介<br>接下来我们来了解下这些插件：</p>
+<p>Babel： 项目预设默认选择这个方式，这个工具的主要作用就是方便你使用最新的JS语法编写项目，由它进行编译转换成低版本兼容的JS代码。<br>TypeScript： 如果你使用 TypeScript 编写项目，你一定要选择这个，这样你的代码才能被编译器识别转换。<br>渐进式Web应用程序（PWA）支持： 这个主要是为了方便你创建PWA应用，该插件默认提供 PWA 所需要的比如脱机、自定义相关的配置模板。<br>Router： 我们大部分项目都有多个页面，这时候，我们就需要用上这个路由插件。<br>Vuex: 类似 React 中的 Redux,官方提供的一个插件，方便我们集中管理复杂的 state 数据<br>CSS Pre-processors： 如果你使用 SCSS/Sass, LESS 编写CSS，建议你选择这个插件。<br>Linter / Formatter： 通过此选项，你可以自行安装ESLint或者使用Airbnb配置，Standard配置或Prettier代码格这些选项。<br>单元测试： 选择单元测试将为你提供安装Mocha、Chai或Jest作为测试工具的选项。<br>端到端测试: 与单元测试类似，将会为你提供Cypress、Nightwatch 的安装选项。<br>如果你在创建项目时，错过了这些选项，你完全不用担心，你可以通过手工命令的形式自行安装，比如我们要安装 typescript 插件，命令如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vue add @vue/cli-plugin-typescript</span><br><span class="line"></span><br><span class="line">vue add @vue/typescript</span><br></pre></td></tr></table></figure>
 
-<h3 id="禅宗的三个境界"><a href="#禅宗的三个境界" class="headerlink" title="禅宗的三个境界"></a>禅宗的三个境界</h3><p><strong>神秀大师语录</strong></p>
-<p>身如菩提树，心如明镜台；</p>
-<p>时时勤拂拭，勿使惹尘埃。</p>
-<blockquote>
-<p>这是由物修心，严格要求自己，像事件学问一样，在事间见功夫。</p>
-</blockquote>
-<p><strong>慧能大师语录</strong></p>
-<p>菩提本无树，明镜已非台；</p>
-<p>本来无一物，何处惹尘埃。</p>
-<blockquote>
-<p>这是讲性空，是道的空的一面。但只是一面，没有讲有。境界很高，但还没有圆融，偏于空性。</p>
-</blockquote>
-<p>本人胡诌语录</p>
-<p>菩提亦有树，明镜也有台；</p>
-<p>本来物是物，无名惹尘埃！</p>
-<blockquote>
-<p>这是讲性空缘起，缘起性空，空有圆融。要空即空，想有即有，心物一元。物有心生，心能转物。</p>
-</blockquote>
+<p>浏览器开发工具<br>Vue的浏览器工具集成在谷歌开发者工具上，方便你查看正在运行中Vue应用程序,你可以点击<a href="https://github.com/vuejs/vue-devtools#installation" target="_blank" rel="noopener">https://github.com/vuejs/vue-devtools#installation</a> 这个官方地址去下载安装vue-devtools，安装成功后，运行你的Vue站点，打开浏览器开发者工具，你就会看到一个Vue的选项卡，点击进行切换，你就会看到如下图所示的内容：</p>
+<p>Components Tab</p>
+<p>「vue基础」Vue相关构建工具和基础插件简介<br>组件选项卡，将对于页面组件的结构进行了树形化，更加直观的展示了当前组件包含了哪些组件，组件里包含了哪些内容，比如props,data 等。</p>
+<p>Vuex Tab</p>
+<p>「vue基础」Vue相关构建工具和基础插件简介<br>更加直观的展示了当前全局数据的存储状态，及相关 mutations 、getters 等内容。</p>
+<p>Events Tab</p>
+<p>「vue基础」Vue相关构建工具和基础插件简介<br>你可以通过事件选项卡，定位事件来源于那个组件，点击对应的事件，你能看到和事件更多相关的信息。</p>
+<p>安装 VSCode 插件<br>大部分前端开发者想必都喜欢用微软的 VSCode 开发工具，目前针对Vue来说，使用最广泛的要数 Vetur VSCode扩展插件，安装也十分简单：</p>
+<p>启动VSCode，并选择扩展选项卡菜单<br>在搜索栏搜索“vetur”<br>从结果中选择由Pine Wu 开发的 Vetur 插件，点击安装即可。如下图所示。</p>
 
       
     </div>
@@ -322,13 +341,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="">指月新录</a></p>
+        <p><span>本文标题:</span><a href="">Vue构建工具和基础插件</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">DevOps技术谈</a></p>
-        <p><span>发布时间:</span>2019-10-22, 22:52:27</p>
-        <p><span>最后更新:</span>2019-10-25, 07:54:35</p>
+        <p><span>发布时间:</span>2019-11-07, 13:47:15</p>
+        <p><span>最后更新:</span>2019-11-07, 22:15:13</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="" title="指月新录">http://devopstools.cn/2019/10/22/note/zhiyue/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://devopstools.cn/2019/10/22/note/zhiyue/　　作者: DevOps技术谈" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="" title="Vue构建工具和基础插件">http://devopstools.cn/2019/11/07/ci-cd/vue-tools/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://devopstools.cn/2019/11/07/ci-cd/vue-tools/　　作者: DevOps技术谈" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -340,16 +359,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="../../../23/api-test/postman-in-acton/section2/intro_script/">
-                    Postman 接口自动化测试与持续集成全栈-Postman 脚本编程
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="../../classic/lunyu/">
-                    论语杂谈
+                <a href="../../community/webchat/">
+                    敏捷研发社区微信公众号
                 </a>
             </div>
         
@@ -361,7 +374,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#禅宗的三个境界"><span class="toc-number">1.</span> <span class="toc-text">禅宗的三个境界</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Vue构建工具和基础插件"><span class="toc-number">1.</span> <span class="toc-text">Vue构建工具和基础插件</span></a></li></ol>
         
     </div>
     <style>
@@ -397,7 +410,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"指月新录　| DevOps 技术与工具　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Vue构建工具和基础插件　| DevOps 技术与工具　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -417,21 +430,19 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="../../../23/api-test/postman-in-acton/section2/intro_script/" title="上一篇: Postman 接口自动化测试与持续集成全栈-Postman 脚本编程">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="../../classic/lunyu/" title="下一篇: 论语杂谈">
+            <a href="../../community/webchat/" title="下一篇: 敏捷研发社区微信公众号">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="../../../../11/07/ci-cd/vue-tools/">Vue构建工具和基础插件</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../11/07/community/webchat/">敏捷研发社区微信公众号</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../11/07/agile/SAFe-Tutorial/">大规模敏捷 Scaled Agile Framework (SAFe) 全面介绍</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../11/05/performance/JMeter/jmeter-performance/">使用JMeter 对 WEB 进行应用性能测试</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../11/03/ci-cd/git_vcs/">版本管理工具 Git、GitHub、Gitee、与GitLab</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../11/02/unit-test/tdd-tutorial/">通过案例学习测试驱动开发（TDD）</a></li><li class="post-list-item"><a class="post-list-link" href="../../../31/note/buddhism/">小木笔记之佛学杂谈</a></li><li class="post-list-item"><a class="post-list-link" href="../../../29/api-test/emocker/getting-started/">EMocker 易墨客 --30分钟上手教程</a></li><li class="post-list-item"><a class="post-list-link" href="../../../25/classic/sanjie_liudao/">三界、六道、瑜伽十七地对照表</a></li><li class="post-list-item"><a class="post-list-link" href="../../../25/classic/yuqieshidilun/">小木读《瑜伽（qie）师地论》</a></li><li class="post-list-item"><a class="post-list-link" href="../../../24/agile/bdd/">敏捷研发流程-行为驱动开发 Behavior Driven Development （BDD）</a></li><li class="post-list-item"><a class="post-list-link" href="../../../24/api-test/emocker/intro-mock/">EMocker 易墨客 --HTTP/HTTPS 接口服务模拟与监控工具简介</a></li><li class="post-list-item"><a class="post-list-link" href="../../../23/api-test/postman-in-acton/section2/intro_script/">Postman 接口自动化测试与持续集成全栈-Postman 脚本编程</a></li><li class="post-list-item"><a class="post-list-link" href="">指月新录</a></li><li class="post-list-item"><a class="post-list-link" href="../../classic/lunyu/">论语杂谈</a></li><li class="post-list-item"><a class="post-list-link" href="../../ui-test/selenium/">UI测试框架-Selenium</a></li><li class="post-list-item"><a class="post-list-link" href="../../unit-test/junit-framework/">Java 单元测试框架-JUnit</a></li><li class="post-list-item"><a class="post-list-link" href="../../agile/scrum-agile/">Scrum 敏捷管理</a></li><li class="post-list-item"><a class="post-list-link" href="../../api-test/postman-in-acton/section1/making-hands-dirty/">Postman 接口自动化测试与持续集成全栈-实战环节之Demon 演练快速上手</a></li><li class="post-list-item"><a class="post-list-link" href="../../api-test/postman-in-acton/section1/setting-parameters/">Postman 接口自动化测试与持续集成全栈- 设置请求参数</a></li><li class="post-list-item"><a class="post-list-link" href="../../api-test/postman-in-acton/section1/request-response/">Postman 接口自动化测试与持续集成全栈- API 请求响应处理</a></li><li class="post-list-item"><a class="post-list-link" href="../../api-test/postman-in-acton/section1/create-request/">Postman 接口自动化测试与持续集成全栈-创建请求</a></li><li class="post-list-item"><a class="post-list-link" href="../../api-test/postman-in-acton/section1/menus/">Postman 接口自动化测试与持续集成全栈-Postman 功能介绍</a></li><li class="post-list-item"><a class="post-list-link" href="../../api-test/postman-in-acton/section1/installation/">Postman 接口自动化测试与持续集成全栈-Postman 下载与安装</a></li><li class="post-list-item"><a class="post-list-link" href="../../api-test/postman-in-acton/section1/introduction-to-api/">Postman 接口自动化测试与持续集成全栈-API 测试介绍</a></li><li class="post-list-item"><a class="post-list-link" href="../../api-test/postman-in-acton/introduction/">Postman 接口自动化测试与持续集成全栈-前言</a></li><li class="post-list-item"><a class="post-list-link" href="../../../19/ci-cd/devops-tools/">DevOps 工具链-Java 持续集成发布流水线</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="">Vue构建工具和基础插件</a></li><li class="post-list-item"><a class="post-list-link" href="../../community/webchat/">敏捷研发社区微信公众号</a></li><li class="post-list-item"><a class="post-list-link" href="../../agile/SAFe-Tutorial/">大规模敏捷 Scaled Agile Framework (SAFe) 全面介绍</a></li><li class="post-list-item"><a class="post-list-link" href="../../../05/performance/JMeter/jmeter-performance/">使用JMeter 对 WEB 进行应用性能测试</a></li><li class="post-list-item"><a class="post-list-link" href="../../../03/ci-cd/git_vcs/">版本管理工具 Git、GitHub、Gitee、与GitLab</a></li><li class="post-list-item"><a class="post-list-link" href="../../../02/unit-test/tdd-tutorial/">通过案例学习测试驱动开发（TDD）</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../10/31/note/buddhism/">小木笔记之佛学杂谈</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../10/29/api-test/emocker/getting-started/">EMocker 易墨客 --30分钟上手教程</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../10/25/classic/sanjie_liudao/">三界、六道、瑜伽十七地对照表</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../10/25/classic/yuqieshidilun/">小木读《瑜伽（qie）师地论》</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../10/24/agile/bdd/">敏捷研发流程-行为驱动开发 Behavior Driven Development （BDD）</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../10/24/api-test/emocker/intro-mock/">EMocker 易墨客 --HTTP/HTTPS 接口服务模拟与监控工具简介</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../10/23/api-test/postman-in-acton/section2/intro_script/">Postman 接口自动化测试与持续集成全栈-Postman 脚本编程</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../10/22/note/zhiyue/">指月新录</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../10/22/classic/lunyu/">论语杂谈</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../10/22/ui-test/selenium/">UI测试框架-Selenium</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../10/22/unit-test/junit-framework/">Java 单元测试框架-JUnit</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../10/22/agile/scrum-agile/">Scrum 敏捷管理</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../10/22/api-test/postman-in-acton/section1/making-hands-dirty/">Postman 接口自动化测试与持续集成全栈-实战环节之Demon 演练快速上手</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../10/22/api-test/postman-in-acton/section1/setting-parameters/">Postman 接口自动化测试与持续集成全栈- 设置请求参数</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../10/22/api-test/postman-in-acton/section1/request-response/">Postman 接口自动化测试与持续集成全栈- API 请求响应处理</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../10/22/api-test/postman-in-acton/section1/create-request/">Postman 接口自动化测试与持续集成全栈-创建请求</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../10/22/api-test/postman-in-acton/section1/menus/">Postman 接口自动化测试与持续集成全栈-Postman 功能介绍</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../10/22/api-test/postman-in-acton/section1/installation/">Postman 接口自动化测试与持续集成全栈-Postman 下载与安装</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../10/22/api-test/postman-in-acton/section1/introduction-to-api/">Postman 接口自动化测试与持续集成全栈-API 测试介绍</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../10/22/api-test/postman-in-acton/introduction/">Postman 接口自动化测试与持续集成全栈-前言</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../10/19/ci-cd/devops-tools/">DevOps 工具链-Java 持续集成发布流水线</a></li></ul>
 
 
 
