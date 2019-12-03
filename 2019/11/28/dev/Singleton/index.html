@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="DevOps技术谈" />
+
+
+
+<meta name="description" content="《论语》是孔子所说，其弟子记录的不朽经典国学。很多观点仍然值得现代人学习。学习国学《论语》是重要经典之一。 转载 《简书》和坚 同名文章 兼容性：系统应该能够兼容各种开发语言的项目、各种类型操作  系统的项目、交易&#x2F;非交易项目、自研&#x2F;外购项目。">
+<meta name="keywords" content="Java,开发">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Singleton模式：忙疯了的上帝">
+<meta property="og:url" content="http:&#x2F;&#x2F;devopstools.cn&#x2F;2019&#x2F;11&#x2F;28&#x2F;dev&#x2F;Singleton&#x2F;index.html">
+<meta property="og:site_name" content="DevOps 技术与工具">
+<meta property="og:description" content="《论语》是孔子所说，其弟子记录的不朽经典国学。很多观点仍然值得现代人学习。学习国学《论语》是重要经典之一。 转载 《简书》和坚 同名文章 兼容性：系统应该能够兼容各种开发语言的项目、各种类型操作  系统的项目、交易&#x2F;非交易项目、自研&#x2F;外购项目。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https:&#x2F;&#x2F;ooo.0o0.ooo&#x2F;2017&#x2F;01&#x2F;24&#x2F;58862a6422f9b.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;ooo.0o0.ooo&#x2F;2017&#x2F;01&#x2F;24&#x2F;58862a5e0812b.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;ooo.0o0.ooo&#x2F;2017&#x2F;01&#x2F;24&#x2F;58862a64c86ca.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;ooo.0o0.ooo&#x2F;2017&#x2F;01&#x2F;24&#x2F;58862a663a8c4.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;ooo.0o0.ooo&#x2F;2017&#x2F;01&#x2F;24&#x2F;58862a62a0ce4.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;ooo.0o0.ooo&#x2F;2017&#x2F;01&#x2F;24&#x2F;58871565c3745.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;ooo.0o0.ooo&#x2F;2017&#x2F;01&#x2F;24&#x2F;58871565dd504.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;ooo.0o0.ooo&#x2F;2017&#x2F;01&#x2F;24&#x2F;58871565df3d5.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;ooo.0o0.ooo&#x2F;2017&#x2F;01&#x2F;24&#x2F;58871565cec6e.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;ooo.0o0.ooo&#x2F;2017&#x2F;01&#x2F;24&#x2F;58862a6422f9b.png">
+<meta property="og:updated_time" content="2019-11-28T08:19:09.196Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;ooo.0o0.ooo&#x2F;2017&#x2F;01&#x2F;24&#x2F;58862a6422f9b.png">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="DevOps 技术与工具" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="../../../../../css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>Singleton模式：忙疯了的上帝 | DevOps 技术与工具</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?9f2ec0702d90c1f43efd0a40a2fb0479";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/tools.jpeg" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">DevOps技术谈</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">DevOps 技术 工具</p>
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="../../../../../index.html">主页</a></li>
+                        
+                            <li><a href="../../../../../categories/%E9%9A%8F%E7%AC%94/">随笔</a></li>
+                        
+                            <li><a href="../../../../../tags/">标签云</a></li>
+                        
+                            <li><a href="../../../../../archives/">所有文章</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto:support@devopstools.cn" title="Email"></a>
+                            
+                                <a class="fa 简书" href="https://www.jianshu.com/u/7a6f21a30e94" target="_blank" rel="noopener" title="简书"></a>
+                            
+                                <a class="fa 博客园" href="https://www.cnblogs.com/vddalliance/" target="_blank" rel="noopener" title="博客园"></a>
+                            
+                                <a class="fa CSDN" href="https://blog.csdn.net/winteroak" target="_blank" rel="noopener" title="CSDN"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/BDD/" rel="tag">BDD</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/DevOps/" rel="tag">DevOps</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/GitHub/" rel="tag">GitHub</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/GitLab/" rel="tag">GitLab</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/Gitee/" rel="tag">Gitee</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/JMeter/" rel="tag">JMeter</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/JUnit/" rel="tag">JUnit</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/K8S/" rel="tag">K8S</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/Mock/" rel="tag">Mock</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/NodeJS/" rel="tag">NodeJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/Postman/" rel="tag">Postman</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/SAFe/" rel="tag">SAFe</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/Scrum/" rel="tag">Scrum</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/Selenium/" rel="tag">Selenium</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/TDD/" rel="tag">TDD</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/UI%E6%B5%8B%E8%AF%95/" rel="tag">UI测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/Vue/" rel="tag">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/%E4%BB%A3%E7%A0%81%E6%89%AB%E6%8F%8F/" rel="tag">代码扫描</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/%E5%87%80%E5%9C%9F%E5%AE%97/" rel="tag">净土宗</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" rel="tag">单元测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/%E5%94%AF%E8%AF%86%E6%B3%95%E7%9B%B8/" rel="tag">唯识法相</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/%E5%9B%BD%E5%AD%A6/" rel="tag">国学</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/%E5%BC%80%E5%8F%91/" rel="tag">开发</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7/" rel="tag">微信公众号</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/" rel="tag">性能测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/%E6%8C%81%E7%BB%AD%E9%83%A8%E7%BD%B2/" rel="tag">持续部署</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/" rel="tag">持续集成</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/" rel="tag">接口测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/%E6%95%8F%E6%8D%B7%E7%A0%94%E5%8F%91/" rel="tag">敏捷研发</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/%E6%95%8F%E6%8D%B7%E7%AE%A1%E7%90%86/" rel="tag">敏捷管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7/" rel="tag">构建工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/" rel="tag">版本管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/%E7%A6%85%E5%AE%97/" rel="tag">禅宗</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/%E7%B2%BE%E5%87%86%E6%B5%8B%E8%AF%95/" rel="tag">精准测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/%E7%BB%8F%E5%85%B8/" rel="tag">经典</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">DevOps技术谈</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/tools.jpeg" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">DevOps技术谈</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">DevOps 技术 工具</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="../../../../../index.html">主页</a></li>
+                
+                    <li><a href="../../../../../categories/%E9%9A%8F%E7%AC%94/">随笔</a></li>
+                
+                    <li><a href="../../../../../tags/">标签云</a></li>
+                
+                    <li><a href="../../../../../archives/">所有文章</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:support@devopstools.cn" title="Email"></a>
+                            
+                                <a class="fa 简书" target="_blank" href="https://www.jianshu.com/u/7a6f21a30e94" title="简书"></a>
+                            
+                                <a class="fa 博客园" target="_blank" href="https://www.cnblogs.com/vddalliance/" title="博客园"></a>
+                            
+                                <a class="fa CSDN" target="_blank" href="https://blog.csdn.net/winteroak" title="CSDN"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-dev/Singleton" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="" class="article-date">
+      <time datetime="2019-11-27T16:00:00.000Z" itemprop="datePublished">2019-11-28</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Singleton模式：忙疯了的上帝
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="../../../../../categories/%E6%9E%B6%E6%9E%84/">架构</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../tags/Java/" rel="tag">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../tags/%E5%BC%80%E5%8F%91/" rel="tag">开发</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>《论语》是孔子所说，其弟子记录的不朽经典国学。很多观点仍然值得现代人学习。学习国学《论语》是重要经典之一。</p>
+<p>转载 《简书》和坚 同名文章</p>
+<p>兼容性：系统应该能够兼容各种开发语言的项目、各种类型操作 </p>
+<p>系统的项目、交易/非交易项目、自研/外购项目。 </p>
+<a id="more"></a>
+
+
+
+<p>我曾经写过一篇文章叫<a href="https://www.jianshu.com/p/c189ca849599" target="_blank" rel="noopener">《上帝是如何把宙斯挤下神坛的》</a>，那么上帝在成为唯一的神以后是怎么处理来自凡人的祈祷和愿望呢？忙疯了的上帝又是如何做到面对这么多凡人的时候不出错的？</p>
+<h2 id="需求故事"><a href="#需求故事" class="headerlink" title="需求故事"></a>需求故事</h2><ul>
+<li>1.作为一个基督徒ChristianA，可以向god1祈祷“ChristianA want rich”，这样god1的祈祷清单里面就会有“ChristianA want rich”</li>
+<li>2.作为一个基督徒ChristianB，可以向god2祈祷“ChristianB want strong”，这样god2的祈祷清单里就会有“ChristianA want rich”，“ChristianB want strong”，而且god1和god2的实例相同</li>
+<li>3.作为一个1000个Christian，可以同时向上帝祈祷，要求这1000个祈祷的上帝实例相同。</li>
+</ul>
+<h2 id="Story1"><a href="#Story1" class="headerlink" title="Story1"></a>Story1</h2><p>作为一个基督徒ChristianA，可以向god1祈祷“ChristianA want rich”，这样god1的祈祷清单里面就会有“ChristianA want rich”</p>
+<h3 id="Story1-Test-Case"><a href="#Story1-Test-Case" class="headerlink" title="Story1 Test Case"></a>Story1 Test Case</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testTheCrazyGod</span><span class="params">()</span></span>&#123;</span><br><span class="line">   <span class="comment">//story 1</span></span><br><span class="line">   GOD god1 = GOD.getInstance();</span><br><span class="line">   god1.recievePray(<span class="string">"ChristianA"</span>,<span class="string">"ChristianA want rich"</span>);</span><br><span class="line">   assertEquals(<span class="string">"ChristianA want rich"</span>, god1.getPray(<span class="string">"ChristianA"</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Story1-Implementation"><a href="#Story1-Implementation" class="headerlink" title="Story1 Implementation"></a>Story1 Implementation</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">GOD</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> Map&lt;String, String&gt; prayMap = <span class="keyword">new</span> HashMap();</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">GOD</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> GOD <span class="title">getInstance</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> GOD();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">recievePray</span>(<span class="params">String prayer, String prayMessage</span>)</span> &#123;</span><br><span class="line">        prayMap.put(prayer, prayMessage);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getPray</span>(<span class="params">String prayer</span>)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> prayMap.<span class="keyword">get</span>(prayer);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Story2"><a href="#Story2" class="headerlink" title="Story2"></a>Story2</h2><p>作为一个基督徒ChristianB，可以向god2祈祷“ChristianB want strong”，这样god2的祈祷清单里就会有“ChristianA want rich”，“ChristianB want strong”，而且god1和god2的实例相同</p>
+<h3 id="Story2-Test-Case"><a href="#Story2-Test-Case" class="headerlink" title="Story2 Test Case"></a>Story2 Test Case</h3><p>在设计Story2的test case时，重要的是如何测试两个god的实例相同，通过Object.toString(), 可以获得实例的ID，所以验证方法就是判断两个对象的实例ID是否相同</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">@Test</span><br><span class="line">public void testTheCrazyGod()&#123;</span><br><span class="line">   //story 1</span><br><span class="line">   GOD god1 = GOD.getInstance();</span><br><span class="line">   String god1Instanceid = god1.toString();</span><br><span class="line">   god1.recievePray(&quot;ChristianA&quot;,&quot;ChristianA want rich&quot;);</span><br><span class="line">   assertEquals(&quot;ChristianA want rich&quot;, god1.getPray(&quot;ChristianA&quot;));</span><br><span class="line">   //story 2</span><br><span class="line">   GOD god2 = GOD.getInstance();</span><br><span class="line">   String god2Instanceid = god2.toString();</span><br><span class="line">   god2.recievePray(&quot;ChristianB&quot;,&quot;ChristianB want Strong&quot;);</span><br><span class="line">   assertEquals(&quot;ChristianA want rich&quot;, god1.getPray(&quot;ChristianA&quot;));</span><br><span class="line">   assertEquals(&quot;ChristianB want Strong&quot;, god2.getPray(&quot;ChristianB&quot;));</span><br><span class="line">   assertEquals(god1Instanceid,god2Instanceid);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Story2-Implementation"><a href="#Story2-Implementation" class="headerlink" title="Story2 Implementation"></a>Story2 Implementation</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">GOD</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> GOD singleGod;</span><br><span class="line">    <span class="keyword">private</span> Map&lt;String, String&gt; prayMap = <span class="keyword">new</span> HashMap();</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">GOD</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> GOD <span class="title">getInstance</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (singleGod == <span class="literal">null</span>) &#123;</span><br><span class="line">            singleGod = <span class="keyword">new</span> GOD();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> singleGod;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">recievePray</span>(<span class="params">String prayer, String prayMessage</span>)</span> &#123;</span><br><span class="line">        prayMap.put(prayer, prayMessage);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getPray</span>(<span class="params">String prayer</span>)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> prayMap.<span class="keyword">get</span>(prayer);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这就是一个最简单的Singleton模式的实现了，但是这个实现有个最大的问题，那就是不是线程安全的，如果两个线程同时进入了getInstance方法，那么就可能会创建多个上帝的实例</p>
+<h2 id="Story3"><a href="#Story3" class="headerlink" title="Story3"></a>Story3</h2><p>作为一个1000个Christian，可以同时向上帝祈祷，要求这1000个祈祷的上帝实例相同。</p>
+<h3 id="Story3-Test-Case"><a href="#Story3-Test-Case" class="headerlink" title="Story3 Test Case"></a>Story3 Test Case</h3><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">public <span class="keyword">void</span> testSafetyGodStory3() &#123;</span><br><span class="line">   <span class="built_in">Set</span>&lt;<span class="built_in">String</span>&gt; stringSet = <span class="keyword">new</span> HashSet&lt;<span class="built_in">String</span>&gt;();</span><br><span class="line">   <span class="comment">//在测试中创建一个内部类用来跑多线程</span></span><br><span class="line">   <span class="class"><span class="keyword">class</span> <span class="title">Christian</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</span><br><span class="line">       <span class="meta">@Override</span></span><br><span class="line">       public <span class="keyword">void</span> run() &#123;</span><br><span class="line">           GOD god = GOD.getInstance();</span><br><span class="line">           stringSet.add(god.toString());<span class="comment">//记录每个线程获得的实例ID</span></span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="comment">//创建一个当使用线程才创建的线程池</span></span><br><span class="line">   ExecutorService executorService = Executors.newCachedThreadPool();</span><br><span class="line">   <span class="keyword">for</span> (<span class="built_in">int</span> c = <span class="number">0</span>; c &lt; <span class="number">1000</span>; c++) &#123;</span><br><span class="line">       <span class="comment">//在线程池里创建1000个线程Christian并执行</span></span><br><span class="line">       executorService.execute(<span class="keyword">new</span> Christian());</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="comment">//如果之前提交的线程任务完成就关闭线程池</span></span><br><span class="line">   executorService.shutdown();</span><br><span class="line">   </span><br><span class="line">   <span class="built_in">Iterator</span>&lt;<span class="built_in">String</span>&gt; iterator = stringSet.iterator();</span><br><span class="line">   assertTrue(iterator.hasNext());</span><br><span class="line">   <span class="built_in">String</span> firstInstanceId = iterator.next();</span><br><span class="line">   <span class="keyword">while</span> (iterator.hasNext()) &#123;</span><br><span class="line">       <span class="built_in">String</span> instanceId = iterator.next();</span><br><span class="line">       assertEquals(firstInstanceId, instanceId);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Story3-Implementation"><a href="#Story3-Implementation" class="headerlink" title="Story3 Implementation"></a>Story3 Implementation</h3><p>Singleton的线程安全问题解决方法一共有5种<br> 既然这个story讲到并发和线程安全问题，那么就在这部分干脆深入讲讲JVM在涉及线程调度时候的内存模型，<br> 用一个singleton模式来彻底理解java的多线程并发和线程安全</p>
+<blockquote>
+<h4 id="JVM内存模型和线程"><a href="#JVM内存模型和线程" class="headerlink" title="JVM内存模型和线程"></a>JVM内存模型和线程</h4></blockquote>
+<p>先说说现代计算机线程机制设计的初衷吧，本质原因其实是运算功能和读写功能速度差异导致的，所以聪明的人类使用运筹学的原理来压榨计算机的运算功能，就是让CPU在等待读写操作的时候不要闲着。</p>
+<blockquote>
+<p><em>人类里面顶尖聪明的人想出的线程机制其实不仅仅是提高了计算机的功效，我们普通人更应该从这些顶尖聪明的人的想法里进行学习：在日常工作生活中，当我们遭遇了因为无法抗拒的因素导致的等待时，比如等待飞机，我们是不是可以新开启一个线程在等待的同时进行其他的运算呢？从我个人的经验来说，这种启动新线程的思维方法是一个技能，而且这个技能是用的越多就越熟练效率越高的技能。</em><br> <strong>Java内存模型和线程关系图</strong></p>
+<p><img src="https://ooo.0o0.ooo/2017/01/24/58862a6422f9b.png" alt="img"></p>
+<p> 每个新创建的线程都会分布一个独立的工作内存，而这些工作内存是和主内存打交道的，所以在多线程并发的情况下最重要和最核心的问题就是缓存一致性问题，也就是在Story3里面定义的线程安全问题。所以我们先要了解一下Java Memory Model的8个基本操作是什么：</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>lock：只能用在主内存变量上，他把一个主内存变量标记成一条线程独占的状态</li>
+</ul>
+</blockquote>
+<ul>
+<li>unlock：只能用在主内存变量上，一个线程释放主内存变量后其他线程才能够锁定</li>
+<li>read：把一个主内存变量从主内存读到线程的工作内存，以便load使用</li>
+<li>load：把read操作的变量值放入<strong>工作内存的变量副本</strong>中</li>
+<li>use：线程从<strong>工作内存的变量副本</strong>获得变量值进行运算</li>
+<li>assign：线程把预算结果赋值给工作内存的变量</li>
+<li>store：把工作内存的变量值传输给主内存，以便write使用</li>
+<li>write：把从store操作中的变量值写入主内存</li>
+</ul>
+<blockquote>
+<p>从上面的8个操作我们可以看到read和load，store和write必须是一起出现的，JMM不允许这4个指令单独出现。<strong>但是（这个但是很重要）</strong>，虽然要求两个操作是一起的，却可以在两个操作之间插入其他操作，举例来说就是可以是这样的执行顺序：read A，read B，load A，load B</p>
+</blockquote>
+<p>有关java内存模型和线程的基础操作介绍完了，下面我们用5个不同的Singleton线程安全实现来具体分析一下吧：</p>
+<h4 id="线程安全方法1：Eager方法"><a href="#线程安全方法1：Eager方法" class="headerlink" title="线程安全方法1：Eager方法"></a>线程安全方法1：Eager方法</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GOD</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> GOD singleGod = <span class="keyword">new</span> GOD();</span><br><span class="line">    <span class="keyword">private</span> Map&lt;String, String&gt; prayMap = <span class="keyword">new</span> HashMap();</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">GOD</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Thread.sleep(<span class="number">5</span>);<span class="comment">//模拟创建对象时间较长，可以启动另外一个线程</span></span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> GOD <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> singleGod;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这个实现方式其实和上面提到的java内存模型就没什么关系了，因为被定义成static final的singleGod会在jvm启动调用ClassLoader来加载GOD类的时候就会完成实例的准备，所以称之为Eager模式，这样做的缺点是开销比较大，在没有调用到getInstance的时候JVM就已经创建好了singleGod的实例了。<br> 这里刚好涉及到了类加载的问题，那么让我们再深入一点，看看一个类的生命周期究竟是什么样的，这样也可以帮助我们更好的理解final，static这些修饰符是怎么工作的。</p>
+<blockquote>
+<p><strong>Java Class生命周期图</strong></p>
+<p><img src="https://ooo.0o0.ooo/2017/01/24/58862a5e0812b.jpg" alt="img"></p>
+<p> 这里先要明确一个概念，我们在平常说到类加载其实是包含了上图中的“加载”，“链接”，“初始化”3个步骤的。而上图是官方定义一个类各个阶段的命名。</p>
+</blockquote>
+<blockquote>
+<ol>
+<li>loading,在loading阶段JVM需要完成3件事：</li>
+</ol>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">+ 根据类名读类的二进制字节流，</span><br><span class="line">+ 把字节流转化成存储结构，</span><br><span class="line">+ 在内存中生成一个代表这个类的<span class="selector-tag">java</span><span class="selector-class">.lang</span><span class="selector-class">.Class</span>的对象。</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><em>在我们的Test Case中，当第一次调用到GOD.getInstance()时，JVM就会启动loading动作去读GOD.class的二进制流</em></p>
+</blockquote>
+<blockquote>
+<ol>
+<li>linking-Verification,在verification阶段JVM需要进行4个验证：</li>
+</ol>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">+ 文件格式验证，确定字节流是符合<span class="class"><span class="keyword">Class</span>规范的</span></span><br><span class="line"><span class="class">+ 元数据验证，确定描述信息是符合<span class="title">java</span>规范的</span></span><br><span class="line"><span class="class">+ 字节码验证，确定程序语意是合法的</span></span><br><span class="line"><span class="class">+ 符号引用验证，确保<span class="title">Resolution</span>能够正常执行</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><em>在我们的Test Case中，JVM读完了GOD.class的二进制字节流就会启动Verification动作</em></p>
+</blockquote>
+<blockquote>
+<ol>
+<li>linking-Preparation，为类变量分配内存并设置<strong>类变量初始值</strong>的过程，所谓的类变量就是被Static，通常情况下初始值都是变量的默认零值，但是如果类变量被final修饰过，那么就会执行赋值命令<br> <em>在我们的Test Case中，singleGod就是一个类变量，并在preparation阶段初始化成new GOD()</em><br> <code>private static final GOD singleGod = new GOD();</code><br> 而没有final修饰的类变量的区别就是赋值命令不会在Preparation阶段执行，而是在Initialization阶段执行，这时候singleGod还是null</li>
+</ol>
+</blockquote>
+<blockquote>
+<ol>
+<li>linking-Resolution，JVM把常量池内的符号引用替换为直接引用的过程</li>
+</ol>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">+ 符号引用（SymbolicReference），用符号来描述引用目标，引用的目标不一定加载到JVM中</span><br><span class="line">+ 直接引用（DirectReference），引用的目标对象已经加载到了JVM中</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><em>在我们的Test Case中, Resolution阶段就是发现GOD需要Map，然后会把Map的全名给GOD的ClassLoader去加载Map，然后把Map从符号引用变为直接引用</em><br> <code>private Map prayMap = new HashMap();</code></p>
+</blockquote>
+<blockquote>
+<ol>
+<li>Initialization，这个阶段主要就是执行<strong>类构造器</strong><clinit>()的过程，这里有几个有意思的特点需要注意：</li>
+</ol>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">+ **\<span class="tag">&lt;<span class="name">clinit\</span>&gt;</span>()是类构造器，不同于实例构造器，这点尤为重要**</span><br><span class="line">+ 由于\<span class="tag">&lt;<span class="name">clinit\</span>&gt;</span>()就是把所有static修饰的变量和语句块进行顺序执行，所以语句块的顺序很重要（就好比是JavaScript这种解释性语言的执行方式）</span><br><span class="line">+ 如果有父类，那么父类的\<span class="tag">&lt;<span class="name">clinit\</span>&gt;</span>()会先执行父类的\<span class="tag">&lt;<span class="name">clinit\</span>&gt;</span>()，所以父类的静态变量赋值优先于子类的静态变量赋值，**这也是静态变量不能被子类改写的根本原因**</span><br><span class="line">+ 如果没有static修饰的变量和代码，那么编译器可以不生成\<span class="tag">&lt;<span class="name">clinit\</span>&gt;</span>()方法</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<ol>
+<li>Using，当初始化完成之后，java虚拟机就可以执行Class的业务逻辑指令，通过堆中java.lang.Class对象的入口地址，调用方法区的方法逻辑，最后将方法的运算结果通过方法返回地址存放到方法区或堆中。</li>
+<li>Unloading，在类使用完之后，如果满足下面3个条件全部满足的情况，类就会被卸载：</li>
+</ol>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">+ 该类所有的实例都已经被回收，也就是<span class="selector-tag">java</span>堆中不存在该类的任何实例</span><br><span class="line">+ 加载该类的<span class="selector-tag">ClassLoader</span>已经被回收</span><br><span class="line">+ 该类对应的<span class="selector-tag">java</span><span class="selector-class">.lang</span><span class="selector-class">.Class</span>对象没有任何地方被引用，无法在任何地方通过反射访问该类的方法。</span><br></pre></td></tr></table></figure>
+
+<h4 id="线程安全方法2：Lazy方法"><a href="#线程安全方法2：Lazy方法" class="headerlink" title="线程安全方法2：Lazy方法"></a>线程安全方法2：Lazy方法</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GOD</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> GOD singleGod;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">GOD</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Thread.sleep(<span class="number">5</span>);<span class="comment">//模拟创建对象时间较长，可以启动另外一个线程</span></span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">synchronized</span> GOD <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (singleGod == <span class="keyword">null</span>) &#123;</span><br><span class="line">            singleGod = <span class="keyword">new</span> GOD();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> singleGod;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>所谓Lazy就是等到真正调用到getInstance的时候再去创建实例，这是和Eager方法相对的。<br> 采用 synchronized 修饰符实现的同步机制叫做<strong>互斥锁机制</strong>，它所获得的锁叫做互斥锁。每个对象都有一个 monitor (锁标记)，当线程拥有这个锁标记时才能访问这个资源，没有锁标记便进入锁池。任何一个对象系统都会为其创建一个互斥锁，这个锁是为了分配给线程的，防止打断原子操作。每个对象的锁只能分配给一个线程，因此叫做互斥锁。<br> 这里既然谈到了那么我们就研究的再深入一点，看看JVM是怎么实现synchronized的吧。</p>
+<blockquote>
+<h3 id="Synchronized的实现"><a href="#Synchronized的实现" class="headerlink" title="Synchronized的实现"></a>Synchronized的实现</h3><h4 id="1-先说说synchronized的历史"><a href="#1-先说说synchronized的历史" class="headerlink" title="1.先说说synchronized的历史"></a>1.先说说synchronized的历史</h4><p>synchronized在JDK5之前一直被称为重量级锁，是一个较为鸡肋的设计，而在JDK6对synchronized内在机制进行了大量显著的优化，加入了CAS，轻量级锁和偏向锁的功能，性能上提升很多，所以如果仅仅是为了实现互斥，那么可以优先考虑synchronized。</p>
+<h4 id="2-CAS-Compare-and-Swap，"><a href="#2-CAS-Compare-and-Swap，" class="headerlink" title="2.CAS Compare and Swap，"></a>2.CAS Compare and Swap，</h4><p>这事一个用于在硬件层面上提供原子性操作。在 Intel 处理器中，CAS通过汇编指令cmpxchg实现。比较是否和给定的数值一致，如果一致则修改，不一致则不修改。那么这个硬件特性就很适合用在锁上面了。用一个更具体的例子来说，通常将 CAS 用于同步的方式是从地址 V 读取值 A，执行多步计算来获得新值 B，然后使用 CAS 将 V 的值从 A 改为 B。如果 V 处的值尚未同时更改，则 CAS 操作成功。</p>
+<h4 id="3-java中synchronized可以用在2个地方："><a href="#3-java中synchronized可以用在2个地方：" class="headerlink" title="3.java中synchronized可以用在2个地方："></a>3.java中synchronized可以用在2个地方：</h4><ul>
+<li><p>用在方法上</p>
+<p>，锁的是当前实例对象，实现方法是编译时，方法的常量池中多了ACC_SYNCHRONIZED标示符，当线程调用方法时，会检查ACC_SYNCHRONIZED是否设置，如果设置了，那么线程会获取对应monitor，获取成功了才能执行方法体。 </p>
+<ul>
+<li><p>如果方法是普通方法，那么monitor是对象实例上的锁，</p>
+</li>
+<li><p>如果方法是静态方法，那么monitor是类上的锁</p>
+<p><img src="https://ooo.0o0.ooo/2017/01/24/58862a64c86ca.jpg" alt="img"></p>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li><p>用在代码块上</p>
+<p>，锁的是括号里的对象，实现方式是在代码编译的时候给代码块前后增加monitorenter和monitorexit</p>
+<p><img src="https://ooo.0o0.ooo/2017/01/24/58862a663a8c4.jpg" alt="img"></p>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>线程执行monitorenter的详细过程：<strong>[1]</strong>如果monitor的进入数为0，则该线程进入monitor，然后将进入数设置为1，该线程即为monitor的所有者.<strong>[2]</strong>如果线程已经占有该monitor，只是重新进入，则进入monitor的进入数加1.<strong>[3]</strong>如果其他线程已经占用了monitor，则该线程进入阻塞状态，直到monitor的进入数为0，再重新尝试获取monitor的所有权</li>
+<li>执行monitorexit的线程必须是对应monitor的所有者，指令执行时，monitor的进入数减1，如果减1后进入数为0，那线程退出monitor，不再是这个monitor的所有者。其他被这个monitor阻塞的线程可以尝试去获取这个 monitor 的所有权。</li>
+</ul>
+<h4 id="4-这个坑是越挖越深了，那我们来看看monitor吧。"><a href="#4-这个坑是越挖越深了，那我们来看看monitor吧。" class="headerlink" title="4.这个坑是越挖越深了，那我们来看看monitor吧。"></a>4.这个坑是越挖越深了，那我们来看看monitor吧。</h4><p>当多线程同时访问一段同步代码时，新请求的线程会首先加入到Entry Set集合中，通过竞争（compete）方式，同一时间只有一个线程可以竞争成功并获取监视器，进入The Owner。获取监视器的线程调用wait()后就会释放监视器，并进入Wait Set集合中等待满足条件时被唤醒。下面这个图可以帮助更容易的理解这个过程</p>
+<p><img src="https://ooo.0o0.ooo/2017/01/24/58862a62a0ce4.png" alt="img"></p>
+<h4 id="5-Java-SE1-6里锁的四种状态"><a href="#5-Java-SE1-6里锁的四种状态" class="headerlink" title="5.Java SE1.6里锁的四种状态"></a>5.Java SE1.6里锁的四种状态</h4><p>Java SE1.6为了减少获得锁和释放锁所带来的性能消耗，引入了“偏向锁”和“轻量级锁”，所以锁有四种状态：无锁状态，偏向锁状态，轻量级锁状态和重量级锁状态。它会随着竞争情况逐渐升级。锁可以升级但不能降级，意味着偏向锁升级成轻量级锁后不能降级成偏向锁。这种锁升级却不能降级的策略，目的是为了提高获得锁和释放锁的效率。<br> 锁存在Java对象头里。如果对象是数组类型，则虚拟机用3个Word（字宽）存储对象头，如果对象是非数组类型，则用2字宽存储对象头。在32位虚拟机中，一字宽等于四字节，即32bit。Java对象头里的Mark Word里默认存储对象的HashCode，分代年龄和锁标记位。在运行期间Mark Word里存储的数据会随着锁标志位的变化而变化。Mark Word可能变化为存储以下4种数据：</p>
+<p><img src="https://ooo.0o0.ooo/2017/01/24/58871565c3745.jpg" alt="img"></p>
+</blockquote>
+<blockquote>
+<ul>
+<li><p>偏向锁，Hotspot的作者经过以往的研究发现大多数情况下锁不仅不存在多线程竞争，而且总是由同一线程多次获得，为了让线程获得锁的代价更低而引入了偏向锁。当一个线程访问同步块并获取锁时，会在对象头和栈帧中的锁记录里存储锁偏向的线程ID，以后该线程在进入和退出同步块时不需要花费CAS操作来加锁和解锁，而只需简单的测试一下对象头的Mark Word里是否存储着指向当前线程的偏向锁，如果测试成功，表示线程已经获得了锁，如果测试失败，则需要再测试下Mark Word中偏向锁的标识是否设置成1（表示当前是偏向锁），如果没有设置，</p>
+<p>则使用CAS竞争锁，如果设置了，则尝试使用CAS将对象头的偏向锁指向当前线程</p>
+<p>，所以CAS指令大大提高了锁的效率。偏向锁使用了一种等到竞争出现才释放锁的机制，所以当其他线程尝试竞争偏向锁时，持有偏向锁的线程才会释放锁。</p>
+<p><img src="https://ooo.0o0.ooo/2017/01/24/58871565dd504.jpg" alt="img"></p>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li><p>轻量级锁 </p>
+<ul>
+<li><p>轻量级锁加锁：线程在执行同步块之前，JVM会先在当前线程的栈桢中创建用于存储锁记录的空间，并将对象头中的Mark Word复制到锁记录中，官方称为Displaced Mark Word。然后线程尝试使用CAS将对象头中的Mark Word替换为指向锁记录的指针。如果成功，当前线程获得锁，如果失败，表示其他线程竞争锁，当前线程便尝试使用自旋来获取锁。</p>
+</li>
+<li><p>轻量级锁解锁：轻量级解锁时，会使用原子的CAS操作来将Displaced Mark Word替换回到对象头，如果成功，则表示没有竞争发生。如果失败，表示当前锁存在竞争，锁就会膨胀成重量级锁。下图是两个线程同时争夺锁，导致锁膨胀的流程图。</p>
+<p><img src="https://ooo.0o0.ooo/2017/01/24/58871565df3d5.jpg" alt="img"></p>
+<p>因为自旋会消耗CPU，为了避免无用的自旋（比如获得锁的线程被阻塞住了），一旦锁升级成重量级锁，就不会再恢复到轻量级锁状态。当锁处于这个状态下，其他线程试图获取锁时，都会被阻塞住，当持有锁的线程释放锁之后会唤醒这些线程，被唤醒的线程就会进行新一轮的夺锁之争</p>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<h4 id="锁的优缺点对比："><a href="#锁的优缺点对比：" class="headerlink" title="锁的优缺点对比："></a>锁的优缺点对比：</h4><table>
+<thead>
+<tr>
+<th>锁</th>
+<th>优点</th>
+<th>缺点</th>
+<th>场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>偏向锁</td>
+<td>加锁和解锁不需要额外的消耗，和执行非同步方法比仅存在纳秒级的差距。</td>
+<td>如果线程间存在锁竞争，会带来额外的锁撤销的消耗。</td>
+<td>适用于只有一个线程访问同步块场景。</td>
+</tr>
+<tr>
+<td>轻量级锁</td>
+<td><strong>竞争的线程不会阻塞，提高了程序的响应速度。</strong></td>
+<td>如果始终得不到锁竞争的线程使用自旋会消耗CPU。</td>
+<td>追求响应时间。同步块执行速度非常快。</td>
+</tr>
+<tr>
+<td>重量级锁</td>
+<td>线程竞争不使用自旋，不会消耗CPU。</td>
+<td>线程阻塞，响应时间缓慢。</td>
+<td>追求吞吐量。同步块执行速度较长。</td>
+</tr>
+</tbody></table>
+<p><img src="https://ooo.0o0.ooo/2017/01/24/58871565cec6e.jpg" alt="img"></p>
+</blockquote>
+<p>有关java中synchronized的实现原理就先讲到这里了，我们知道在java中另外一个用来实现线程安全的关键字就是volatile了，下面这个线程安全的实现就是使用了volatile来达到的</p>
+<h4 id="线程安全方法3：DCL-double-check-lock"><a href="#线程安全方法3：DCL-double-check-lock" class="headerlink" title="线程安全方法3：DCL(double check lock)"></a>线程安全方法3：DCL(double check lock)</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GOD</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">volatile</span> <span class="keyword">static</span> GOD singleGod ;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">GOD</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Thread.sleep(<span class="number">5</span>);<span class="comment">//模拟创建对象时间较长，可以启动另外一个线程</span></span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> GOD <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(singleGod==<span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="keyword">synchronized</span> (GOD.class)&#123;</span><br><span class="line">                <span class="keyword">if</span>(singleGod==<span class="keyword">null</span>)&#123;</span><br><span class="line">                    singleGod=<span class="keyword">new</span> GOD();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> singleGod;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这个实现里面先用volatile来声明了singleGod，这样就是对其他线程可见的了。然后在getInstance方法里面使用DCL（Double Check Lock）机制来进行双重锁检查：</p>
+<ul>
+<li>一次是在同步块外，同步块外的检查是为了节省时间，如果实例已经存在就不需要进入同步块了。</li>
+<li>一次是在同步块内，为什么在同步块内还要再检验一次？因为可能会有多个线程一起进入同步块外的检查，如果在同步块内不进行二次检验的话就会生成多个实例了。</li>
+</ul>
+<p>以上就是一个使用DCL来实现线程安全singleton的标准方法了，使用了volatile，还使用了synchronized，还有DCL。我们已经知道了synchronized的实现原理是在代码块编译的时候前后加锁判断，那么这时候问题来了，既然已经又了代码块的锁，为什么还要使用volatile呢，所以下面我们就深入看看volatile的实现和一个更有意思的东西：重排序</p>
+<blockquote>
+<h3 id="Volatile的实现和重排序"><a href="#Volatile的实现和重排序" class="headerlink" title="Volatile的实现和重排序"></a>Volatile的实现和重排序</h3><h4 id="1-Volatile基础作用"><a href="#1-Volatile基础作用" class="headerlink" title="1.Volatile基础作用"></a>1.Volatile基础作用</h4><p>Java 语言规范中指出：为了获得最佳速度，允许线程保存共享成员变量的私有拷贝，而且只当线程进入或者离开同步代码块时才将私有拷贝与共享内存中的原始值进行比较。<br> 而Volatile 修饰的成员变量在每次被线程访问时，都强迫从共享内存中重读该成员变量的值。而且，当成员变量发生变化时，强迫线程将变化值回写到共享内存。这样在任何时刻，两个不同的线程总是看到某个成员变量的同一个值。<br> 这样当多个线程同时与某个对象交互时，就必须注意到要让线程及时的得到共享成员变量的变化。而 volatile 关键字就是提示 JVM：对于这个成员变量，不能保存它的私有拷贝，而应直接与共享成员变量交互。volatile 是一种稍弱的同步机制，在访问 volatile 变量时不会执行加锁操作，也就不会执行线程阻塞，因此 volatilei 变量是一种比 synchronized 关键字更轻量级的同步机制。</p>
+<h4 id="2-Volatile实现原理"><a href="#2-Volatile实现原理" class="headerlink" title="2.Volatile实现原理"></a>2.Volatile实现原理</h4><p>那么Volatile是如何来保证可见性的呢？在x86处理器下通过工具获取JIT编译器生成的汇编指令来看看对Volatile进行写操作CPU会做什么事情。</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">java代码：instance = <span class="keyword">new</span> Singleton();<span class="comment">//instance是volatile变量</span></span><br><span class="line">汇编代码： <span class="number">0x01a3de1d</span>: movb $<span class="number">0x0</span>,<span class="number">0x1104800</span>(%esi);</span><br><span class="line">        <span class="number">0x01a3de24</span>: <span class="keyword">lock</span> addl $<span class="number">0x0</span>,(%esp);</span><br></pre></td></tr></table></figure>
+
+<p>有volatile变量修饰的共享变量进行<strong>写操作</strong>的时候会多第二行汇编代码，通过查IA-32架构软件开发者手册可知，lock前缀的指令在多线程下会引发了两件事情，让我们再回顾一下java内存模型来看看这两件事情的含义是什么</p>
+<ul>
+<li>Lock指令会将当前线程工作内存的数据会写回（Store-Write）到主内存，lock指令执行期间会锁定缓存，阻止其他线程同时修改被锁定的区域数据</li>
+<li>这个写回主内存的操作会引起在其他线程工作内存缓存了该内存地址的数据无效，CPU有嗅探技术，其他线程通过嗅探发现缓存区域的主内存被修改了，那么就会无效缓存区域，并在下次读取的时候强制从主内存读取（load read）</li>
+</ul>
+<p><img src="https://ooo.0o0.ooo/2017/01/24/58862a6422f9b.png" alt="img"></p>
+<h4 id="3-有了Volatile为什么还要Synchronized？"><a href="#3-有了Volatile为什么还要Synchronized？" class="headerlink" title="3.有了Volatile为什么还要Synchronized？"></a>3.有了Volatile为什么还要Synchronized？</h4><p>这时候有个问题来了：那么在我们的线程安全方法3的实现里面，对singleGod加volatile应该就可以实现在写singleGod的时候让其他的线程缓存无效了，为什么还要加上synchronized呢？（在网上看了很多文章都是讲为什么synchronized了以后还要加volatile的，没有一个提出上面这个问题，<strong>所以这个问题绝对是本文原创</strong>）<br> 这个问题的答案是:volatile声明的singleGod仅仅保证了在执行<code>singleGod = new GOD();</code>时是使用了lock指令锁定了singleGod，但是不会保证只有一个线程进入<code>if (singleGod == null)</code>, 所以会有多个线程<strong>先后</strong>使用lock指令来给singleGod赋值。这里也能看出Volatile和Synchronized的重要区别是Volatile是针对变量的，Synchronized是真对方法和代码块的。</p>
+</blockquote>
+<blockquote>
+<h4 id="4-有了Synchronized为什么还要Volatile？"><a href="#4-有了Synchronized为什么还要Volatile？" class="headerlink" title="4.有了Synchronized为什么还要Volatile？"></a>4.有了Synchronized为什么还要Volatile？</h4><p>看到网上有人对这个问题的解释是Volatile可以让变量对所有线程可见，其实想想Synchronized的原理都发现是不对的，这个块都上锁了，那么这块代码自然是对线程可见的啊。所以加Volatile是有别的原因的，这个原因就是防止JVM对指令的重排序，那么什么是指令重排序呢？</p>
+<h4 id="5-什么是指令重排序？"><a href="#5-什么是指令重排序？" class="headerlink" title="5.什么是指令重排序？"></a>5.什么是指令重排序？</h4><p>让我们再看看这行代码<code>singleGod=new GOD();</code> 这行代码其实做了3件事情：</p>
+</blockquote>
+<ol>
+<li>给singleGod分配内存</li>
+<li>调用GOD的构造函数来初始化成员变量</li>
+<li>把singleGod指向分配的内存空间（执行完这步singleGod就是非null了）<br> JVM在编译的时候会对上面三个指令进行重排序优化，而优化后的顺序是不能保证的。因为在单线程条件下1-3-2这种顺序也是没有任何问题的。<br> 但是我们想象一下多线程下的情况：</li>
+</ol>
+<blockquote>
+<ul>
+<li>线程A执行顺序是1-3-2，这时候执行完了1-3，singleGod已经是非null了，这时候还没有执行2就被线程B抢占了</li>
+<li>线程B抢进来一看，singleGod已经不是null，那么就不需要执行<code>singleGod=new GOD();</code>了，但这样B得到的是一个没有调用构造函数初始化的对象，仅仅有分配好的空内存空间</li>
+</ul>
+<p>而加入了volatile就会保证如果线程A变量的写操作没有完成，线程B的工作内存缓存是被设置成无效的，线程B如果要读变量，必须从主内存读取，也就是不论执行顺序是1-2-3，还是1-3-2，线程B都没法插队。所以volatile定义的变量是遵循了<strong>Happen-Before</strong>规则的。那我们再多走一步，聊聊什么是happen-before吧</p>
+<h4 id="6-什么是Happen-Before呢"><a href="#6-什么是Happen-Before呢" class="headerlink" title="6.什么是Happen-Before呢"></a>6.什么是Happen-Before呢</h4><p>Java语言中有一个“先行发生”（Happen-Before）的规则，它是Java内存模型中定义的两项操作之间的偏序关系，如果操作A先行发生于操作B，其意思就是说，<strong>在发生操作B之前，操作A产生的影响都能被操作B观察到，“影响”包括修改了内存中共享变量的值、发送了消息、调用了方法等，它与时间上的先后发生基本没有太大关系。</strong>这个原则特别重要，它是判断数据是否存在竞争、线程是否安全的主要依据。<br> 举例来说，存在3个线程：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">线程A中执行如下操作：i=1</span><br><span class="line">线程B中执行如下操作：j=i</span><br><span class="line">线程C中执行如下操作：i=2</span><br></pre></td></tr></table></figure>
+
+<p>假设线程A中的操作”i=1“ Happen-Before线程B中的操作“j=i”，那么就可以保证在线程B的操作执行后，变量j的值一定为1，即线程B观察到了线程A中操作“i=1”所产生的影响；现在，我们依然保持线程A和线程B之间的Happen-Before关系，同时线程C出现在了线程A和线程B的操作之间，但是C与B并没有Happen-Before关系，那么j的值就不确定了，线程C对变量i的影响可能会被线程B观察到，也可能不会，这时线程B就存在读取到不是最新数据的风险，不具备线程安全性。<br> Java内存模型中的有八条可保证Happen-Before的规则，他们无需任何同步器协助就已经存在，如果编译器判断指令不存在Happen-Before规则，那么就会随机的进行重排序，volatile就是其中一条<code>对一个volatile变量的写操作happen—before后面对该变量的读操作</code>，所以在我们DCL实现里面，没有用volatile修饰的singleGod的3个指令就是被重排序了。至于其余的7条，如果有兴趣可以自己找来看看，这里就不再增加阅读负担了。</p>
+</blockquote>
+<p>在方法3的实现里面我们深入讲了一下volatile的作用和实现原理，但是用DCL这种方式做线程安全的Lazy模式也还是有些复杂了，有没有更简单的方式呢？</p>
+<h4 id="线程安全方法4：static-nested-class"><a href="#线程安全方法4：static-nested-class" class="headerlink" title="线程安全方法4：static nested class"></a>线程安全方法4：static nested class</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GOD</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">GODHolder</span></span>&#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> GOD singleGod = <span class="keyword">new</span> GOD();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">GOD</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Thread.sleep(<span class="number">5</span>);<span class="comment">//模拟创建对象时间较长，可以启动另外一个线程</span></span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">synchronized</span> GOD <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       <span class="keyword">return</span> GODHolder.singleGod;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>这个实现是不是很简单，也是《Effective Java》上面推荐的，看起来和Eager方法一样是利用了final static的方式在类加载阶段就完成了实例的创建，<strong>但是它却是Lazy模式的</strong>。<br> 因为只有当调用到GOD.getInstance时才会去调用GODHolder，这时候才会启动ClassLoader去加载GODHolder，那么在这个加载的过程中就会创建好singleGod，所以这个创建和写入内存的过程是根本不担心多线程的。那么为什么JVM可以做到这样呢？原因是java在编译GOD时，会把GOD编译成<code>GOD.class</code>和<code>GOD$GODHolder.class</code>两个二进制文件，那么在Christian调用到GOD.getInstance实际的执行顺序如下：</p>
+<ol>
+<li>找到<code>GOD.class</code>进行GOD的加载，连接和初始化</li>
+<li>进入GOD.getInstance方法</li>
+<li>因为需要GODHolder，所以找到<code>GOD$GODHolder.class</code>进行加载，连接和初始化。在连接时会创建一个GOD，赋值给singleGod</li>
+<li>GODHolder返回已经初始化的singleGod</li>
+</ol>
+</blockquote>
+<h4 id="线程安全方法5：enum"><a href="#线程安全方法5：enum" class="headerlink" title="线程安全方法5：enum"></a>线程安全方法5：enum</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">enum</span> <span class="title">GOD</span> </span>&#123;</span><br><span class="line">    <span class="type">INSTANCE</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这个实现是不是更简单，而且也是可以通过多线程测试的，因为enum默认就是线程安全的。那enum又是怎么实现的呢？</p>
+<blockquote>
+<h3 id="Java-enum的实现原理"><a href="#Java-enum的实现原理" class="headerlink" title="Java enum的实现原理"></a>Java enum的实现原理</h3><p>其实看enum的实现方法很简单，就是使用javap来看一下class文件的字节码就好了，从下面的字节码文件里我们可以看到其实enum是通过继承java.lang.Enum来实现的一个final类，而且定义的INSTANCE是final static的，而且会在static{}区块对INSTANCE进行初始化。因此enum实现的Singleton模式是Eager的，会在JVM加载enum的时候就初始化好，那么自然是线程安全的了。所以enum并没有在JVM底层数据结构上有任何改变，而是通过对关键字的封装可以让程序员更方便的定义一些final类来使用，并自动添加了values和valueOf方法</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">javap</span> <span class="selector-tag">-c</span> <span class="selector-tag">dp</span><span class="selector-class">.singleton</span><span class="selector-class">.GOD4Enum</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>Compiled from “GOD4Enum.java”<br> public final class dp.singleton.GOD4Enum extends java.lang.Enum&lt;dp.singleton.GOD4Enum&gt; {<br> public static final dp.singleton.GOD4Enum INSTANCE;<br> public static dp.singleton.GOD4Enum[] values();<br> Code:<br> 0: getstatic     #1                  // Field $VALUES:[Ldp/singleton/GOD4Enum;<br> 3: invokevirtual #2                  // Method “[Ldp/singleton/GOD4Enum;”.clone:()Ljava/lang/Object;<br> 6: checkcast     #3                  // class “[Ldp/singleton/GOD4Enum;”<br> 9: areturn<br> public static dp.singleton.GOD4Enum valueOf(java.lang.String);<br> Code:<br> 0: ldc           #4                  // class dp/singleton/GOD4Enum<br> 2: aload_0<br> 3: invokestatic  #5                  // Method java/lang/Enum.valueOf:(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;<br> 6: checkcast     #4                  // class dp/singleton/GOD4Enum<br> 9: areturn<br> static {};<br> Code:<br> 0: new           #4                  // class dp/singleton/GOD4Enum<br> 3: dup<br> 4: ldc           #7                  // String INSTANCE<br> 6: iconst_0<br> 7: invokespecial #8                  // Method “<init>“:(Ljava/lang/String;I)V<br> 10: putstatic     #9                  // Field INSTANCE:Ldp/singleton/GOD4Enum;<br> 13: iconst_1<br> 14: anewarray     #4                  // class dp/singleton/GOD4Enum<br> 17: dup<br> 18: iconst_0<br> 19: getstatic     #9                  // Field INSTANCE:Ldp/singleton/GOD4Enum;<br> 22: aastore<br> 23: putstatic     #1                  // Field $VALUES:[Ldp/singleton/GOD4Enum;<br> 26: return<br> }</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+</blockquote>
+<h2 id="和坚思辨"><a href="#和坚思辨" class="headerlink" title="和坚思辨"></a>和坚思辨</h2><p>本来singleton模式是一个非常简单的模式，但是在考虑了多线程安全以后我们确能够提供5种不同的实现方式：</p>
+<ul>
+<li>Eager方法：利用static final关键字</li>
+<li>Lazy方法：利用synchronized关键字</li>
+<li>DCL方法：利用volatile关键字</li>
+<li>Nested Class方法：利用static nested class来实现</li>
+<li>enum方法：利用enum方法</li>
+</ul>
+<p>以上5种方法不存在绝对的优劣之分，需要根据场景来进行合适的选择。</p>
+<blockquote>
+<p><strong>但是在介绍5个方法的时候我觉得更有价值的是也顺带了解了一下每种实现方法背后的本质是什么，而且通过这种打破砂锅问道底的方法能够让我们感受到Java这些机制创造者们的智慧和严谨</strong>：</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>Java内存模型是什么样子的，多线程是如何在这个模型里面工作的</li>
+</ul>
+</blockquote>
+<ul>
+<li>通过深入了解static final关键字知道了Java的类加载过程是什么，从一个类被加载，使用，到最后卸载每一步都干了什么</li>
+<li>通过深入了解synchronized关键字知道了synchronized是怎么工作的，还有java1.6以后的3种锁是怎么工作的</li>
+<li>通过深入了解volatile关键知道了volatile是怎么工作的，什么是指令重排序，什么是Happen-Before原则</li>
+<li>通过查看Nested Class文件明白了为什么这个方法可以做到lazy的线程安全</li>
+<li>通过查看enum的class字节码，我们知道了enum的底层实现是什么，又为什么可以做到线程安全</li>
+</ul>
+<p>7人点赞</p>
+<p><a href="">踢出来的设计模式</a></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="">Singleton模式：忙疯了的上帝</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">DevOps技术谈</a></p>
+        <p><span>发布时间:</span>2019-11-28, 00:00:00</p>
+        <p><span>最后更新:</span>2019-11-28, 16:19:09</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="" title="Singleton模式：忙疯了的上帝">http://devopstools.cn/2019/11/28/dev/Singleton/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://devopstools.cn/2019/11/28/dev/Singleton/　　作者: DevOps技术谈" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="../../../../12/03/ci-cd/DevOps2020/">
+                    2020 年 DevOps 的七大发展趋势
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="../../../22/classic/lunyu/">
+                    论语杂谈
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#需求故事"><span class="toc-number">1.</span> <span class="toc-text">需求故事</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Story1"><span class="toc-number">2.</span> <span class="toc-text">Story1</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Story1-Test-Case"><span class="toc-number">2.1.</span> <span class="toc-text">Story1 Test Case</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Story1-Implementation"><span class="toc-number">2.2.</span> <span class="toc-text">Story1 Implementation</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Story2"><span class="toc-number">3.</span> <span class="toc-text">Story2</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Story2-Test-Case"><span class="toc-number">3.1.</span> <span class="toc-text">Story2 Test Case</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Story2-Implementation"><span class="toc-number">3.2.</span> <span class="toc-text">Story2 Implementation</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Story3"><span class="toc-number">4.</span> <span class="toc-text">Story3</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Story3-Test-Case"><span class="toc-number">4.1.</span> <span class="toc-text">Story3 Test Case</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Story3-Implementation"><span class="toc-number">4.2.</span> <span class="toc-text">Story3 Implementation</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#JVM内存模型和线程"><span class="toc-number">4.2.1.</span> <span class="toc-text">JVM内存模型和线程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#线程安全方法1：Eager方法"><span class="toc-number">4.2.2.</span> <span class="toc-text">线程安全方法1：Eager方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#线程安全方法2：Lazy方法"><span class="toc-number">4.2.3.</span> <span class="toc-text">线程安全方法2：Lazy方法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Synchronized的实现"><span class="toc-number">4.3.</span> <span class="toc-text">Synchronized的实现</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-先说说synchronized的历史"><span class="toc-number">4.3.1.</span> <span class="toc-text">1.先说说synchronized的历史</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-CAS-Compare-and-Swap，"><span class="toc-number">4.3.2.</span> <span class="toc-text">2.CAS Compare and Swap，</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-java中synchronized可以用在2个地方："><span class="toc-number">4.3.3.</span> <span class="toc-text">3.java中synchronized可以用在2个地方：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-这个坑是越挖越深了，那我们来看看monitor吧。"><span class="toc-number">4.3.4.</span> <span class="toc-text">4.这个坑是越挖越深了，那我们来看看monitor吧。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-Java-SE1-6里锁的四种状态"><span class="toc-number">4.3.5.</span> <span class="toc-text">5.Java SE1.6里锁的四种状态</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#锁的优缺点对比："><span class="toc-number">4.3.6.</span> <span class="toc-text">锁的优缺点对比：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#线程安全方法3：DCL-double-check-lock"><span class="toc-number">4.3.7.</span> <span class="toc-text">线程安全方法3：DCL(double check lock)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Volatile的实现和重排序"><span class="toc-number">4.4.</span> <span class="toc-text">Volatile的实现和重排序</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-Volatile基础作用"><span class="toc-number">4.4.1.</span> <span class="toc-text">1.Volatile基础作用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-Volatile实现原理"><span class="toc-number">4.4.2.</span> <span class="toc-text">2.Volatile实现原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-有了Volatile为什么还要Synchronized？"><span class="toc-number">4.4.3.</span> <span class="toc-text">3.有了Volatile为什么还要Synchronized？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-有了Synchronized为什么还要Volatile？"><span class="toc-number">4.4.4.</span> <span class="toc-text">4.有了Synchronized为什么还要Volatile？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-什么是指令重排序？"><span class="toc-number">4.4.5.</span> <span class="toc-text">5.什么是指令重排序？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-什么是Happen-Before呢"><span class="toc-number">4.4.6.</span> <span class="toc-text">6.什么是Happen-Before呢</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#线程安全方法4：static-nested-class"><span class="toc-number">4.4.7.</span> <span class="toc-text">线程安全方法4：static nested class</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#线程安全方法5：enum"><span class="toc-number">4.4.8.</span> <span class="toc-text">线程安全方法5：enum</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Java-enum的实现原理"><span class="toc-number">4.5.</span> <span class="toc-text">Java enum的实现原理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#和坚思辨"><span class="toc-number">5.</span> <span class="toc-text">和坚思辨</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"Singleton模式：忙疯了的上帝　| DevOps 技术与工具　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="../../../../12/03/ci-cd/DevOps2020/" title="上一篇: 2020 年 DevOps 的七大发展趋势">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="../../../22/classic/lunyu/" title="下一篇: 论语杂谈">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="../../../../12/03/ci-cd/DevOps2020/">2020 年 DevOps 的七大发展趋势</a></li><li class="post-list-item"><a class="post-list-link" href="">Singleton模式：忙疯了的上帝</a></li><li class="post-list-item"><a class="post-list-link" href="../../../22/community/webchat/">敏捷研发社区微信公众号</a></li><li class="post-list-item"><a class="post-list-link" href="../../../22/classic/lunyu/">论语杂谈</a></li><li class="post-list-item"><a class="post-list-link" href="../../../19/ci-cd/maven/">编译构建工具-Maven使用技巧</a></li><li class="post-list-item"><a class="post-list-link" href="../../../14/agile/SAFe-Tutorial/">大规模敏捷 Scaled Agile Framework (SAFe) 全面介绍</a></li><li class="post-list-item"><a class="post-list-link" href="../../../12/classic/yuqieshidilun/">小木读《瑜伽（qie）师地论》</a></li><li class="post-list-item"><a class="post-list-link" href="../../../07/ci-cd/vue-tools/">Vue构建工具和基础插件</a></li><li class="post-list-item"><a class="post-list-link" href="../../../05/performance/JMeter/jmeter-performance/">使用JMeter 对 WEB 进行应用性能测试</a></li><li class="post-list-item"><a class="post-list-link" href="../../../03/ci-cd/git_vcs/">版本管理工具 Git、GitHub、Gitee、与GitLab</a></li><li class="post-list-item"><a class="post-list-link" href="../../../02/unit-test/tdd-tutorial/">通过案例学习测试驱动开发（TDD）</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../10/31/note/buddhism/">小木笔记之佛学杂谈</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../10/29/api-test/emocker/getting-started/">EMocker 易墨客 --30分钟上手教程</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../10/25/classic/sanjie_liudao/">三界、六道、瑜伽十七地对照表</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../10/24/agile/bdd/">敏捷研发流程-行为驱动开发 Behavior Driven Development （BDD）</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../10/24/api-test/emocker/intro-mock/">EMocker 易墨客 --HTTP/HTTPS 接口服务模拟与监控工具简介</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../10/23/api-test/postman-in-acton/section2/intro_script/">Postman 接口自动化测试与持续集成全栈-Postman 脚本编程</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../10/22/note/zhiyue/">指月新录</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../10/22/ui-test/selenium/">UI测试框架-Selenium</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../10/22/unit-test/junit-framework/">Java 单元测试框架-JUnit</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../10/22/agile/scrum-agile/">Scrum 敏捷管理</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../10/22/api-test/postman-in-acton/section1/making-hands-dirty/">Postman 接口自动化测试与持续集成全栈-实战环节之Demon 演练快速上手</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../10/22/api-test/postman-in-acton/section1/setting-parameters/">Postman 接口自动化测试与持续集成全栈- 设置请求参数</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../10/22/api-test/postman-in-acton/section1/request-response/">Postman 接口自动化测试与持续集成全栈- API 请求响应处理</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../10/22/api-test/postman-in-acton/section1/create-request/">Postman 接口自动化测试与持续集成全栈-创建请求</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../10/22/api-test/postman-in-acton/section1/menus/">Postman 接口自动化测试与持续集成全栈-Postman 功能介绍</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../10/22/api-test/postman-in-acton/section1/installation/">Postman 接口自动化测试与持续集成全栈-Postman 下载与安装</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../10/22/api-test/postman-in-acton/section1/introduction-to-api/">Postman 接口自动化测试与持续集成全栈-API 测试介绍</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../10/22/api-test/postman-in-acton/introduction/">Postman 接口自动化测试与持续集成全栈-前言</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../10/19/ci-cd/devops-tools/">DevOps 工具链-Java 持续集成发布流水线</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2019 DevOps技术谈 沪ICP备18014300号-3
+            </div>
+            <div class="footer-right">
+                <a href="https://devopstools.cn/" target="_blank" title="快速、简洁且高效的博客框架">Power by DevOpsTools</a>  
+                <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+        
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        
+        <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                    <span id="busuanzi_container_site_pv">
+                        本站总访问量<span id="busuanzi_value_site_pv"></span>次
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+    <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script src='https://unpkg.com/mermaid@8.4/dist/mermaid.min.js'></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({theme: 'yelee'});
+    }
+  </script>
+
+  </div>
+</body>
+</html>
