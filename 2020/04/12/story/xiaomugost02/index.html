@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="DevOps技术谈" />
+
+
+
+<meta name="description" content="正在我们取餐盘买饭时，突然食堂门口呼啦啦跑过去一大群学生。唯恐天下不乱的小胖见状，丢下餐盘，拉着我就冲出去跟了上去。奔跑中我们追上一个跑的上气不接下气的女生问：“同学，怎么啦？”“我们宿舍楼，有女生，在二龙山顶上吊了……”女同学边跑边气喘吁吁的说。“我哪个去！太邪性了”我和小胖一起感叹，加快速度向山上跑去。">
+<meta name="keywords" content="鬼故事">
+<meta property="og:type" content="article">
+<meta property="og:title" content="小木捉鬼日记之出事了">
+<meta property="og:url" content="http:&#x2F;&#x2F;devopstools.cn&#x2F;2020&#x2F;04&#x2F;12&#x2F;story&#x2F;xiaomugost02&#x2F;index.html">
+<meta property="og:site_name" content="DevOps 技术与工具">
+<meta property="og:description" content="正在我们取餐盘买饭时，突然食堂门口呼啦啦跑过去一大群学生。唯恐天下不乱的小胖见状，丢下餐盘，拉着我就冲出去跟了上去。奔跑中我们追上一个跑的上气不接下气的女生问：“同学，怎么啦？”“我们宿舍楼，有女生，在二龙山顶上吊了……”女同学边跑边气喘吁吁的说。“我哪个去！太邪性了”我和小胖一起感叹，加快速度向山上跑去。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-04-12T14:30:01.964Z">
+<meta name="twitter:card" content="summary">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="DevOps 技术与工具" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="../../../../../css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>小木捉鬼日记之出事了 | DevOps 技术与工具</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?9f2ec0702d90c1f43efd0a40a2fb0479";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/tools.jpeg" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">DevOps技术谈</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">DevOps 技术 工具</p>
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="../../../../../index.html">主页</a></li>
+                        
+                            <li><a href="../../../../../categories/%E9%9A%8F%E7%AC%94/">随笔</a></li>
+                        
+                            <li><a href="../../../../../tags/">标签云</a></li>
+                        
+                            <li><a href="../../../../../archives/">所有文章</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto:support@devopstools.cn" title="Email"></a>
+                            
+                                <a class="fa 简书" href="https://www.jianshu.com/u/7a6f21a30e94" target="_blank" rel="noopener" title="简书"></a>
+                            
+                                <a class="fa 博客园" href="https://www.cnblogs.com/vddalliance/" target="_blank" rel="noopener" title="博客园"></a>
+                            
+                                <a class="fa CSDN" href="https://blog.csdn.net/winteroak" target="_blank" rel="noopener" title="CSDN"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/BDD/" rel="tag">BDD</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/DevOps/" rel="tag">DevOps</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/GitHub/" rel="tag">GitHub</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/GitLab/" rel="tag">GitLab</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/Gitee/" rel="tag">Gitee</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/JMeter/" rel="tag">JMeter</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/JUnit/" rel="tag">JUnit</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/K8S/" rel="tag">K8S</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/Mock/" rel="tag">Mock</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/NodeJS/" rel="tag">NodeJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/Postman/" rel="tag">Postman</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/SAFe/" rel="tag">SAFe</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/Scrum/" rel="tag">Scrum</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/Selenium/" rel="tag">Selenium</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/TDD/" rel="tag">TDD</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/UI%E6%B5%8B%E8%AF%95/" rel="tag">UI测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/Vue/" rel="tag">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/k8s/" rel="tag">k8s</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/%E4%BB%A3%E7%A0%81%E6%89%AB%E6%8F%8F/" rel="tag">代码扫描</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/%E5%87%80%E5%9C%9F%E5%AE%97/" rel="tag">净土宗</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" rel="tag">单元测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/%E5%94%AF%E8%AF%86%E6%B3%95%E7%9B%B8/" rel="tag">唯识法相</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/%E5%9B%BD%E5%AD%A6/" rel="tag">国学</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/%E5%BC%80%E5%8F%91/" rel="tag">开发</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7/" rel="tag">微信公众号</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/" rel="tag">性能测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/%E6%8C%81%E7%BB%AD%E9%83%A8%E7%BD%B2/" rel="tag">持续部署</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/" rel="tag">持续集成</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/" rel="tag">接口测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/%E6%95%8F%E6%8D%B7%E7%A0%94%E5%8F%91/" rel="tag">敏捷研发</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/%E6%95%8F%E6%8D%B7%E7%AE%A1%E7%90%86/" rel="tag">敏捷管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7/" rel="tag">构建工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/" rel="tag">版本管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/%E7%A6%85%E5%AE%97/" rel="tag">禅宗</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/%E7%B2%BE%E5%87%86%E6%B5%8B%E8%AF%95/" rel="tag">精准测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/%E7%BB%8F%E5%85%B8/" rel="tag">经典</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../../tags/%E9%AC%BC%E6%95%85%E4%BA%8B/" rel="tag">鬼故事</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">DevOps技术谈</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/tools.jpeg" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">DevOps技术谈</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">DevOps 技术 工具</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="../../../../../index.html">主页</a></li>
+                
+                    <li><a href="../../../../../categories/%E9%9A%8F%E7%AC%94/">随笔</a></li>
+                
+                    <li><a href="../../../../../tags/">标签云</a></li>
+                
+                    <li><a href="../../../../../archives/">所有文章</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:support@devopstools.cn" title="Email"></a>
+                            
+                                <a class="fa 简书" target="_blank" href="https://www.jianshu.com/u/7a6f21a30e94" title="简书"></a>
+                            
+                                <a class="fa 博客园" target="_blank" href="https://www.cnblogs.com/vddalliance/" title="博客园"></a>
+                            
+                                <a class="fa CSDN" target="_blank" href="https://blog.csdn.net/winteroak" title="CSDN"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-story/xiaomugost02" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="" class="article-date">
+      <time datetime="2020-04-12T14:25:03.992Z" itemprop="datePublished">2020-04-12</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      小木捉鬼日记之出事了
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="../../../../../categories/%E6%95%85%E4%BA%8B%E9%9B%86/">故事集</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../tags/%E9%AC%BC%E6%95%85%E4%BA%8B/" rel="tag">鬼故事</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>正在我们取餐盘买饭时，突然食堂门口呼啦啦跑过去一大群学生。唯恐天下不乱的小胖见状，丢下餐盘，拉着我就冲出去跟了上去。奔跑中我们追上一个跑的上气不接下气的女生问：“同学，怎么啦？”“我们宿舍楼，有女生，在二龙山顶上吊了……”女同学边跑边气喘吁吁的说。“我哪个去！太邪性了”我和小胖一起感叹，加快速度向山上跑去。</p>
+<a id="more"></a>
+
+
+<h3 id="2002年12月22日-出事了"><a href="#2002年12月22日-出事了" class="headerlink" title="2002年12月22日-出事了"></a>2002年12月22日-出事了</h3><p>由于还没到期末考试，同寝室的几个室友又去外招宾馆隔离了。小胖王晓和我晚上刷了一夜的游戏《暗黑破坏神》。早上6点多，我们感觉饥肠辘辘，肚腹开始咕咕叫了。决定去食堂吃 早饭。</p>
+<p>离我们宿舍楼最近的是外招餐厅，但由于最近外招楼隔离从外面回来的人员，外招餐厅不对外营业了，只好去第5食堂。</p>
+<p>第5食堂门口在免费提供中医熬制的汤，据说可以预防SAS。我和小胖都是惜命的人，见有预防SAS的要，就取了食堂提供的碗，连喝了两碗。小胖开玩笑的说，味道怎么像王老吉啊！。</p>
+<p>正在我们取餐盘买饭时，突然食堂门口呼啦啦跑过去一大群学生。唯恐天下不乱的小胖见状，丢下餐盘，拉着我就冲出去跟了上去。奔跑中我们追上一个跑的上气不接下气的女生问：“同学，怎么啦？”“我们宿舍楼，有女生，在二龙山顶上吊了……”女同学边跑边气喘吁吁的说。“我哪个去！太邪性了”我和小胖一起感叹，加快速度向山上跑去。</p>
+<p>刚到环山路口，见一群女生簇拥着背着人的男生从下山的路上跑了下来。虽然从山上下来不过300多米，背人男生已经体力耗尽，满头大汗，将将要趴下。我冲小胖叫了一下：“胖子，加油，赶紧上去就人。”</p>
+<p>我们加快几步，冲上去赶紧边一个扶住眼看就要趴下，从山上冲下来，背着人的男生。小胖一换手，把男生背上的人背到了自己背上。我看了一样胖子背上的女生，她脸色有些苍白，人昏了过去，但还有呼吸。“小胖，去校医院！”我冲小胖喊。</p>
+<p>在环山路的另一侧就是我们的校医院。虽然时校医院，但里面医生、护士和医疗设备齐全。我们平时发烧感冒也经常去。医疗设备比我们老家的县医院还要好些。</p>
+<p>校医院离我们当前的距离有1公里左右，目前只好接力赛了。陆陆续续又有几个男生从食堂跑了过来。人多力量大，一个人背，两个人旁边辅助，跑一段换一次人，我们终于跑的了医院的急救室，值班医生见状，问了两句就接那个女生进了急救室。</p>
+<p>我们一群人，经过一阵拼尽全力的奔跑，早已筋疲力尽。这时候大家都坐到过道两边的排椅上休息。过了一阵，有一个女生给大家介绍情况，被大家救下的女孩叫张莉，是她们寝室的，今年上大一。最近在跟她男朋友闹感情问题。她男朋友在外省上大学，估计移情别恋了。最近一直情绪不好。前天早上她们寝室几个女生，为了帮张莉调节情绪，就一起到二龙山顶去玩。谁知道回来后张莉的情绪更差了，昨天晚上哭了一夜，早上寝室楼刚一开门就出去了。大家担心她出事，就在后面跟着，结果就见她又爬到了山上。从口袋里拿了一段红绳子就上吊。后面坠着的同学，见事不好就一起上去把她救了下来，然后张莉就人事不省了。</p>
+<p>小胖在一旁插嘴道：“你们真是想她不走斜路啊！难道您们不知到那个亭子上吊死过人？”</p>
+<p>大概半小时左右，急救室的门开了，医生和护士把张莉推了起来。“这个女生没事，就是有点受惊吓。送到病房观察一天，没事就好了。”</p>
+<p>这时候张莉的辅导员也赶来了，跟大家一起帮张莉办了住院手续。其他人见没事，也就慢慢散去了。我跟小胖临走时嘱咐留下了照顾张莉的她的几个室友。最近一定要看好她。担心她被不干净的东西缠上了，如果是真那就危险了……</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="">小木捉鬼日记之出事了</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">DevOps技术谈</a></p>
+        <p><span>发布时间:</span>2020-04-12, 22:25:03</p>
+        <p><span>最后更新:</span>2020-04-12, 22:30:01</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="" title="小木捉鬼日记之出事了">http://devopstools.cn/2020/04/12/story/xiaomugost02/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://devopstools.cn/2020/04/12/story/xiaomugost02/　　作者: DevOps技术谈" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="../xiaomugost01/">
+                    小木捉鬼日记之梦魇
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#2002年12月22日-出事了"><span class="toc-number">1.</span> <span class="toc-text">2002年12月22日-出事了</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"小木捉鬼日记之出事了　| DevOps 技术与工具　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="../xiaomugost01/" title="下一篇: 小木捉鬼日记之梦魇">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="">小木捉鬼日记之出事了</a></li><li class="post-list-item"><a class="post-list-link" href="../xiaomugost01/">小木捉鬼日记之梦魇</a></li><li class="post-list-item"><a class="post-list-link" href="../../k8s/kube01-%E5%AE%89%E8%A3%85minikube/">当DevOps遇到Kubernetes</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../../2019/12/03/ci-cd/DevOps2020/">2020 年 DevOps 的七大发展趋势</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../../2019/11/28/dev/Singleton/">Singleton模式：忙疯了的上帝</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../../2019/11/22/classic/lunyu/">论语杂谈</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../../2019/11/22/community/webchat/">敏捷研发社区微信公众号</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../../2019/11/19/ci-cd/maven/">编译构建工具-Maven使用技巧</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../../2019/11/14/agile/SAFe-Tutorial/">大规模敏捷 Scaled Agile Framework (SAFe) 全面介绍</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../../2019/11/12/classic/yuqieshidilun/">小木读《瑜伽（qie）师地论》</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../../2019/11/07/ci-cd/vue-tools/">Vue构建工具和基础插件</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../../2019/11/05/performance/JMeter/jmeter-performance/">使用JMeter 对 WEB 进行应用性能测试</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../../2019/11/03/ci-cd/git_vcs/">版本管理工具 Git、GitHub、Gitee、与GitLab</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../../2019/11/02/unit-test/tdd-tutorial/">通过案例学习测试驱动开发（TDD）</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../../2019/10/31/note/buddhism/">小木笔记之佛学杂谈</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../../2019/10/29/api-test/emocker/getting-started/">EMocker 易墨客 --30分钟上手教程</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../../2019/10/25/classic/sanjie_liudao/">三界、六道、瑜伽十七地对照表</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../../2019/10/24/agile/bdd/">敏捷研发流程-行为驱动开发 Behavior Driven Development （BDD）</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../../2019/10/24/api-test/emocker/intro-mock/">EMocker 易墨客 --HTTP/HTTPS 接口服务模拟与监控工具简介</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../../2019/10/23/api-test/postman-in-acton/section2/intro_script/">Postman 接口自动化测试与持续集成全栈-Postman 脚本编程</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../../2019/10/22/note/zhiyue/">指月新录</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../../2019/10/22/ui-test/selenium/">UI测试框架-Selenium</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../../2019/10/22/unit-test/junit-framework/">Java 单元测试框架-JUnit</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../../2019/10/22/agile/scrum-agile/">Scrum 敏捷管理</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../../2019/10/22/api-test/postman-in-acton/section1/making-hands-dirty/">Postman 接口自动化测试与持续集成全栈-实战环节之Demon 演练快速上手</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../../2019/10/22/api-test/postman-in-acton/section1/setting-parameters/">Postman 接口自动化测试与持续集成全栈- 设置请求参数</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../../2019/10/22/api-test/postman-in-acton/section1/request-response/">Postman 接口自动化测试与持续集成全栈- API 请求响应处理</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../../2019/10/22/api-test/postman-in-acton/section1/create-request/">Postman 接口自动化测试与持续集成全栈-创建请求</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../../2019/10/22/api-test/postman-in-acton/section1/menus/">Postman 接口自动化测试与持续集成全栈-Postman 功能介绍</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../../2019/10/22/api-test/postman-in-acton/section1/installation/">Postman 接口自动化测试与持续集成全栈-Postman 下载与安装</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../../2019/10/22/api-test/postman-in-acton/section1/introduction-to-api/">Postman 接口自动化测试与持续集成全栈-API 测试介绍</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../../2019/10/22/api-test/postman-in-acton/introduction/">Postman 接口自动化测试与持续集成全栈-前言</a></li><li class="post-list-item"><a class="post-list-link" href="../../../../../2019/10/19/ci-cd/devops-tools/">DevOps 工具链-Java 持续集成发布流水线</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2019-2020 DevOps技术谈 沪ICP备18014300号-3
+            </div>
+            <div class="footer-right">
+                <a href="https://devopstools.cn/" target="_blank" title="快速、简洁且高效的博客框架">Power by DevOpsTools</a>  
+                <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+        
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        
+        <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                    <span id="busuanzi_container_site_pv">
+                        本站总访问量<span id="busuanzi_value_site_pv"></span>次
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+    <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script src='https://unpkg.com/mermaid@8.4/dist/mermaid.min.js'></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({theme: 'yelee'});
+    }
+  </script>
+
+  </div>
+</body>
+</html>
